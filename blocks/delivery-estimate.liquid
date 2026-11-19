@@ -1,0 +1,43 @@
+{%- comment -%}
+  Date de livraison estimée (jours ouvrés, calculée dans le navigateur pour rester juste malgré le cache).
+  Délai propre à un produit : métachamp produit custom.delai_min / custom.delai_max (nombre de jours ouvrés).
+{%- endcomment -%}
+{%- liquid
+  assign p = closest.product
+  assign d_min = block.settings.days_min
+  assign d_max = block.settings.days_max
+  if p.metafields.custom.delai_min != blank
+    assign d_min = p.metafields.custom.delai_min.value | default: p.metafields.custom.delai_min
+  endif
+  if p.metafields.custom.delai_max != blank
+    assign d_max = p.metafields.custom.delai_max.value | default: p.metafields.custom.delai_max
+  endif
+-%}
+<p
+  class="ech-delivery"
+  data-ech-delivery
+  data-min="{{ d_min }}"
+  data-max="{{ d_max }}"
+  data-prefix="{{ block.settings.prefix | escape }}"
+  {{ block.shopify_attributes }}
+>
+  <svg class="ech-delivery__icon" aria-hidden="true" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 7h11v9H3zM14 10h4l3 3v3h-7z"/><circle cx="7" cy="17.5" r="1.6"/><circle cx="17" cy="17.5" r="1.6"/></svg>
+  <span data-ech-delivery-text>{{ block.settings.prefix }} sous {{ d_min }} à {{ d_max }} jours ouvrés</span>
+</p>
+
+{% schema %}
+{
+  "name": "Livraison estimée",
+  "tag": null,
+  "settings": [
+    {
+      "type": "paragraph",
+      "content": "Affiche « Livré entre le … et le … ». Délai par produit possible avec les métachamps custom.delai_min et custom.delai_max."
+    },
+    { "type": "text", "id": "prefix", "label": "Texte", "default": "Livré" },
+    { "type": "range", "id": "days_min", "label": "Délai minimum (jours ouvrés)", "min": 1, "max": 30, "step": 1, "default": 5 },
+    { "type": "range", "id": "days_max", "label": "Délai maximum (jours ouvrés)", "min": 1, "max": 40, "step": 1, "default": 10 }
+  ],
+  "presets": [{ "name": "Livraison estimée" }]
+}
+{% endschema %}

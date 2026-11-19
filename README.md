@@ -1,3 +1,24 @@
+# Thème de la boutique d'échecs (base Horizon 4.5.0)
+
+Thème Shopify codé, synchronisé avec la boutique via l'intégration GitHub de Shopify.
+Produits, prix, collections, menus et réglages restent dans l'admin Shopify. Seul le thème est ici.
+
+## Ce qui a été ajouté à Horizon
+| Fichier | Rôle |
+|---|---|
+| `assets/echecs.css`, `assets/echecs.js` | Direction artistique (ivoire, vert forêt, laiton, titres Cormorant) et scripts (date de livraison, compte à rebours) |
+| `sections/collection-intro.liquid` | En-tête de collection : titre, intro 2 lignes, tuiles de sous-catégories |
+| `snippets/ech-grid-banner.liquid` + réglages de `sections/main-collection.liquid` | Grandes bannières photo numérotées [01] [02] [03] dans la grille |
+| `blocks/wood-swatches.liquid` | Pastilles de bois sur les cartes (étiquettes produit `Bois:Noyer`, `Bois:Buis`…) |
+| `blocks/delivery-estimate.liquid` | « Livré entre le … et le … » (5 à 10 jours ouvrés, métachamps `custom.delai_min` / `custom.delai_max` pour un délai propre à un produit) |
+| `sections/collection-guide.liquid` | Guide d'achat, tableau comparatif des bois, FAQ en français (+ données structurées FAQPage) |
+| `sections/promo-countdown.liquid` | Compte à rebours, désactivé par défaut : uniquement pour une vraie promo |
+| `sections/footer-echecs.liquid` | Pied de page complet : réassurance, liens, newsletter, logos de paiement |
+
+Règle : pas de fausse urgence, pas de faux avis.
+
+---
+
 # Horizon
 
 [Getting started](#getting-started) |

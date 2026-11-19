@@ -1,0 +1,75 @@
+{%- comment -%}
+  Pastilles de bois sur la carte produit.
+  1) Si le produit a des variantes avec pastilles (Shopify), elles sont utilisées.
+  2) Sinon : étiquettes produit au format « Bois:Noyer », « Bois:Palissandre »…
+{%- endcomment -%}
+{%- liquid
+  assign p = closest.product
+  assign has_variant_swatches = false
+  for opt in p.options_with_values
+    assign c = opt.values | map: 'swatch' | compact | size
+    if c > 0
+      assign has_variant_swatches = true
+    endif
+  endfor
+  assign woods = ''
+  for tag in p.tags
+    assign t = tag | downcase
+    if t contains 'bois:'
+      assign w = tag | split: ':' | last | strip
+      assign woods = woods | append: w | append: '|'
+    endif
+  endfor
+  assign woods = woods | split: '|'
+-%}
+{%- if has_variant_swatches -%}
+  <product-swatches data-product-id="{{ p.id }}" data-product-url="{{ p.url }}" class="ech-swatches" {{ block.shopify_attributes }}>
+    {% render 'variant-swatches', product_resource: p %}
+  </product-swatches>
+{%- elsif woods.size > 0 -%}
+  <ul class="ech-swatches ech-swatches--tags" aria-label="Essences de bois" {{ block.shopify_attributes }}>
+    {%- for w in woods -%}
+      {%- liquid
+        assign wl = w | downcase
+        assign col = '#B08A5B'
+        if wl contains 'noyer'
+          assign col = '#5C3B24'
+        elsif wl contains 'palissandre' or wl contains 'sheesham'
+          assign col = '#6B2F22'
+        elsif wl contains 'ébène' or wl contains 'ebene'
+          assign col = '#1E1A17'
+        elsif wl contains 'buis'
+          assign col = '#E3CF9E'
+        elsif wl contains 'érable' or wl contains 'erable'
+          assign col = '#E8D6B3'
+        elsif wl contains 'acacia'
+          assign col = '#A8743F'
+        elsif wl contains 'hêtre' or wl contains 'hetre'
+          assign col = '#D9B98C'
+        elsif wl contains 'acajou'
+          assign col = '#7A3B26'
+        elsif wl contains 'chêne' or wl contains 'chene'
+          assign col = '#B89366'
+        elsif wl contains 'bouleau'
+          assign col = '#E6D2AE'
+        endif
+      -%}
+      <li class="ech-swatch" style="--sw: {{ col }}" title="{{ w | escape }}"><span class="visually-hidden">{{ w }}</span></li>
+    {%- endfor -%}
+    {%- if block.settings.show_label -%}
+      <li class="ech-swatches__label">{{ woods | join: ' · ' }}</li>
+    {%- endif -%}
+  </ul>
+{%- endif -%}
+
+{% schema %}
+{
+  "name": "Pastilles de bois",
+  "tag": null,
+  "settings": [
+    { "type": "paragraph", "content": "Ajoutez au produit des étiquettes « Bois:Noyer », « Bois:Palissandre », « Bois:Buis »… (ou des variantes avec pastilles)." },
+    { "type": "checkbox", "id": "show_label", "label": "Afficher le nom des bois", "default": true }
+  ],
+  "presets": [{ "name": "Pastilles de bois" }]
+}
+{% endschema %}

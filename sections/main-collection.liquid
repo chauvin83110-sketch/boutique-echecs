@@ -74,6 +74,19 @@
                 product_view_context: 'collection'
               %}
             </li>
+            {%- comment -%} Bannières éditoriales numérotées (page 1 uniquement) {%- endcomment -%}
+            {%- if paginate.current_page == 1 -%}
+              {%- for n in (1..3) -%}
+                {%- liquid
+                  assign key_pos = 'banner_' | append: n | append: '_position'
+                  assign key_title = 'banner_' | append: n | append: '_title'
+                  assign b_title = section.settings[key_title]
+                -%}
+                {%- if b_title != blank and forloop.parentloop.index == section.settings[key_pos] -%}
+                  {% render 'ech-grid-banner', section: section, n: n %}
+                {%- endif -%}
+              {%- endfor -%}
+            {%- endif -%}
           {% endfor %}
         {% endcapture %}
 
@@ -265,7 +278,33 @@
       "step": 1,
       "unit": "px",
       "default": 8
-    }
+    },
+    {"type":"header","content":"Bannières éditoriales (dans la grille)"},
+    {"type":"paragraph","content":"Grandes photos numérotées façon magazine, insérées entre les produits. Laisser le titre vide pour masquer une bannière."},
+    {"type": "header", "content": "Bannière 1"},
+    {"type": "image_picker", "id": "banner_1_image", "label": "Photo"},
+    {"type": "text", "id": "banner_1_label", "label": "Numéro", "default": "01"},
+    {"type": "text", "id": "banner_1_title", "label": "Titre (vide = bannière masquée)"},
+    {"type": "textarea", "id": "banner_1_text", "label": "Texte"},
+    {"type": "url", "id": "banner_1_link", "label": "Lien"},
+    {"type": "text", "id": "banner_1_button", "label": "Bouton", "default": "Découvrir"},
+    {"type": "range", "id": "banner_1_position", "label": "Afficher après le produit n°", "min": 1, "max": 24, "step": 1, "default": 4},
+    {"type": "header", "content": "Bannière 2"},
+    {"type": "image_picker", "id": "banner_2_image", "label": "Photo"},
+    {"type": "text", "id": "banner_2_label", "label": "Numéro", "default": "02"},
+    {"type": "text", "id": "banner_2_title", "label": "Titre (vide = bannière masquée)"},
+    {"type": "textarea", "id": "banner_2_text", "label": "Texte"},
+    {"type": "url", "id": "banner_2_link", "label": "Lien"},
+    {"type": "text", "id": "banner_2_button", "label": "Bouton", "default": "Découvrir"},
+    {"type": "range", "id": "banner_2_position", "label": "Afficher après le produit n°", "min": 1, "max": 24, "step": 1, "default": 8},
+    {"type": "header", "content": "Bannière 3"},
+    {"type": "image_picker", "id": "banner_3_image", "label": "Photo"},
+    {"type": "text", "id": "banner_3_label", "label": "Numéro", "default": "03"},
+    {"type": "text", "id": "banner_3_title", "label": "Titre (vide = bannière masquée)"},
+    {"type": "textarea", "id": "banner_3_text", "label": "Texte"},
+    {"type": "url", "id": "banner_3_link", "label": "Lien"},
+    {"type": "text", "id": "banner_3_button", "label": "Bouton", "default": "Découvrir"},
+    {"type": "range", "id": "banner_3_position", "label": "Afficher après le produit n°", "min": 1, "max": 24, "step": 1, "default": 14}
   ],
   "presets": []
 }

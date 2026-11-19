@@ -1,0 +1,118 @@
+{%- comment -%}
+  Bas de page collection : guide d'achat, tableau comparatif et FAQ (avec données structurées FAQPage).
+{%- endcomment -%}
+<div id="guide-achat" class="ech-guide ech-wrap" style="--pad-top: {{ section.settings.padding_top }}px; --pad-bottom: {{ section.settings.padding_bottom }}px;">
+  {%- if section.settings.guide_title != blank or section.settings.guide_text != blank -%}
+    <div class="ech-guide__intro">
+      {%- if section.settings.guide_kicker != blank -%}<p class="ech-kicker">{{ section.settings.guide_kicker }}</p>{%- endif -%}
+      <h2 class="ech-guide__title">{{ section.settings.guide_title }}</h2>
+      <div class="ech-rte">{{ section.settings.guide_text }}</div>
+    </div>
+  {%- endif -%}
+
+  {%- assign rows = section.blocks | where: 'type', 'row' -%}
+  {%- if rows.size > 0 -%}
+    <div class="ech-compare">
+      {%- if section.settings.table_title != blank -%}<h3 class="ech-compare__title">{{ section.settings.table_title }}</h3>{%- endif -%}
+      <div class="ech-compare__scroll" tabindex="0" role="region" aria-label="{{ section.settings.table_title | escape }}">
+        <table>
+          <thead>
+            <tr>
+              <th scope="col">{{ section.settings.col_1 }}</th>
+              <th scope="col">{{ section.settings.col_2 }}</th>
+              <th scope="col">{{ section.settings.col_3 }}</th>
+              <th scope="col">{{ section.settings.col_4 }}</th>
+              {%- if section.settings.col_5 != blank -%}<th scope="col">{{ section.settings.col_5 }}</th>{%- endif -%}
+            </tr>
+          </thead>
+          <tbody>
+            {%- for block in rows -%}
+              <tr {{ block.shopify_attributes }}>
+                <th scope="row">{{ block.settings.c1 }}</th>
+                <td>{{ block.settings.c2 }}</td>
+                <td>{{ block.settings.c3 }}</td>
+                <td>{{ block.settings.c4 }}</td>
+                {%- if section.settings.col_5 != blank -%}<td>{{ block.settings.c5 }}</td>{%- endif -%}
+              </tr>
+            {%- endfor -%}
+          </tbody>
+        </table>
+      </div>
+    </div>
+  {%- endif -%}
+
+  {%- assign faqs = section.blocks | where: 'type', 'faq' -%}
+  {%- if faqs.size > 0 -%}
+    <div class="ech-faq">
+      <h2 class="ech-faq__title">{{ section.settings.faq_title }}</h2>
+      {%- for block in faqs -%}
+        <details class="ech-faq__item" {{ block.shopify_attributes }}>
+          <summary>{{ block.settings.question }}</summary>
+          <div class="ech-rte">{{ block.settings.answer }}</div>
+        </details>
+      {%- endfor -%}
+    </div>
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": [
+          {%- for block in faqs -%}
+            {
+              "@type": "Question",
+              "name": {{ block.settings.question | strip_html | json }},
+              "acceptedAnswer": { "@type": "Answer", "text": {{ block.settings.answer | strip_html | strip | json }} }
+            }{% unless forloop.last %},{% endunless %}
+          {%- endfor -%}
+        ]
+      }
+    </script>
+  {%- endif -%}
+</div>
+
+{% schema %}
+{
+  "name": "Guide, comparatif et FAQ",
+  "tag": "section",
+  "class": "ech-section",
+  "settings": [
+    { "type": "header", "content": "Guide d'achat" },
+    { "type": "text", "id": "guide_kicker", "label": "Surtitre", "default": "Guide d'achat" },
+    { "type": "text", "id": "guide_title", "label": "Titre", "default": "Bien choisir son jeu d'échecs" },
+    { "type": "richtext", "id": "guide_text", "label": "Texte" },
+    { "type": "header", "content": "Tableau comparatif" },
+    { "type": "text", "id": "table_title", "label": "Titre du tableau", "default": "Quel bois choisir ?" },
+    { "type": "text", "id": "col_1", "label": "Colonne 1", "default": "Bois" },
+    { "type": "text", "id": "col_2", "label": "Colonne 2", "default": "Aspect" },
+    { "type": "text", "id": "col_3", "label": "Colonne 3", "default": "Toucher et poids" },
+    { "type": "text", "id": "col_4", "label": "Colonne 4", "default": "Idéal pour" },
+    { "type": "text", "id": "col_5", "label": "Colonne 5 (facultative)" },
+    { "type": "header", "content": "FAQ" },
+    { "type": "text", "id": "faq_title", "label": "Titre de la FAQ", "default": "Questions fréquentes" },
+    { "type": "range", "id": "padding_top", "label": "Marge haute", "min": 0, "max": 120, "step": 4, "unit": "px", "default": 64 },
+    { "type": "range", "id": "padding_bottom", "label": "Marge basse", "min": 0, "max": 120, "step": 4, "unit": "px", "default": 64 }
+  ],
+  "blocks": [
+    {
+      "type": "row",
+      "name": "Ligne du tableau",
+      "settings": [
+        { "type": "text", "id": "c1", "label": "Colonne 1" },
+        { "type": "text", "id": "c2", "label": "Colonne 2" },
+        { "type": "text", "id": "c3", "label": "Colonne 3" },
+        { "type": "text", "id": "c4", "label": "Colonne 4" },
+        { "type": "text", "id": "c5", "label": "Colonne 5" }
+      ]
+    },
+    {
+      "type": "faq",
+      "name": "Question FAQ",
+      "settings": [
+        { "type": "text", "id": "question", "label": "Question" },
+        { "type": "richtext", "id": "answer", "label": "Réponse" }
+      ]
+    }
+  ],
+  "presets": [{ "name": "Guide, comparatif et FAQ" }]
+}
+{% endschema %}

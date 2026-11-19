@@ -9,91 +9,54 @@
  */
 {
   "sections": {
-    "section": {
-      "type": "section",
+    "intro": {
+      "type": "collection-intro",
+      "settings": {
+        "show_breadcrumb": true,
+        "fallback_title": "Nos jeux d'échecs",
+        "intro": "",
+        "intro_words": 35,
+        "guide_anchor": true,
+        "show_count": false,
+        "padding_top": 32,
+        "padding_bottom": 16
+      },
       "blocks": {
-        "text_tqQTNE": {
-          "type": "text",
-          "name": "t:names.title",
+        "tile_tables": {
+          "type": "tile",
           "settings": {
-            "text": "<h1>{{ closest.collection.title }}</h1>",
-            "width": "fit-content",
-            "max_width": "normal",
-            "alignment": "left",
-            "type_preset": "h2",
-            "font": "var(--font-body--family)",
-            "font_size": "",
-            "line_height": "normal",
-            "letter_spacing": "normal",
-            "case": "none",
-            "wrap": "pretty",
-            "background": false,
-            "background_color": "#00000026",
-            "corner_radius": 0,
-            "padding-block-start": 0,
-            "padding-block-end": 0,
-            "padding-inline-start": 0,
-            "padding-inline-end": 0
-          },
-          "blocks": {}
+            "collection": "tables-dechecs",
+            "label": "Tables d'échecs"
+          }
         },
-        "text_twGGkJ": {
-          "type": "text",
-          "name": "t:names.description",
+        "tile_echiquiers": {
+          "type": "tile",
           "settings": {
-            "text": "{{ closest.collection.description }}",
-            "width": "fit-content",
-            "max_width": "normal",
-            "alignment": "left",
-            "type_preset": "rte",
-            "font": "var(--font-body--family)",
-            "font_size": "",
-            "line_height": "normal",
-            "letter_spacing": "normal",
-            "case": "none",
-            "wrap": "pretty",
-            "background": false,
-            "background_color": "#00000026",
-            "corner_radius": 0,
-            "padding-block-start": 0,
-            "padding-block-end": 0,
-            "padding-inline-start": 0,
-            "padding-inline-end": 0
-          },
-          "blocks": {}
+            "collection": "echiquiers-dexception",
+            "label": "Échiquiers d'exception"
+          }
+        },
+        "tile_pieces": {
+          "type": "tile",
+          "settings": {
+            "collection": "pieces-dechecs-sculptees",
+            "label": "Pièces sculptées"
+          }
+        },
+        "tile_coffrets": {
+          "type": "tile",
+          "settings": {
+            "collection": "coffrets-echecs",
+            "label": "Coffrets cadeaux"
+          }
         }
       },
       "block_order": [
-        "text_tqQTNE",
-        "text_twGGkJ"
-      ],
-      "name": "t:names.heading",
-      "settings": {
-        "content_direction": "column",
-        "vertical_on_mobile": true,
-        "horizontal_alignment": "flex-start",
-        "vertical_alignment": "center",
-        "align_baseline": false,
-        "horizontal_alignment_flex_direction_column": "flex-start",
-        "vertical_alignment_flex_direction_column": "center",
-        "gap": 12,
-        "section_width": "page-width",
-        "section_height": "",
-        "section_height_custom": 50,
-        "background_media": "none",
-        "video_position": "cover",
-        "background_image_position": "cover",
-        "toggle_overlay": false,
-        "overlay_color": "#00000026",
-        "overlay_style": "solid",
-        "gradient_direction": "to top",
-        "border": "none",
-        "border_width": 1,
-        "border_opacity": 100,
-        "border_radius": 0,
-        "padding-block-start": 48,
-        "padding-block-end": 48
-      }
+        "tile_tables",
+        "tile_echiquiers",
+        "tile_pieces",
+        "tile_coffrets"
+      ]
     },
     "main": {
       "type": "main-collection",
@@ -157,8 +120,8 @@
                 "max_width": "normal",
                 "alignment": "left",
                 "type_preset": "paragraph",
-                "font": "var(--font-body--family)",
-                "font_size": "1rem",
+                "font": "var(--font-heading--family)",
+                "font_size": "1.15rem",
                 "line_height": "normal",
                 "letter_spacing": "normal",
                 "case": "none",
@@ -204,13 +167,29 @@
                 "product_swatches_padding_left": 0,
                 "product_swatches_padding_right": 0
               }
+            },
+            "wood": {
+              "type": "wood-swatches",
+              "settings": {
+                "show_label": true
+              }
+            },
+            "delivery": {
+              "type": "delivery-estimate",
+              "settings": {
+                "prefix": "Livré",
+                "days_min": 5,
+                "days_max": 10
+              }
             }
           },
           "block_order": [
             "card-gallery",
             "product_title_4nY4eT",
             "price_EzJzMm",
-            "swatches"
+            "swatches",
+            "wood",
+            "delivery"
           ]
         }
       },
@@ -225,12 +204,182 @@
         "padding-inline-start": 0,
         "padding-inline-end": 0,
         "padding-block-start": 0,
-        "padding-block-end": 32
+        "padding-block-end": 32,
+        "banner_1_label": "01",
+        "banner_1_title": "Tables d'échecs",
+        "banner_1_text": "Le jeu devient un meuble : un plateau marqueté que l'on garde au salon, partie en cours.",
+        "banner_1_link": "shopify://collections/tables-dechecs",
+        "banner_1_button": "Voir les tables",
+        "banner_1_position": 4,
+        "banner_2_label": "02",
+        "banner_2_title": "Pièces sculptées",
+        "banner_2_text": "Cavaliers à crinière, rois couronnés : des pièces Staunton lestées, taillées et polies à la main.",
+        "banner_2_link": "shopify://collections/pieces-dechecs-sculptees",
+        "banner_2_button": "Voir les pièces",
+        "banner_2_position": 8,
+        "banner_3_label": "03",
+        "banner_3_title": "Coffrets cadeaux",
+        "banner_3_text": "Un échiquier et ses pièces rangés dans leur coffret en bois, prêt à offrir.",
+        "banner_3_link": "shopify://collections/coffrets-echecs",
+        "banner_3_button": "Voir les coffrets",
+        "banner_3_position": 14
       }
+    },
+    "guide": {
+      "type": "collection-guide",
+      "settings": {
+        "guide_kicker": "Guide d'achat",
+        "guide_title": "Bien choisir son jeu d'échecs",
+        "guide_text": "<h3>1. Choisir la taille</h3><p>Tout part de la hauteur du roi. Pour jouer confortablement, la case doit mesurer environ deux fois le diamètre de la base d'un pion. Repère simple : un roi de 8 à 10 cm va avec des cases de 5 à 6 cm. Un roi plus petit (6 à 7 cm) convient au voyage ou aux coffrets compacts.</p><h3>2. Choisir l'essence de bois</h3><p>Le bois fait le caractère du jeu : le buis et l'érable pour les cases et les pièces claires, le noyer, le palissandre ou l'ébène pour les foncées. Plus le bois est dense, plus les pièces sont lourdes et agréables en main.</p><h3>3. Vérifier le lestage et les finitions</h3><p>Des pièces lestées (un poids dans la base) restent stables sur le plateau. Sous chaque pièce, un feutre protège l'échiquier. Regardez aussi le cavalier : c'est la pièce qui montre le niveau de sculpture.</p><h3>4. Pour offrir</h3><p>Un coffret en bois avec plateau et rangement pour les pièces est le cadeau le plus simple : tout est réuni et se range. Pour un passionné, une table ou des pièces sculptées marquent davantage le coup.</p>",
+        "table_title": "Quel bois choisir ?",
+        "col_1": "Bois",
+        "col_2": "Aspect",
+        "col_3": "Toucher et poids",
+        "col_4": "Idéal pour",
+        "col_5": "",
+        "faq_title": "Questions fréquentes",
+        "padding_top": 64,
+        "padding_bottom": 64
+      },
+      "blocks": {
+        "row_1": {
+          "type": "row",
+          "settings": {
+            "c1": "Buis",
+            "c2": "Clair, jaune miel, grain très fin",
+            "c3": "Dense, lourd, très doux",
+            "c4": "Pièces blanches haut de gamme",
+            "c5": ""
+          }
+        },
+        "row_2": {
+          "type": "row",
+          "settings": {
+            "c1": "Érable",
+            "c2": "Crème, lumineux",
+            "c3": "Dur, assez léger",
+            "c4": "Cases claires des échiquiers",
+            "c5": ""
+          }
+        },
+        "row_3": {
+          "type": "row",
+          "settings": {
+            "c1": "Hêtre / acacia",
+            "c2": "Blond à doré",
+            "c3": "Robuste, poids moyen",
+            "c4": "Coffrets de tous les jours, premier beau jeu",
+            "c5": ""
+          }
+        },
+        "row_4": {
+          "type": "row",
+          "settings": {
+            "c1": "Noyer",
+            "c2": "Brun chaud, veines marquées",
+            "c3": "Dur, poids moyen",
+            "c4": "Échiquiers et coffrets classiques",
+            "c5": ""
+          }
+        },
+        "row_5": {
+          "type": "row",
+          "settings": {
+            "c1": "Palissandre (sheesham)",
+            "c2": "Brun rouge profond",
+            "c3": "Dense, lourd",
+            "c4": "Pièces foncées, tables",
+            "c5": ""
+          }
+        },
+        "row_6": {
+          "type": "row",
+          "settings": {
+            "c1": "Ébène",
+            "c2": "Noir intense, presque sans veines",
+            "c3": "Très dense, le plus lourd",
+            "c4": "Pièces d'exception, collection",
+            "c5": ""
+          }
+        },
+        "faq_1": {
+          "type": "faq",
+          "settings": {
+            "question": "Combien coûte la livraison ?",
+            "answer": "<p>La livraison est offerte en France métropolitaine à partir de 50 € d'achat, soit sur tous nos jeux. En dessous, elle coûte 8,80 €.</p>"
+          }
+        },
+        "faq_2": {
+          "type": "faq",
+          "settings": {
+            "question": "Quels sont les délais de livraison ?",
+            "answer": "<p>Comptez 5 à 10 jours ouvrés selon le modèle. La date estimée est indiquée sur chaque produit. Vous recevez un numéro de suivi dès l'expédition.</p>"
+          }
+        },
+        "faq_3": {
+          "type": "faq",
+          "settings": {
+            "question": "Y a-t-il des frais de douane ?",
+            "answer": "<p>Non. Certains jeux partent directement de nos ateliers partenaires, en Europe ou hors Union européenne : dans tous les cas, les frais de douane et taxes sont à notre charge. Vous ne payez rien à la réception.</p>"
+          }
+        },
+        "faq_4": {
+          "type": "faq",
+          "settings": {
+            "question": "Puis-je retourner mon jeu ?",
+            "answer": "<p>Oui. Vous disposez de 14 jours après réception pour changer d'avis, sans avoir à vous justifier. Le jeu doit nous revenir complet et dans son état d'origine. Nous vous remboursons, frais de livraison initiaux inclus, sous 14 jours sur votre moyen de paiement. Un jeu abîmé à la réception ? Prévenez-nous sous 3 jours avec des photos : nous le remplaçons ou le remboursons.</p>"
+          }
+        },
+        "faq_5": {
+          "type": "faq",
+          "settings": {
+            "question": "Où sont fabriqués vos jeux ?",
+            "answer": "<p>Nos jeux viennent d'ateliers spécialisés en Europe et en Inde, qui travaillent le bois et sculptent les pièces depuis des générations. L'origine est précisée sur chaque fiche produit.</p>"
+          }
+        },
+        "faq_6": {
+          "type": "faq",
+          "settings": {
+            "question": "Comment entretenir un jeu en bois ?",
+            "answer": "<p>Essuyez-le avec un chiffon doux et sec. Évitez l'eau, les produits ménagers, le soleil direct et les sources de chaleur. Une fois ou deux par an, une cire neutre pour meubles ravive l'éclat.</p>"
+          }
+        },
+        "faq_7": {
+          "type": "faq",
+          "settings": {
+            "question": "Puis-je offrir un jeu en cadeau ?",
+            "answer": "<p>Oui, c'est même l'usage le plus fréquent. Nos coffrets réunissent l'échiquier et les pièces dans un rangement en bois, prêt à offrir. Précisez en note de commande qu'il s'agit d'un cadeau.</p>"
+          }
+        },
+        "faq_8": {
+          "type": "faq",
+          "settings": {
+            "question": "Le paiement est-il sécurisé ?",
+            "answer": "<p>Oui. Le paiement est traité par Shopify et chiffré de bout en bout : nous n'avons jamais accès à vos données bancaires. Les moyens de paiement acceptés sont affichés en bas de page.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "row_1",
+        "row_2",
+        "row_3",
+        "row_4",
+        "row_5",
+        "row_6",
+        "faq_1",
+        "faq_2",
+        "faq_3",
+        "faq_4",
+        "faq_5",
+        "faq_6",
+        "faq_7",
+        "faq_8"
+      ]
     }
   },
   "order": [
-    "section",
-    "main"
+    "intro",
+    "main",
+    "guide"
   ]
 }

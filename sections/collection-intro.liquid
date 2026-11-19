@@ -1,0 +1,92 @@
+{%- comment -%}
+  En-tête de collection : titre, intro courte (2 lignes) et tuiles de sous-catégories.
+{%- endcomment -%}
+{%- liquid
+  assign intro = section.settings.intro
+  if intro == blank
+    assign intro = collection.description | strip_html | strip | truncatewords: section.settings.intro_words
+  endif
+  assign glyphs = '♜,♛,♞,♚,♝,♟' | split: ','
+-%}
+<div class="ech-intro ech-wrap" style="--pad-top: {{ section.settings.padding_top }}px; --pad-bottom: {{ section.settings.padding_bottom }}px;">
+  {%- if section.settings.show_breadcrumb -%}
+    <nav class="ech-breadcrumb" aria-label="Fil d'Ariane">
+      <a href="{{ routes.root_url }}">Accueil</a> <span aria-hidden="true">/</span>
+      <span aria-current="page">{{ collection.title | default: section.settings.fallback_title }}</span>
+    </nav>
+  {%- endif -%}
+  <div class="ech-intro__head">
+    <h1 class="ech-intro__title">{{ collection.title | default: section.settings.fallback_title }}</h1>
+    {%- if intro != blank -%}
+      <p class="ech-intro__text">{{ intro }}
+        {%- if section.settings.guide_anchor -%} <a class="ech-intro__more" href="#guide-achat">Lire le guide</a>{%- endif -%}
+      </p>
+    {%- endif -%}
+  </div>
+
+  {%- if section.blocks.size > 0 -%}
+    <ul class="ech-tiles" role="list">
+      {%- for block in section.blocks -%}
+        {%- liquid
+          assign c = block.settings.collection
+          assign label = block.settings.label | default: c.title
+          assign img = block.settings.image | default: c.featured_image
+          assign is_current = false
+          if c != blank and collection != blank and c.handle == collection.handle
+            assign is_current = true
+          endif
+          assign g_index = forloop.index0 | modulo: glyphs.size
+        -%}
+        {%- if label != blank -%}
+          <li class="ech-tile{% if is_current %} is-current{% endif %}" {{ block.shopify_attributes }}>
+            <a href="{{ c.url | default: '#' }}" {% if is_current %}aria-current="page"{% endif %}>
+              <span class="ech-tile__media">
+                {%- if img != blank -%}
+                  {{ img | image_url: width: 600 | image_tag: loading: 'lazy', sizes: '(min-width: 750px) 25vw, 45vw', widths: '240, 360, 480, 600', alt: label }}
+                {%- else -%}
+                  <span class="ech-tile__glyph" aria-hidden="true">{{ glyphs[g_index] }}</span>
+                {%- endif -%}
+              </span>
+              <span class="ech-tile__label">{{ label }}</span>
+              {%- if c.products_count > 0 and section.settings.show_count -%}
+                <span class="ech-tile__count">{{ c.products_count }} modèle{% if c.products_count > 1 %}s{% endif %}</span>
+              {%- endif -%}
+            </a>
+          </li>
+        {%- endif -%}
+      {%- endfor -%}
+    </ul>
+  {%- endif -%}
+</div>
+
+{% schema %}
+{
+  "name": "En-tête de collection",
+  "tag": "section",
+  "class": "ech-section",
+  "enabled_on": { "templates": ["collection"] },
+  "settings": [
+    { "type": "checkbox", "id": "show_breadcrumb", "label": "Fil d'Ariane", "default": true },
+    { "type": "text", "id": "fallback_title", "label": "Titre de secours", "default": "Nos jeux d'échecs" },
+    { "type": "textarea", "id": "intro", "label": "Intro (2 lignes)", "info": "Vide = début de la description de la collection." },
+    { "type": "range", "id": "intro_words", "label": "Longueur de l'intro automatique (mots)", "min": 15, "max": 60, "step": 5, "default": 35 },
+    { "type": "checkbox", "id": "guide_anchor", "label": "Lien « Lire le guide » vers le bas de page", "default": true },
+    { "type": "checkbox", "id": "show_count", "label": "Afficher le nombre de modèles", "default": false },
+    { "type": "range", "id": "padding_top", "label": "Marge haute", "min": 0, "max": 100, "step": 4, "unit": "px", "default": 32 },
+    { "type": "range", "id": "padding_bottom", "label": "Marge basse", "min": 0, "max": 100, "step": 4, "unit": "px", "default": 16 }
+  ],
+  "blocks": [
+    {
+      "type": "tile",
+      "name": "Tuile sous-catégorie",
+      "limit": 8,
+      "settings": [
+        { "type": "collection", "id": "collection", "label": "Collection" },
+        { "type": "text", "id": "label", "label": "Libellé (vide = nom de la collection)" },
+        { "type": "image_picker", "id": "image", "label": "Image (vide = image de la collection)" }
+      ]
+    }
+  ],
+  "presets": [{ "name": "En-tête de collection" }]
+}
+{% endschema %}

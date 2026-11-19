@@ -24,7 +24,15 @@
     {%- endif -%}
   </div>
 
-  {%- if section.blocks.size > 0 -%}
+  {%- liquid
+    assign visible_tiles = 0
+    for block in section.blocks
+      if block.settings.collection.products_count > 0
+        assign visible_tiles = visible_tiles | plus: 1
+      endif
+    endfor
+  -%}
+  {%- if visible_tiles > 1 -%}
     <ul class="ech-tiles" role="list">
       {%- for block in section.blocks -%}
         {%- liquid

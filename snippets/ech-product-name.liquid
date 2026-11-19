@@ -1,0 +1,24 @@
+{%- doc -%}
+  Sépare « Coffret d'échecs Olympique – plateau 41 cm en bois brûlé » en nom + finition.
+  Métachamp custom.finition prioritaire s'il existe.
+  @param {object} product
+  @param {string} part - 'name' ou 'finish'
+{%- enddoc -%}
+{%- liquid
+  assign t = product.title
+  assign sep = ' – '
+  unless t contains sep
+    assign sep = ' - '
+  endunless
+  assign bits = t | split: sep
+  if part == 'name'
+    echo bits.first | strip
+  else
+    if product.metafields.custom.finition != blank
+      echo product.metafields.custom.finition.value | default: product.metafields.custom.finition
+    elsif bits.size > 1
+      assign f = t | remove_first: bits.first | remove_first: sep | strip
+      echo f | capitalize
+    endif
+  endif
+-%}

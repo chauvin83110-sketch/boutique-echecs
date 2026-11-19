@@ -10,6 +10,29 @@
     </div>
   {%- endif -%}
 
+  {%- if section.settings.auto_compare and collection.products_count > 1 -%}
+    <div class="ech-compare">
+      <h3 class="ech-compare__title">{{ section.settings.auto_title }}</h3>
+      <div class="ech-compare__scroll" tabindex="0" role="region" aria-label="{{ section.settings.auto_title | escape }}">
+        <table>
+          <thead><tr><th scope="col">Modèle</th><th scope="col">Plateau</th><th scope="col">Plié</th><th scope="col">Poids</th><th scope="col">Pièces</th><th scope="col">Prix</th></tr></thead>
+          <tbody>
+            {%- for p in collection.products limit: 12 -%}
+              <tr>
+                <th scope="row"><a href="{{ p.url }}">{% render 'ech-product-name', product: p, part: 'name' %}</a></th>
+                <td>{% render 'ech-specs', product: p, label: 'Plateau' %}</td>
+                <td>{% render 'ech-specs', product: p, label: 'Dimensions plié' %}</td>
+                <td>{% render 'ech-specs', product: p, label: 'Poids' %}</td>
+                <td>{% render 'ech-specs', product: p, label: 'Pièces' %}</td>
+                <td class="ech-compare__price">{{ p.price | money }}</td>
+              </tr>
+            {%- endfor -%}
+          </tbody>
+        </table>
+      </div>
+    </div>
+  {%- endif -%}
+
   {%- assign rows = section.blocks | where: 'type', 'row' -%}
   {%- if rows.size > 0 -%}
     <div class="ech-compare">
@@ -80,7 +103,10 @@
     { "type": "text", "id": "guide_kicker", "label": "Surtitre", "default": "Guide d'achat" },
     { "type": "text", "id": "guide_title", "label": "Titre", "default": "Bien choisir son jeu d'échecs" },
     { "type": "richtext", "id": "guide_text", "label": "Texte" },
-    { "type": "header", "content": "Tableau comparatif" },
+    { "type": "header", "content": "Comparatif automatique des modèles" },
+    { "type": "checkbox", "id": "auto_compare", "label": "Comparer les modèles de la collection (plateau, plié, poids, pièces, prix)", "default": true },
+    { "type": "text", "id": "auto_title", "label": "Titre", "default": "Comparer les modèles" },
+    { "type": "header", "content": "Tableau libre (lignes en blocs)" },
     { "type": "text", "id": "table_title", "label": "Titre du tableau", "default": "Quel bois choisir ?" },
     { "type": "text", "id": "col_1", "label": "Colonne 1", "default": "Bois" },
     { "type": "text", "id": "col_2", "label": "Colonne 2", "default": "Aspect" },

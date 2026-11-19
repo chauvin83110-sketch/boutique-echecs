@@ -44,7 +44,7 @@
     "page_width": "narrow",
     "page_transition_enabled": false,
     "transition_to_main_product": false,
-    "card_hover_effect": "subtle-zoom",
+    "card_hover_effect": "none",
     "badge_position": "top-right",
     "badge_corner_radius": 2,
     "badge_text_transform": "none",
@@ -78,10 +78,10 @@
     "palette_variant_border": "{{ settings.color_palette.color3 }}",
     "color_palette": {
       "background": "#F6F1E7",
-      "foreground": "#1E2620",
+      "foreground": "#2B2118",
       "color1": "#23362B",
-      "color2": "#EDE5D3",
-      "color3": "#D9CDB4"
+      "color2": "#EDE4D3",
+      "color3": "#DDD1BC"
     },
     "palette_primary_button_background": "{{ settings.color_palette.color1 }}",
     "palette_primary_button_text": "{{ settings.color_palette.background }}",
@@ -91,11 +91,12 @@
     "palette_secondary_button_border": "{{ settings.color_palette.color1 }}",
     "page_background_color": "{{ settings.color_palette.background }}",
     "page_text_color": "{{ settings.color_palette.foreground }}",
-    "badge_sale_background_color": "#8C6D3F",
+    "badge_sale_background_color": "#23362B",
     "badge_sale_text_color": "#FFFFFF",
     "drawer_background_color": "{{ settings.color_palette.background }}",
     "popover_background_color": "{{ settings.color_palette.background }}",
-    "palette_input_background": "#FFFDF8"
+    "palette_input_background": "#FFFDF8",
+    "show_second_image_on_hover": true
   },
   "presets": {
     "Default": {
@@ -134,7 +135,7 @@
       "page_width": "narrow",
       "page_transition_enabled": false,
       "transition_to_main_product": false,
-      "card_hover_effect": "subtle-zoom",
+      "card_hover_effect": "none",
       "badge_position": "top-right",
       "badge_corner_radius": 2,
       "badge_text_transform": "none",
@@ -167,10 +168,10 @@
       "palette_variant_border": "{{ settings.color_palette.color3 }}",
       "color_palette": {
         "background": "#F6F1E7",
-        "foreground": "#1E2620",
+        "foreground": "#2B2118",
         "color1": "#23362B",
-        "color2": "#EDE5D3",
-        "color3": "#D9CDB4"
+        "color2": "#EDE4D3",
+        "color3": "#DDD1BC"
       },
       "palette_primary_button_background": "{{ settings.color_palette.color1 }}",
       "palette_primary_button_text": "{{ settings.color_palette.background }}",
@@ -180,11 +181,12 @@
       "palette_secondary_button_border": "{{ settings.color_palette.color1 }}",
       "page_background_color": "{{ settings.color_palette.background }}",
       "page_text_color": "{{ settings.color_palette.foreground }}",
-      "badge_sale_background_color": "#8C6D3F",
+      "badge_sale_background_color": "#23362B",
       "badge_sale_text_color": "#FFFFFF",
       "drawer_background_color": "{{ settings.color_palette.background }}",
       "popover_background_color": "{{ settings.color_palette.background }}",
-      "palette_input_background": "#FFFDF8"
+      "palette_input_background": "#FFFDF8",
+      "show_second_image_on_hover": true
     }
   }
 }

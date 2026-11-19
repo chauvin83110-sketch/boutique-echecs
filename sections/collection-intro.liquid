@@ -37,7 +37,7 @@
           endif
           assign g_index = forloop.index0 | modulo: glyphs.size
         -%}
-        {%- if label != blank -%}
+        {%- if label != blank and c != blank and c.products_count > 0 or is_current -%}
           <li class="ech-tile{% if is_current %} is-current{% endif %}" {{ block.shopify_attributes }}>
             <a href="{{ c.url | default: '#' }}" {% if is_current %}aria-current="page"{% endif %}>
               <span class="ech-tile__media">

@@ -1,0 +1,35 @@
+{%- liquid
+  assign p = closest.product
+  capture nm
+    render 'ech-product-name', product: p, part: 'name'
+  endcapture
+  capture fin
+    render 'ech-product-name', product: p, part: 'finish'
+  endcapture
+  assign fin = fin | strip
+  assign tag = 'p'
+  if block.settings.as_heading
+    assign tag = 'h1'
+  endif
+-%}
+<div class="ech-pname ech-pname--{{ block.settings.size }}" {{ block.shopify_attributes }}>
+  <{{ tag }} class="ech-pname__name">{%- if block.settings.link -%}<a href="{{ p.url }}">{{ nm | strip }}</a>{%- else -%}{{ nm | strip }}{%- endif -%}</{{ tag }}>
+  {%- if fin != blank -%}<p class="ech-pname__finish">{{ fin }}</p>{%- endif -%}
+</div>
+
+{% schema %}
+{
+  "name": "Nom et finition",
+  "tag": null,
+  "settings": [
+    { "type": "paragraph", "content": "Coupe le titre au tiret « – » : nom en serif, finition dessous. Métachamp custom.finition prioritaire." },
+    { "type": "checkbox", "id": "as_heading", "label": "Titre principal (fiche produit)", "default": false },
+    { "type": "checkbox", "id": "link", "label": "Lien vers le produit", "default": false },
+    { "type": "select", "id": "size", "label": "Taille", "default": "card", "options": [
+      { "value": "card", "label": "Carte" },
+      { "value": "page", "label": "Fiche produit" }
+    ] }
+  ],
+  "presets": [{ "name": "Nom et finition" }]
+}
+{% endschema %}

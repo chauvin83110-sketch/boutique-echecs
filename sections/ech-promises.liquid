@@ -1,0 +1,21 @@
+<div class="ech-promises ech-wrap">
+  <ul role="list">
+    {%- for block in section.blocks -%}
+      <li {{ block.shopify_attributes }}><strong>{{ block.settings.title }}</strong>{%- if block.settings.text != blank -%}<span>{{ block.settings.text }}</span>{%- endif -%}</li>
+    {%- endfor -%}
+  </ul>
+</div>
+{% schema %}
+{
+  "name": "Engagements (texte)",
+  "tag": "section",
+  "class": "ech-section",
+  "blocks": [
+    { "type": "item", "name": "Engagement", "settings": [
+      { "type": "text", "id": "title", "label": "Titre" },
+      { "type": "text", "id": "text", "label": "Texte" }
+    ] }
+  ],
+  "presets": [{ "name": "Engagements (texte)" }]
+}
+{% endschema %}

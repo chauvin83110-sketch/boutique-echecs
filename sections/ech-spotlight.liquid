@@ -1,0 +1,71 @@
+{%- comment -%}
+  Un modèle de plus près : photo de détail + quelques faits vérifiés (repris du tableau Caractéristiques).
+{%- endcomment -%}
+{%- liquid
+  assign p = section.settings.product
+  assign img = section.settings.image
+  if img == blank and p != blank
+    assign idx = section.settings.media_index | minus: 1
+    assign img = p.media[idx] | default: p.featured_media
+  endif
+  capture nm
+    if p != blank
+      render 'ech-product-name', product: p, part: 'name'
+    endif
+  endcapture
+-%}
+<div class="ech-spot ech-wrap">
+  <div class="ech-spot__media">
+    {%- if img != blank -%}
+      {{ img | image_url: width: 1600 | image_tag: loading: 'lazy', sizes: '(min-width: 750px) 55vw, 100vw', widths: '600, 900, 1200, 1600', class: 'ech-spot__img', alt: img.alt | default: nm }}
+    {%- else -%}
+      {{ 'detailed-apparel-1' | placeholder_svg_tag: 'ech-spot__img' }}
+    {%- endif -%}
+  </div>
+  <div class="ech-spot__text">
+    {%- if section.settings.kicker != blank -%}<p class="ech-kicker">{{ section.settings.kicker }}</p>{%- endif -%}
+    <h2 class="ech-h2">{{ section.settings.title | default: nm }}</h2>
+    {%- if section.settings.text != blank -%}<div class="ech-rte">{{ section.settings.text }}</div>{%- endif -%}
+    {%- if p != blank and section.settings.show_specs -%}
+      {%- liquid
+        capture plateau
+          render 'ech-specs', product: p, label: 'Plateau'
+        endcapture
+        capture pieces
+          render 'ech-specs', product: p, label: 'Pièces'
+        endcapture
+        capture poids
+          render 'ech-specs', product: p, label: 'Poids'
+        endcapture
+      -%}
+      <dl class="ech-specs__list ech-specs__list--spot">
+        {%- if plateau != blank -%}<div><dt>Plateau</dt><dd>{{ plateau | strip }}</dd></div>{%- endif -%}
+        {%- if pieces != blank -%}<div><dt>Pièces</dt><dd>{{ pieces | strip }}</dd></div>{%- endif -%}
+        {%- if poids != blank -%}<div><dt>Poids</dt><dd>{{ poids | strip }}</dd></div>{%- endif -%}
+      </dl>
+    {%- endif -%}
+    {%- if p != blank -%}
+      <p class="ech-spot__price">{{ p.price | money }}</p>
+      <a class="ech-btn ech-btn--ghost" href="{{ p.url }}">{{ section.settings.button_label }}</a>
+    {%- endif -%}
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Accueil : modèle de près",
+  "tag": "section",
+  "class": "ech-section",
+  "settings": [
+    { "type": "product", "id": "product", "label": "Modèle" },
+    { "type": "image_picker", "id": "image", "label": "Photo de détail (vide = photo du produit ci-dessous)" },
+    { "type": "range", "id": "media_index", "label": "N° de la photo du produit à utiliser", "min": 1, "max": 10, "step": 1, "default": 1 },
+    { "type": "text", "id": "kicker", "label": "Surtitre", "default": "De près" },
+    { "type": "text", "id": "title", "label": "Titre (vide = nom du modèle)" },
+    { "type": "richtext", "id": "text", "label": "Texte (uniquement des faits vérifiés)" },
+    { "type": "checkbox", "id": "show_specs", "label": "Afficher plateau, pièces, poids", "default": true },
+    { "type": "text", "id": "button_label", "label": "Bouton", "default": "Voir le modèle" }
+  ],
+  "presets": [{ "name": "Accueil : modèle de près" }]
+}
+{% endschema %}

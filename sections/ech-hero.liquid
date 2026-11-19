@@ -1,0 +1,57 @@
+{%- comment -%}
+  Premier écran : photo en situation SANS filtre, texte à côté sur fond ivoire.
+  Mobile : cadrage dédié (image mobile facultative), texte sous l'image.
+{%- endcomment -%}
+{%- liquid
+  assign img = section.settings.image
+  assign img_m = section.settings.image_mobile | default: img
+-%}
+<div class="ech-hero ech-hero--{{ section.settings.image_side }}">
+  <div class="ech-hero__media">
+    {%- if img != blank -%}
+      <picture>
+        <source media="(max-width: 749px)" srcset="{{ img_m | image_url: width: 750 }} 750w, {{ img_m | image_url: width: 1100 }} 1100w, {{ img_m | image_url: width: 1500 }} 1500w" sizes="100vw">
+        {{ img | image_url: width: 2400 | image_tag: loading: 'eager', fetchpriority: 'high', sizes: '(min-width: 750px) 62vw, 100vw', widths: '900, 1200, 1600, 2000, 2400', class: 'ech-hero__img', alt: img.alt | default: section.settings.title, style: section.settings.focal }}
+      </picture>
+    {%- else -%}
+      {{ 'lifestyle-1' | placeholder_svg_tag: 'ech-hero__img ech-hero__img--ph' }}
+    {%- endif -%}
+  </div>
+  <div class="ech-hero__text">
+    {%- if section.settings.kicker != blank -%}<p class="ech-kicker">{{ section.settings.kicker }}</p>{%- endif -%}
+    <h1 class="ech-hero__title">{{ section.settings.title }}</h1>
+    {%- if section.settings.text != blank -%}<div class="ech-hero__lede">{{ section.settings.text }}</div>{%- endif -%}
+    {%- if section.settings.button_label != blank -%}
+      <a class="ech-btn" href="{{ section.settings.button_link | default: routes.all_products_collection_url }}">{{ section.settings.button_label }}</a>
+    {%- endif -%}
+    {%- if section.settings.note != blank -%}<p class="ech-hero__note">{{ section.settings.note }}</p>{%- endif -%}
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Accueil : photo + titre",
+  "tag": "section",
+  "class": "ech-section",
+  "settings": [
+    { "type": "image_picker", "id": "image", "label": "Photo (ordinateur)", "info": "Un échiquier en situation, pièces lisibles. Aucun filtre n'est ajouté." },
+    { "type": "image_picker", "id": "image_mobile", "label": "Photo (mobile, cadrage vertical)", "info": "Facultatif : sinon la photo ordinateur est recadrée." },
+    { "type": "select", "id": "focal", "label": "Cadrage sur mobile", "default": "object-position: 50% 50%", "options": [
+      { "value": "object-position: 50% 50%", "label": "Centre" },
+      { "value": "object-position: 30% 50%", "label": "Gauche" },
+      { "value": "object-position: 70% 50%", "label": "Droite" }
+    ] },
+    { "type": "select", "id": "image_side", "label": "Photo à", "default": "left", "options": [
+      { "value": "left", "label": "Gauche" },
+      { "value": "right", "label": "Droite" }
+    ] },
+    { "type": "text", "id": "kicker", "label": "Surtitre" },
+    { "type": "text", "id": "title", "label": "Titre", "default": "La partie se prolonge au salon." },
+    { "type": "richtext", "id": "text", "label": "Texte" },
+    { "type": "text", "id": "button_label", "label": "Bouton", "default": "Découvrir les échiquiers" },
+    { "type": "url", "id": "button_link", "label": "Lien du bouton" },
+    { "type": "text", "id": "note", "label": "Petite ligne sous le bouton" }
+  ],
+  "presets": [{ "name": "Accueil : photo + titre" }]
+}
+{% endschema %}

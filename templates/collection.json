@@ -100,36 +100,12 @@
             "card-gallery": {
               "type": "_product-card-gallery",
               "settings": {
-                "image_ratio": "adapt",
+                "image_ratio": "landscape",
                 "border": "none",
                 "border_width": 1,
                 "border_opacity": 100,
                 "border_radius": 0,
                 "padding-block-start": 0,
-                "padding-block-end": 0,
-                "padding-inline-start": 0,
-                "padding-inline-end": 0
-              },
-              "blocks": {}
-            },
-            "product_title_4nY4eT": {
-              "type": "product-title",
-              "name": "t:names.product_title",
-              "settings": {
-                "width": "100%",
-                "max_width": "normal",
-                "alignment": "left",
-                "type_preset": "paragraph",
-                "font": "var(--font-heading--family)",
-                "font_size": "1.15rem",
-                "line_height": "normal",
-                "letter_spacing": "normal",
-                "case": "none",
-                "wrap": "pretty",
-                "background": false,
-                "background_color": "#00000026",
-                "corner_radius": 0,
-                "padding-block-start": 4,
                 "padding-block-end": 0,
                 "padding-inline-start": 0,
                 "padding-inline-end": 0
@@ -174,64 +150,64 @@
                 "show_label": true
               }
             },
-            "delivery": {
-              "type": "delivery-estimate",
+            "name": {
+              "type": "ech-product-name",
               "settings": {
-                "prefix": "Livré",
-                "days_min": 5,
-                "days_max": 10
+                "as_heading": false,
+                "link": true,
+                "size": "card"
               }
             }
           },
           "block_order": [
             "card-gallery",
-            "product_title_4nY4eT",
+            "name",
             "price_EzJzMm",
             "swatches",
-            "wood",
-            "delivery"
+            "wood"
           ]
         }
       },
       "settings": {
         "layout_type": "grid",
-        "product_card_size": "medium",
-        "mobile_product_card_size": "small",
+        "product_card_size": "large",
+        "mobile_product_card_size": "large",
         "product_grid_width": "centered",
         "full_width_on_mobile": true,
         "columns_gap_horizontal": 16,
-        "columns_gap_vertical": 24,
+        "columns_gap_vertical": 40,
         "padding-inline-start": 0,
         "padding-inline-end": 0,
         "padding-block-start": 0,
         "padding-block-end": 32,
-        "banner_1_label": "01",
-        "banner_1_title": "Tables d'échecs",
-        "banner_1_text": "Le jeu devient un meuble : un plateau marqueté que l'on garde au salon, partie en cours.",
-        "banner_1_link": "shopify://collections/tables-dechecs",
-        "banner_1_button": "Voir les tables",
-        "banner_1_position": 4,
+        "banner_1_label": "",
+        "banner_1_title": "Le Tournoi n°6, au salon",
+        "banner_1_text": "Plateau en marqueterie d'acajou et de sycomore, pièces Staunton n°6 lestées, deux dames en plus.",
+        "banner_1_link": "shopify://products/coffret-dechecs-tournoi-n-6-pieces-lestees-et-dames-supplementaires",
+        "banner_1_button": "Voir le modèle",
+        "banner_1_position": 2,
         "banner_2_label": "02",
-        "banner_2_title": "Pièces sculptées",
+        "banner_2_title": "",
         "banner_2_text": "Cavaliers à crinière, rois couronnés : des pièces Staunton lestées, taillées et polies à la main.",
         "banner_2_link": "shopify://collections/pieces-dechecs-sculptees",
         "banner_2_button": "Voir les pièces",
         "banner_2_position": 8,
         "banner_3_label": "03",
-        "banner_3_title": "Coffrets cadeaux",
+        "banner_3_title": "",
         "banner_3_text": "Un échiquier et ses pièces rangés dans leur coffret en bois, prêt à offrir.",
         "banner_3_link": "shopify://collections/coffrets-echecs",
         "banner_3_button": "Voir les coffrets",
-        "banner_3_position": 14
+        "banner_3_position": 14,
+        "banner_1_image": "shopify://shop_images/szachy-turniejowe-nr-6-z-dodatkowymi-hetmanami-ch96setbrowndq.jpg"
       }
     },
     "guide": {
       "type": "collection-guide",
       "settings": {
         "guide_kicker": "Guide d'achat",
-        "guide_title": "Bien choisir son jeu d'échecs",
-        "guide_text": "<h3>1. Choisir la taille</h3><p>Tout part de la hauteur du roi. Pour jouer confortablement, la case doit mesurer environ deux fois le diamètre de la base d'un pion. Repère simple : un roi de 8 à 10 cm va avec des cases de 5 à 6 cm. Un roi plus petit (6 à 7 cm) convient au voyage ou aux coffrets compacts.</p><h3>2. Choisir l'essence de bois</h3><p>Le bois fait le caractère du jeu : le buis et l'érable pour les cases et les pièces claires, le noyer, le palissandre ou l'ébène pour les foncées. Plus le bois est dense, plus les pièces sont lourdes et agréables en main.</p><h3>3. Vérifier le lestage et les finitions</h3><p>Des pièces lestées (un poids dans la base) restent stables sur le plateau. Sous chaque pièce, un feutre protège l'échiquier. Regardez aussi le cavalier : c'est la pièce qui montre le niveau de sculpture.</p><h3>4. Pour offrir</h3><p>Un coffret en bois avec plateau et rangement pour les pièces est le cadeau le plus simple : tout est réuni et se range. Pour un passionné, une table ou des pièces sculptées marquent davantage le coup.</p>",
-        "table_title": "Quel bois choisir ?",
+        "guide_title": "Bien choisir son échiquier",
+        "guide_text": "<h3>La taille du plateau</h3><p>Mesurez la table qui l'accueillera. Un plateau de 41 cm tient sur une table basse étroite ; 49 cm laisse plus d'aisance aux pièces ; 55 cm devient l'objet principal de la table. Les dimensions exactes, plié et ouvert, sont indiquées sur chaque fiche.</p><h3>Des pièces à la bonne échelle</h3><p>Pour jouer confortablement, la case doit mesurer environ deux fois le diamètre de la base d'un pion.</p><h3>Le rangement</h3><p>Nos plateaux sont pliants : une fois fermés, ils servent de coffret aux pièces. Pratique pour ranger le jeu ou l'emporter.</p>",
+        "table_title": "",
         "col_1": "Bois",
         "col_2": "Aspect",
         "col_3": "Toucher et poids",
@@ -239,69 +215,11 @@
         "col_5": "",
         "faq_title": "Questions fréquentes",
         "padding_top": 64,
-        "padding_bottom": 64
+        "padding_bottom": 64,
+        "auto_compare": true,
+        "auto_title": "Comparer les modèles"
       },
       "blocks": {
-        "row_1": {
-          "type": "row",
-          "settings": {
-            "c1": "Buis",
-            "c2": "Clair, jaune miel, grain très fin",
-            "c3": "Dense, lourd, très doux",
-            "c4": "Pièces blanches haut de gamme",
-            "c5": ""
-          }
-        },
-        "row_2": {
-          "type": "row",
-          "settings": {
-            "c1": "Érable",
-            "c2": "Crème, lumineux",
-            "c3": "Dur, assez léger",
-            "c4": "Cases claires des échiquiers",
-            "c5": ""
-          }
-        },
-        "row_3": {
-          "type": "row",
-          "settings": {
-            "c1": "Hêtre / acacia",
-            "c2": "Blond à doré",
-            "c3": "Robuste, poids moyen",
-            "c4": "Coffrets de tous les jours, premier beau jeu",
-            "c5": ""
-          }
-        },
-        "row_4": {
-          "type": "row",
-          "settings": {
-            "c1": "Noyer",
-            "c2": "Brun chaud, veines marquées",
-            "c3": "Dur, poids moyen",
-            "c4": "Échiquiers et coffrets classiques",
-            "c5": ""
-          }
-        },
-        "row_5": {
-          "type": "row",
-          "settings": {
-            "c1": "Palissandre (sheesham)",
-            "c2": "Brun rouge profond",
-            "c3": "Dense, lourd",
-            "c4": "Pièces foncées, tables",
-            "c5": ""
-          }
-        },
-        "row_6": {
-          "type": "row",
-          "settings": {
-            "c1": "Ébène",
-            "c2": "Noir intense, presque sans veines",
-            "c3": "Très dense, le plus lourd",
-            "c4": "Pièces d'exception, collection",
-            "c5": ""
-          }
-        },
         "faq_1": {
           "type": "faq",
           "settings": {
@@ -333,22 +251,22 @@
         "faq_5": {
           "type": "faq",
           "settings": {
-            "question": "Où sont fabriqués vos jeux ?",
-            "answer": "<p>Nos jeux viennent d'ateliers spécialisés en Europe et en Inde, qui travaillent le bois et sculptent les pièces depuis des générations. L'origine est précisée sur chaque fiche produit.</p>"
+            "question": "D'où viennent vos échiquiers ?",
+            "answer": "<p>Nos coffrets actuels sont fabriqués en Pologne par un fabricant spécialisé dans les jeux d'échecs en bois. Le pays de fabrication est indiqué sur chaque fiche produit.</p>"
           }
         },
         "faq_6": {
           "type": "faq",
           "settings": {
             "question": "Comment entretenir un jeu en bois ?",
-            "answer": "<p>Essuyez-le avec un chiffon doux et sec. Évitez l'eau, les produits ménagers, le soleil direct et les sources de chaleur. Une fois ou deux par an, une cire neutre pour meubles ravive l'éclat.</p>"
+            "answer": "<p>Essuyez le plateau et les pièces avec un chiffon doux et sec. Évitez l'eau, les produits ménagers, le soleil direct et les sources de chaleur.</p>"
           }
         },
         "faq_7": {
           "type": "faq",
           "settings": {
             "question": "Puis-je offrir un jeu en cadeau ?",
-            "answer": "<p>Oui, c'est même l'usage le plus fréquent. Nos coffrets réunissent l'échiquier et les pièces dans un rangement en bois, prêt à offrir. Précisez en note de commande qu'il s'agit d'un cadeau.</p>"
+            "answer": "<p>Oui. Le plateau pliant sert de coffret aux pièces : le jeu arrive complet et rangé. Précisez en note de commande s'il s'agit d'un cadeau.</p>"
           }
         },
         "faq_8": {
@@ -360,12 +278,6 @@
         }
       },
       "block_order": [
-        "row_1",
-        "row_2",
-        "row_3",
-        "row_4",
-        "row_5",
-        "row_6",
         "faq_1",
         "faq_2",
         "faq_3",

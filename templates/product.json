@@ -17,12 +17,12 @@
           "static": true,
           "settings": {
             "media_presentation": "grid",
-            "media_columns": "two",
+            "media_columns": "one",
             "image_gap": 4,
-            "large_first_image": false,
+            "large_first_image": true,
             "icons_style": "arrow",
             "slideshow_controls_style": "counter",
-            "slideshow_mobile_controls_style": "dots",
+            "slideshow_mobile_controls_style": "counter",
             "thumbnail_position": "right",
             "thumbnail_width": 44,
             "aspect_ratio": "adapt",
@@ -103,31 +103,6 @@
                 "padding-inline-end": 0
               },
               "blocks": {
-                "text_xpVMaM": {
-                  "type": "text",
-                  "name": "t:names.title",
-                  "settings": {
-                    "text": "<h1>{{ closest.product.title }}</h1>",
-                    "width": "fit-content",
-                    "max_width": "normal",
-                    "alignment": "left",
-                    "type_preset": "h3",
-                    "font": "var(--font-body--family)",
-                    "font_size": "1rem",
-                    "line_height": "normal",
-                    "letter_spacing": "normal",
-                    "case": "none",
-                    "wrap": "pretty",
-                    "background": false,
-                    "background_color": "#00000026",
-                    "corner_radius": 0,
-                    "padding-block-start": 0,
-                    "padding-block-end": 0,
-                    "padding-inline-start": 0,
-                    "padding-inline-end": 0
-                  },
-                  "blocks": {}
-                },
                 "price_tVjtKg": {
                   "type": "price",
                   "settings": {
@@ -148,10 +123,18 @@
                     "padding-inline-end": 0
                   },
                   "blocks": {}
+                },
+                "ech_name": {
+                  "type": "ech-product-name",
+                  "settings": {
+                    "as_heading": true,
+                    "link": false,
+                    "size": "page"
+                  }
                 }
               },
               "block_order": [
-                "text_xpVMaM",
+                "ech_name",
                 "price_tVjtKg"
               ]
             },
@@ -240,13 +223,29 @@
                 "padding-inline-end": 0
               },
               "blocks": {}
+            },
+            "ech_specs": {
+              "type": "ech-key-specs",
+              "settings": {
+                "show_contents": true
+              }
+            },
+            "ech_delivery": {
+              "type": "delivery-estimate",
+              "settings": {
+                "prefix": "Livraison offerte, reçu",
+                "days_min": 5,
+                "days_max": 10
+              }
             }
           },
           "block_order": [
             "group_icgrde",
             "divider_VJhene",
+            "ech_specs",
             "variant_picker_R3rGDr",
             "buy_buttons_eYQEYi",
+            "ech_delivery",
             "text_aEtTtq"
           ]
         },

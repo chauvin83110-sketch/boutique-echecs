@@ -1,0 +1,23 @@
+{%- doc -%}
+  Lit le tableau « Caractéristiques » de la description produit (lignes <tr> libellé | valeur)
+  et renvoie la valeur d'un libellé. Les métachamps custom.* sont prioritaires.
+  @param {object} product
+  @param {string} label - ex. 'Plateau', 'Dimensions plié', 'Poids', 'Pièces'
+{%- enddoc -%}
+{%- liquid
+  assign found = ''
+  assign wanted = label | downcase | strip
+  assign rows = product.description | split: '<tr'
+  for row in rows offset: 1
+    assign r2 = '<tr' | append: row
+    assign cells = r2 | replace: '</th>', '§' | replace: '</td>', '§' | strip_html | strip_newlines | split: '§'
+    if cells.size > 1
+      assign lab = cells[0] | strip | downcase
+      if lab == wanted
+        assign found = cells[1] | strip
+        break
+      endif
+    endif
+  endfor
+  echo found
+-%}

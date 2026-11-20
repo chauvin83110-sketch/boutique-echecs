@@ -14,16 +14,33 @@
     <div class="ech-compare">
       <h3 class="ech-compare__title">{{ section.settings.auto_title }}</h3>
       <div class="ech-compare__scroll" tabindex="0" role="region" aria-label="{{ section.settings.auto_title | escape }}">
+        {%- liquid
+          assign cand = section.settings.compare_labels | default: 'Plateau, Cases, Dimensions plié|Plié, Roi, Hauteur, Bois, Pièces, Poids' | split: ','
+          assign cols = ''
+          for w in cand
+            assign src = w | strip | split: '|' | first | strip
+            for p in collection.products limit: 12
+              capture v
+                render 'ech-specs', product: p, label: src
+              endcapture
+              assign v = v | strip
+              if v != blank
+                assign cols = cols | append: w | strip | append: ','
+                break
+              endif
+            endfor
+          endfor
+          assign cols = cols | split: ','
+        -%}
         <table>
-          <thead><tr><th scope="col">Modèle</th><th scope="col">Plateau</th><th scope="col">Plié</th><th scope="col">Poids</th><th scope="col">Pièces</th><th scope="col">Prix</th></tr></thead>
+          <thead><tr><th scope="col">Modèle</th>
+            {%- for c in cols -%}{%- assign parts = c | split: '|' -%}<th scope="col">{{ parts[1] | default: parts[0] | strip }}</th>{%- endfor -%}
+            <th scope="col">Prix</th></tr></thead>
           <tbody>
             {%- for p in collection.products limit: 12 -%}
               <tr>
                 <th scope="row"><a href="{{ p.url }}">{% render 'ech-product-name', product: p, part: 'name' %}</a></th>
-                <td>{% render 'ech-specs', product: p, label: 'Plateau' %}</td>
-                <td>{% render 'ech-specs', product: p, label: 'Dimensions plié' %}</td>
-                <td>{% render 'ech-specs', product: p, label: 'Poids' %}</td>
-                <td>{% render 'ech-specs', product: p, label: 'Pièces' %}</td>
+                {%- for c in cols -%}{%- assign src = c | split: '|' | first | strip -%}<td>{% render 'ech-specs', product: p, label: src %}</td>{%- endfor -%}
                 <td class="ech-compare__price">{{ p.price | money }}</td>
               </tr>
             {%- endfor -%}
@@ -104,7 +121,8 @@
     { "type": "text", "id": "guide_title", "label": "Titre", "default": "Bien choisir son jeu d'échecs" },
     { "type": "richtext", "id": "guide_text", "label": "Texte" },
     { "type": "header", "content": "Comparatif automatique des modèles" },
-    { "type": "checkbox", "id": "auto_compare", "label": "Comparer les modèles de la collection (plateau, plié, poids, pièces, prix)", "default": true },
+    { "type": "checkbox", "id": "auto_compare", "label": "Comparer les modèles de la collection", "default": true },
+    { "type": "text", "id": "compare_labels", "label": "Colonnes du comparatif", "default": "Plateau, Cases, Dimensions plié|Plié, Roi, Hauteur, Bois, Pièces, Poids", "info": "Libellés du tableau Caractéristiques. Une colonne n'apparaît que si au moins un produit la renseigne." },
     { "type": "text", "id": "auto_title", "label": "Titre", "default": "Comparer les modèles" },
     { "type": "header", "content": "Tableau libre (lignes en blocs)" },
     { "type": "text", "id": "table_title", "label": "Titre du tableau", "default": "Quel bois choisir ?" },

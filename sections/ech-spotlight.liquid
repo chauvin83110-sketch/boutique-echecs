@@ -27,21 +27,16 @@
     <h2 class="ech-h2">{{ section.settings.title | default: nm }}</h2>
     {%- if section.settings.text != blank -%}<div class="ech-rte">{{ section.settings.text }}</div>{%- endif -%}
     {%- if p != blank and section.settings.show_specs -%}
-      {%- liquid
-        capture plateau
-          render 'ech-specs', product: p, label: 'Plateau'
-        endcapture
-        capture pieces
-          render 'ech-specs', product: p, label: 'Pièces'
-        endcapture
-        capture poids
-          render 'ech-specs', product: p, label: 'Poids'
-        endcapture
-      -%}
       <dl class="ech-specs__list ech-specs__list--spot">
-        {%- if plateau != blank -%}<div><dt>Plateau</dt><dd>{{ plateau | strip }}</dd></div>{%- endif -%}
-        {%- if pieces != blank -%}<div><dt>Pièces</dt><dd>{{ pieces | strip }}</dd></div>{%- endif -%}
-        {%- if poids != blank -%}<div><dt>Poids</dt><dd>{{ poids | strip }}</dd></div>{%- endif -%}
+        {%- assign spot_labels = 'Plateau,Roi,Hauteur,Bois,Pièces,Poids' | split: ',' -%}
+        {%- assign shown_count = 0 -%}
+        {%- for lab in spot_labels -%}
+          {%- if shown_count < 3 -%}
+            {%- capture v -%}{%- render 'ech-specs', product: p, label: lab -%}{%- endcapture -%}
+            {%- assign v = v | strip -%}
+            {%- if v != blank -%}<div><dt>{{ lab }}</dt><dd>{{ v }}</dd></div>{%- assign shown_count = shown_count | plus: 1 -%}{%- endif -%}
+          {%- endif -%}
+        {%- endfor -%}
       </dl>
     {%- endif -%}
     {%- if p != blank -%}

@@ -5,48 +5,45 @@
 {%- endcomment -%}
 {%- liquid
   assign p = closest.product
-  capture plateau
-    if p.metafields.custom.plateau != blank
-      echo p.metafields.custom.plateau.value
-    else
-      render 'ech-specs', product: p, label: 'Plateau'
-    endif
+  assign wanted = block.settings.labels | default: 'Plateau, Cases, Dimensions plié|Plié, Roi, Hauteur, Bois, Pièces, Poids' | split: ','
+  assign has_any = false
+  capture items
+    for w in wanted
+      assign parts = w | strip | split: '|'
+      assign src = parts[0] | strip
+      assign shown = parts[1] | default: src | strip
+      assign mkey = src | handleize | replace: '-', '_'
+      if mkey == 'dimensions_plie'
+        assign mval = p.metafields.custom.dimensions_plie.value
+      else
+        assign mval = p.metafields.custom[mkey].value
+      endif
+      capture v
+        if mval != blank
+          echo mval
+        else
+          render 'ech-specs', product: p, label: src
+        endif
+      endcapture
+      assign v = v | strip
+      if v != blank
+        assign has_any = true
+        echo '<div><dt>' | append: shown | append: '</dt><dd>' | append: v | append: '</dd></div>'
+      endif
+    endfor
   endcapture
   capture plie
-    if p.metafields.custom.dimensions_plie != blank
-      echo p.metafields.custom.dimensions_plie.value
-    else
-      render 'ech-specs', product: p, label: 'Dimensions plié'
-    endif
-  endcapture
-  capture poids
-    if p.metafields.custom.poids != blank
-      echo p.metafields.custom.poids.value
-    else
-      render 'ech-specs', product: p, label: 'Poids'
-    endif
+    render 'ech-specs', product: p, label: 'Dimensions plié'
   endcapture
   capture pieces
-    if p.metafields.custom.pieces != blank
-      echo p.metafields.custom.pieces.value
-    else
-      render 'ech-specs', product: p, label: 'Pièces'
-    endif
+    render 'ech-specs', product: p, label: 'Pièces'
   endcapture
-  assign plateau = plateau | strip
   assign plie = plie | strip
-  assign poids = poids | strip
-  assign pieces = pieces | strip
   capture contenu
     if p.metafields.custom.contenu_coffret != blank
       echo p.metafields.custom.contenu_coffret.value
-    elsif plateau != blank
-      assign pl = plateau | downcase
-      if pl contains 'pliant'
-        echo 'Le plateau pliant, qui sert de coffret, et les 32 pièces'
-      else
-        echo 'Le plateau et les 32 pièces'
-      endif
+    elsif plie != blank
+      echo 'Le plateau pliant, qui sert de coffret, et les 32 pièces'
       assign pd = pieces | downcase
       if pd contains '2 dames'
         echo ', plus 2 dames supplémentaires'
@@ -56,14 +53,9 @@
   endcapture
   assign contenu = contenu | strip
 -%}
-{%- if plateau != blank or plie != blank or poids != blank or pieces != blank -%}
+{%- if has_any -%}
   <div class="ech-specs" {{ block.shopify_attributes }}>
-    <dl class="ech-specs__list">
-      {%- if plateau != blank -%}<div><dt>Plateau</dt><dd>{{ plateau }}</dd></div>{%- endif -%}
-      {%- if plie != blank -%}<div><dt>Plié</dt><dd>{{ plie }}</dd></div>{%- endif -%}
-      {%- if poids != blank -%}<div><dt>Poids</dt><dd>{{ poids }}</dd></div>{%- endif -%}
-      {%- if pieces != blank -%}<div><dt>Pièces</dt><dd>{{ pieces }}</dd></div>{%- endif -%}
-    </dl>
+    <dl class="ech-specs__list">{{ items }}</dl>
     {%- if contenu != blank and block.settings.show_contents -%}
       <p class="ech-specs__box"><strong>Dans le coffret :</strong> {{ contenu }}</p>
     {%- endif -%}
@@ -75,7 +67,8 @@
   "name": "Repères produit",
   "tag": null,
   "settings": [
-    { "type": "paragraph", "content": "Lit le tableau Caractéristiques de la description (Plateau, Dimensions plié, Poids, Pièces) ou les métachamps custom.plateau, custom.dimensions_plie, custom.poids, custom.pieces, custom.contenu_coffret." },
+    { "type": "paragraph", "content": "Lit le tableau Caractéristiques de la description, ou les métachamps custom.* du même nom (custom.contenu_coffret pour le contenu)." },
+    { "type": "text", "id": "labels", "label": "Libellés à afficher", "default": "Plateau, Cases, Dimensions plié|Plié, Roi, Hauteur, Bois, Pièces, Poids", "info": "Libellés du tableau Caractéristiques, séparés par des virgules. « Libellé|Affiché » pour renommer. Seuls ceux présents s'affichent." },
     { "type": "checkbox", "id": "show_contents", "label": "Afficher « Dans le coffret »", "default": true }
   ],
   "presets": [{ "name": "Repères produit" }]

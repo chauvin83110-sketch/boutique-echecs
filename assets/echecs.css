@@ -368,3 +368,7 @@ body { background: var(--ech-ivory); color: var(--ech-ink); }
   .ech-mani__img { max-height: 92vh; }
   .ech-mani__text { padding: 56px clamp(32px, 6vw, 110px); }
 }
+@media (min-width: 750px) {
+  .ech-amb--ink .ech-amb__lede { color: var(--ech-ink); font-size: 1.1rem; }
+  .ech-amb--ink .ech-kicker { color: var(--ech-ink); opacity: .8; }
+}

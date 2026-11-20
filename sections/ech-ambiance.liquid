@@ -1,0 +1,69 @@
+{%- comment -%}
+  Ouverture d'ambiance : un lieu en plein écran, sans filtre.
+  Ordinateur : texte posé sur la zone calme de la photo (à gauche par défaut).
+  Mobile : photo recadrée, texte dessous sur fond ivoire.
+  Les jeux visibles sur ces images sont du décor, jamais un produit vendu.
+{%- endcomment -%}
+{%- liquid
+  assign img = section.settings.image
+  assign img_m = section.settings.image_mobile
+  if img != blank
+    assign src_d = img | image_url: width: 2400
+  else
+    assign src_d = section.settings.asset_desktop | asset_url
+  endif
+  if img_m != blank
+    assign src_m = img_m | image_url: width: 1100
+  elsif img != blank
+    assign src_m = img | image_url: width: 1100
+  else
+    assign src_m = section.settings.asset_mobile | default: section.settings.asset_desktop | asset_url
+  endif
+  assign alt = section.settings.alt | default: section.settings.title | escape
+-%}
+<div class="ech-amb ech-amb--{{ section.settings.text_side }} ech-amb--{{ section.settings.tone }}" id="ech-amb-{{ section.id }}">
+  <picture class="ech-amb__media">
+    <source media="(max-width: 749px)" srcset="{{ src_m }}">
+    <img src="{{ src_d }}" alt="{{ alt }}" class="ech-amb__img" style="object-position: {{ section.settings.position }};" {% if section.settings.heading_tag == "h1" %}fetchpriority="high" loading="eager"{% else %}loading="lazy"{% endif %} width="1672" height="941">
+  </picture>
+  <div class="ech-amb__text">
+    {%- if section.settings.kicker != blank -%}<p class="ech-kicker">{{ section.settings.kicker }}</p>{%- endif -%}
+    <{{ section.settings.heading_tag }} class="ech-amb__title">{{ section.settings.title }}</{{ section.settings.heading_tag }}>
+    {%- if section.settings.text != blank -%}<div class="ech-amb__lede">{{ section.settings.text }}</div>{%- endif -%}
+    {%- if section.settings.button_label != blank -%}
+      <a class="ech-btn" href="{{ section.settings.button_link | default: '#ech-entree' }}">{{ section.settings.button_label }}</a>
+    {%- endif -%}
+  </div>
+</div>
+<span id="ech-entree"></span>
+
+{% schema %}
+{
+  "name": "Accueil : ambiance",
+  "tag": "section",
+  "class": "ech-section",
+  "settings": [
+    { "type": "image_picker", "id": "image", "label": "Photo d'ambiance (ordinateur)", "info": "Paysage, avec une zone calme du côté du texte. Aucun filtre n'est ajouté." },
+    { "type": "image_picker", "id": "image_mobile", "label": "Photo d'ambiance (mobile)", "info": "Portrait 4:5. Facultatif." },
+    { "type": "text", "id": "asset_desktop", "label": "Image du thème (ordinateur)", "default": "ambiance-bureau.jpg", "info": "Utilisée si aucune photo n'est choisie." },
+    { "type": "text", "id": "asset_mobile", "label": "Image du thème (mobile)", "default": "ambiance-bureau-mobile.jpg" },
+    { "type": "text", "id": "alt", "label": "Description de l'image" },
+    { "type": "text", "id": "position", "label": "Cadrage (object-position)", "default": "50% 50%" },
+    { "type": "select", "id": "text_side", "label": "Texte à", "default": "left", "options": [
+      { "value": "left", "label": "Gauche" },
+      { "value": "right", "label": "Droite" }
+    ] },
+    { "type": "select", "id": "tone", "label": "Couleur du texte sur ordinateur", "default": "ink", "options": [
+      { "value": "ink", "label": "Encre (photo claire)" },
+      { "value": "ivory", "label": "Ivoire (photo sombre)" }
+    ] },
+    { "type": "select", "id": "heading_tag", "label": "Niveau du titre", "default": "h1", "options": [ { "value": "h1", "label": "Titre principal (1re section)" }, { "value": "h2", "label": "Sous-titre" } ] },
+    { "type": "text", "id": "kicker", "label": "Surtitre", "default": "Maison Roszada" },
+    { "type": "text", "id": "title", "label": "Titre", "default": "Il existe une pièce où le temps ralentit." },
+    { "type": "richtext", "id": "text", "label": "Texte" },
+    { "type": "text", "id": "button_label", "label": "Bouton", "default": "Entrer" },
+    { "type": "url", "id": "button_link", "label": "Lien du bouton", "info": "Vide : descend à la section suivante." }
+  ],
+  "presets": [{ "name": "Accueil : ambiance" }]
+}
+{% endschema %}

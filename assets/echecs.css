@@ -337,3 +337,34 @@ body { background: var(--ech-ivory); color: var(--ech-ink); }
 @media (min-width: 750px) { .ech-logo { height: 76px; } }
 .ech-footer__logo { display: inline-block; margin-bottom: 0.8rem; }
 .ech-footer__logo img { display: block; height: 70px; width: auto; }
+
+/* Ouverture d'ambiance (photo plein écran, texte posé sur la zone calme, sans filtre) */
+.ech-amb { position: relative; background: var(--ech-ivory); }
+.ech-amb__media { display: block; margin: 0; }
+.ech-amb__img { display: block; width: 100%; height: auto; aspect-ratio: 4 / 5; object-fit: cover; }
+.ech-amb__text { padding: 30px 20px 44px; }
+.ech-amb__title { font-family: var(--ech-serif); font-weight: 500; font-size: clamp(2.2rem, 4.2vw, 3.9rem); line-height: 1.04; margin: 0 0 1rem; color: var(--ech-ink); letter-spacing: -0.01em; }
+.ech-amb__lede { color: var(--ech-muted); font-size: 1.02rem; line-height: 1.6; margin-bottom: 1.6rem; max-width: 28rem; }
+.ech-amb__lede p { margin: 0; }
+@media (min-width: 750px) {
+  .ech-amb { height: clamp(560px, calc(100vh - 130px), 900px); overflow: hidden; }
+  .ech-amb__media, .ech-amb__img { position: absolute; inset: 0; width: 100%; height: 100%; aspect-ratio: auto; }
+  .ech-amb__text { position: relative; z-index: 1; height: 100%; display: flex; flex-direction: column; justify-content: center; align-items: flex-start; max-width: min(36%, 520px); padding: 0 0 0 clamp(32px, 6vw, 110px); }
+  .ech-amb--right .ech-amb__text { margin-left: auto; padding: 0 clamp(32px, 6vw, 110px) 0 0; }
+  .ech-amb--ivory .ech-amb__title, .ech-amb--ivory .ech-amb__lede, .ech-amb--ivory .ech-kicker { color: var(--ech-ivory); }
+}
+
+/* Manifeste : image + texte de marque */
+.ech-mani { display: grid; grid-template-columns: 1fr; background: var(--ech-sand); }
+.ech-mani__img { display: block; width: 100%; height: 100%; aspect-ratio: 4 / 5; object-fit: cover; }
+.ech-mani__text { padding: 36px 20px 48px; align-self: center; }
+.ech-mani__title { font-family: var(--ech-serif); font-weight: 500; font-size: clamp(2rem, 3.6vw, 3.2rem); line-height: 1.05; margin: 0 0 1.2rem; color: var(--ech-ink); }
+.ech-mani__body { font-family: var(--ech-serif); font-size: clamp(1.2rem, 1.6vw, 1.45rem); line-height: 1.55; color: var(--ech-ink); max-width: 32rem; }
+.ech-mani__body p { margin: 0 0 0.9rem; }
+.ech-mani__body em { font-style: italic; color: var(--ech-green); }
+@media (min-width: 750px) {
+  .ech-mani { grid-template-columns: 1fr 1fr; }
+  .ech-mani--right .ech-mani__media { order: 2; }
+  .ech-mani__img { max-height: 92vh; }
+  .ech-mani__text { padding: 56px clamp(32px, 6vw, 110px); }
+}

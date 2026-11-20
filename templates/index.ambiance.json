@@ -1,0 +1,114 @@
+{
+  "sections": {
+    "collection": {
+      "type": "ech-collection-showcase",
+      "settings": {
+        "collection": "coffrets-echecs",
+        "kicker": "La collection",
+        "title": "Nos échiquiers",
+        "text": "",
+        "link_label": "Voir toute la collection",
+        "limit": 6
+      }
+    },
+    "spotlight": {
+      "type": "ech-spotlight",
+      "settings": {
+        "product": "coffret-dechecs-ambassadeur-plateau-55-cm-en-bois-brule",
+        "media_index": 1,
+        "kicker": "De près",
+        "title": "",
+        "text": "<p>Un plateau de 55 cm, des ornements brûlés sur les pièces et sur le cadre. Repliés, le plateau et ses pièces tiennent dans un coffret de 57 × 30 cm.</p>",
+        "show_specs": true,
+        "button_label": "Voir l'Ambassadeur"
+      }
+    },
+    "promises": {
+      "type": "ech-promises",
+      "blocks": {
+        "p1": {
+          "type": "item",
+          "settings": {
+            "title": "Livraison offerte en France",
+            "text": "Dès 50 €, suivie, en 5 à 10 jours ouvrés"
+          }
+        },
+        "p2": {
+          "type": "item",
+          "settings": {
+            "title": "Frais de douane inclus",
+            "text": "Rien à payer à la réception"
+          }
+        },
+        "p3": {
+          "type": "item",
+          "settings": {
+            "title": "14 jours pour changer d'avis",
+            "text": "Remboursement des frais de livraison initiaux"
+          }
+        }
+      },
+      "block_order": [
+        "p1",
+        "p2",
+        "p3"
+      ],
+      "settings": {}
+    },
+    "ambiance": {
+      "type": "ech-ambiance",
+      "settings": {
+        "asset_desktop": "ambiance-bureau.jpg",
+        "asset_mobile": "ambiance-bureau-mobile.jpg",
+        "alt": "Un bureau parisien au soleil couchant : fauteuil en velours vert, lampe en laiton, un échiquier posé sur la table.",
+        "position": "50% 50%",
+        "text_side": "left",
+        "tone": "ink",
+        "heading_tag": "h1",
+        "kicker": "Maison Roszada",
+        "title": "Il existe une pièce où le temps ralentit.",
+        "text": "<p>Des jeux d'échecs choisis comme des objets de maison. On les pose au salon, et on ne les range plus.</p>",
+        "button_label": "Entrer",
+        "button_link": ""
+      }
+    },
+    "manifeste": {
+      "type": "ech-manifeste",
+      "settings": {
+        "asset": "ambiance-main-pion.jpg",
+        "alt": "Une main pose un pion sur un échiquier en bois.",
+        "image_side": "left",
+        "kicker": "Le nom",
+        "title": "Le refuge du roi",
+        "text": "<p>Aux échecs, un seul coup permet au roi de se mettre à l'abri : le roque. En polonais, on dit <em>roszada</em>.</p><p>Nous avons donné ce nom à notre maison. Un jeu d'échecs ne se range pas dans un placard. Il s'installe au milieu du salon, et l'on y revient, partie après partie.</p>",
+        "button_label": "",
+        "button_link": ""
+      }
+    },
+    "salon": {
+      "type": "ech-ambiance",
+      "settings": {
+        "asset_desktop": "ambiance-salon.jpg",
+        "asset_mobile": "ambiance-salon.jpg",
+        "alt": "Un grand salon au crépuscule : deux fauteuils en cuir, une cheminée allumée, un échiquier sur la table basse.",
+        "position": "62% 50%",
+        "text_side": "left",
+        "tone": "ink",
+        "heading_tag": "h2",
+        "kicker": "Au salon",
+        "title": "Une partie commence. Le jeu reste là.",
+        "text": "<p>Un plateau sur la table basse, près du feu. Entre deux parties, c'est une pièce de mobilier.</p>",
+        "button_label": "Voir la collection",
+        "button_link": "shopify://collections/coffrets-echecs"
+      }
+    }
+  },
+  "order": [
+    "ambiance",
+    "collection",
+    "manifeste",
+    "spotlight",
+    "salon",
+    "promises"
+  ]
+}

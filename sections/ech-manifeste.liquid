@@ -1,0 +1,44 @@
+{%- comment -%} Image d'ambiance + texte de marque, côte à côte. Sans filtre. {%- endcomment -%}
+{%- liquid
+  if section.settings.image != blank
+    assign src = section.settings.image | image_url: width: 1400
+  else
+    assign src = section.settings.asset | asset_url
+  endif
+-%}
+<div class="ech-mani ech-mani--{{ section.settings.image_side }}">
+  <div class="ech-mani__media">
+    <img src="{{ src }}" alt="{{ section.settings.alt | escape }}" loading="lazy" class="ech-mani__img" width="1122" height="1402">
+  </div>
+  <div class="ech-mani__text">
+    {%- if section.settings.kicker != blank -%}<p class="ech-kicker">{{ section.settings.kicker }}</p>{%- endif -%}
+    {%- if section.settings.title != blank -%}<h2 class="ech-mani__title">{{ section.settings.title }}</h2>{%- endif -%}
+    <div class="ech-mani__body">{{ section.settings.text }}</div>
+    {%- if section.settings.button_label != blank and section.settings.button_link != blank -%}
+      <a class="ech-link" href="{{ section.settings.button_link }}">{{ section.settings.button_label }}</a>
+    {%- endif -%}
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Manifeste (image + texte)",
+  "tag": "section",
+  "class": "ech-section",
+  "settings": [
+    { "type": "image_picker", "id": "image", "label": "Image" },
+    { "type": "text", "id": "asset", "label": "Image du thème", "default": "ambiance-main-pion.jpg", "info": "Utilisée si aucune image n'est choisie." },
+    { "type": "text", "id": "alt", "label": "Description de l'image" },
+    { "type": "select", "id": "image_side", "label": "Image à", "default": "left", "options": [
+      { "value": "left", "label": "Gauche" },
+      { "value": "right", "label": "Droite" }
+    ] },
+    { "type": "text", "id": "kicker", "label": "Surtitre" },
+    { "type": "text", "id": "title", "label": "Titre" },
+    { "type": "richtext", "id": "text", "label": "Texte" },
+    { "type": "text", "id": "button_label", "label": "Lien (texte)" },
+    { "type": "url", "id": "button_link", "label": "Lien" }
+  ],
+  "presets": [{ "name": "Manifeste (image + texte)" }]
+}
+{% endschema %}

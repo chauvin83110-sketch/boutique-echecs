@@ -25,7 +25,7 @@
 
   <div class="ech-footer__main ech-wrap">
     <div class="ech-footer__brand">
-      <p class="ech-footer__name">{{ shop.name }}</p>
+      <a href="{{ routes.root_url }}" class="ech-footer__logo"><img src="{{ 'logo-roszada-clair.png' | asset_url }}" alt="{{ shop.name | escape }}" width="891" height="310" loading="lazy"></a>
       {%- if section.settings.about != blank -%}<p class="ech-footer__about">{{ section.settings.about }}</p>{%- endif -%}
     </div>
 

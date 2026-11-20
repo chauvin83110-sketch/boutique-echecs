@@ -331,3 +331,9 @@ body { background: var(--ech-ivory); color: var(--ech-ink); }
 
 /* Prix lisibles partout (Horizon) */
 .price, product-price { font-variant-numeric: tabular-nums; }
+
+/* Logo Maison Roszada */
+.ech-logo { display: block; height: 52px; width: auto; }
+@media (min-width: 750px) { .ech-logo { height: 76px; } }
+.ech-footer__logo { display: inline-block; margin-bottom: 0.8rem; }
+.ech-footer__logo img { display: block; height: 70px; width: auto; }

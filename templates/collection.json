@@ -181,7 +181,7 @@
         "padding-block-start": 0,
         "padding-block-end": 32,
         "banner_1_label": "",
-        "banner_1_title": "Le Tournoi n°6, au salon",
+        "banner_1_title": "",
         "banner_1_text": "Plateau en marqueterie d'acajou et de sycomore, pièces Staunton n°6 lestées, deux dames en plus.",
         "banner_1_link": "shopify://products/coffret-dechecs-tournoi-n-6-pieces-lestees-et-dames-supplementaires",
         "banner_1_button": "Voir le modèle",
@@ -205,8 +205,8 @@
       "type": "collection-guide",
       "settings": {
         "guide_kicker": "Guide d'achat",
-        "guide_title": "Bien choisir son échiquier",
-        "guide_text": "<h3>La taille du plateau</h3><p>Mesurez la table qui l'accueillera. Un plateau de 41 cm tient sur une table basse étroite ; 49 cm laisse plus d'aisance aux pièces ; 55 cm devient l'objet principal de la table. Les dimensions exactes, plié et ouvert, sont indiquées sur chaque fiche.</p><h3>Des pièces à la bonne échelle</h3><p>Pour jouer confortablement, la case doit mesurer environ deux fois le diamètre de la base d'un pion.</p><h3>Le rangement</h3><p>Nos plateaux sont pliants : une fois fermés, ils servent de coffret aux pièces. Pratique pour ranger le jeu ou l'emporter.</p>",
+        "guide_title": "Bien choisir son jeu",
+        "guide_text": "<h3>La taille des pièces</h3><p>Un jeu se décrit par la hauteur de son roi, indiquée dans le nom de chaque modèle. Autour de 9,5 cm, c'est la taille des jeux de tournoi. Au-delà de 10,5 cm, le jeu prend de la présence sur une table basse.</p><h3>La case qui va avec</h3><p>Chaque fiche indique la taille de case conseillée. Elle permet de choisir un échiquier où les pièces ne sont ni à l'étroit ni perdues.</p><h3>Le bois</h3><p>Le bois des pièces claires et des pièces foncées est indiqué sur chaque fiche.</p>",
         "table_title": "",
         "col_1": "Bois",
         "col_2": "Aspect",
@@ -251,8 +251,8 @@
         "faq_5": {
           "type": "faq",
           "settings": {
-            "question": "D'où viennent vos échiquiers ?",
-            "answer": "<p>Nos coffrets actuels sont fabriqués en Pologne par un fabricant spécialisé dans les jeux d'échecs en bois. Le pays de fabrication est indiqué sur chaque fiche produit.</p>"
+            "question": "D'où viennent vos jeux ?",
+            "answer": "<p>Nos pièces et nos échiquiers sont fabriqués en Inde par un atelier spécialisé dans les jeux d'échecs en bois.</p>"
           }
         },
         "faq_6": {
@@ -266,7 +266,7 @@
           "type": "faq",
           "settings": {
             "question": "Puis-je offrir un jeu en cadeau ?",
-            "answer": "<p>Oui. Le plateau pliant sert de coffret aux pièces : le jeu arrive complet et rangé. Précisez en note de commande s'il s'agit d'un cadeau.</p>"
+            "answer": "<p>Oui. Précisez en note de commande s'il s'agit d'un cadeau.</p>"
           }
         },
         "faq_8": {

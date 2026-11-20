@@ -2,6 +2,7 @@
   assign c = section.settings.collection
   assign limit = section.settings.limit
 -%}
+{%- if c.products_count > 0 or request.design_mode -%}
 <div class="ech-showcase ech-wrap">
   <div class="ech-showcase__head">
     <div>
@@ -23,6 +24,7 @@
     {%- endif -%}
   </ul>
 </div>
+{%- endif -%}
 
 {% schema %}
 {

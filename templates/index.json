@@ -17,33 +17,33 @@
         "image_side": "left",
         "kicker": "",
         "title": "La partie se prolonge au salon.",
-        "text": "<p>Des échiquiers en bois, pliants, qui restent sur la table basse entre deux parties.</p>",
-        "button_label": "Découvrir les échiquiers",
-        "button_link": "shopify://collections/coffrets-echecs",
+        "text": "<p>Des jeux d'échecs choisis pour rester au salon, entre deux parties.</p>",
+        "button_label": "Découvrir les jeux",
+        "button_link": "shopify://collections/jeux-de-legende",
         "note": "Livraison offerte en France · Retours sous 14 jours"
       }
     },
     "collection": {
       "type": "ech-collection-showcase",
       "settings": {
-        "collection": "coffrets-echecs",
+        "collection": "jeux-de-legende",
         "kicker": "La collection",
-        "title": "Nos échiquiers",
+        "title": "Jeux de légende",
         "text": "",
-        "link_label": "Voir toute la collection",
+        "link_label": "Voir tous les jeux",
         "limit": 6
       }
     },
     "spotlight": {
       "type": "ech-spotlight",
       "settings": {
-        "product": "coffret-dechecs-ambassadeur-plateau-55-cm-en-bois-brule",
+        "product": "le-cooke-1849",
         "media_index": 1,
         "kicker": "De près",
         "title": "",
-        "text": "<p>Un plateau de 55 cm, des ornements brûlés sur les pièces et sur le cadre. Repliés, le plateau et ses pièces tiennent dans un coffret de 57 × 30 cm.</p>",
+        "text": "",
         "show_specs": true,
-        "button_label": "Voir l'Ambassadeur"
+        "button_label": "Voir le Cooke 1849"
       }
     },
     "promises": {

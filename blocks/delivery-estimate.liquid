@@ -6,6 +6,10 @@
   assign p = closest.product
   assign d_min = block.settings.days_min
   assign d_max = block.settings.days_max
+  if block.settings.tag_1 != blank and p.tags contains block.settings.tag_1
+    assign d_min = block.settings.tag_1_min
+    assign d_max = block.settings.tag_1_max
+  endif
   if p.metafields.custom.delai_min != blank
     assign d_min = p.metafields.custom.delai_min.value | default: p.metafields.custom.delai_min
   endif
@@ -36,7 +40,10 @@
     },
     { "type": "text", "id": "prefix", "label": "Texte", "default": "Livré" },
     { "type": "range", "id": "days_min", "label": "Délai minimum (jours ouvrés)", "min": 1, "max": 30, "step": 1, "default": 5 },
-    { "type": "range", "id": "days_max", "label": "Délai maximum (jours ouvrés)", "min": 1, "max": 40, "step": 1, "default": 10 }
+    { "type": "range", "id": "days_max", "label": "Délai maximum (jours ouvrés)", "min": 1, "max": 40, "step": 1, "default": 10 },
+    { "type": "text", "id": "tag_1", "label": "Balise fournisseur avec un autre délai", "default": "fournisseur-chessbazaar" },
+    { "type": "range", "id": "tag_1_min", "label": "Délai minimum pour cette balise", "min": 1, "max": 30, "step": 1, "default": 7 },
+    { "type": "range", "id": "tag_1_max", "label": "Délai maximum pour cette balise", "min": 1, "max": 40, "step": 1, "default": 10 }
   ],
   "presets": [{ "name": "Livraison estimée" }]
 }

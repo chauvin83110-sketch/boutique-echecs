@@ -18,7 +18,9 @@
       echo product.metafields.custom.finition.value | default: product.metafields.custom.finition
     elsif bits.size > 1
       assign f = t | remove_first: bits.first | remove_first: sep | strip
-      echo f | capitalize
+      assign f1 = f | slice: 0 | upcase
+      assign frest = f | slice: 1, 500
+      echo f1 | append: frest
     endif
   endif
 -%}

@@ -372,3 +372,10 @@ body { background: var(--ech-ivory); color: var(--ech-ink); }
   .ech-amb--ink .ech-amb__lede { color: var(--ech-ink); font-size: 1.1rem; }
   .ech-amb--ink .ech-kicker { color: var(--ech-ink); opacity: .8; }
 }
+@media (min-width: 750px) {
+  .ech-amb--below { height: auto; overflow: visible; }
+  .ech-amb--below .ech-amb__media, .ech-amb--below .ech-amb__img { position: static; height: auto; }
+  .ech-amb--below .ech-amb__img { aspect-ratio: 16 / 9; max-height: 82vh; }
+  .ech-amb--below .ech-amb__text { height: auto; max-width: 44rem; margin: 0 auto; padding: 48px 24px 56px; align-items: center; text-align: center; }
+  .ech-amb--below .ech-amb__lede { margin-left: auto; margin-right: auto; }
+}

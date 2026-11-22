@@ -1,0 +1,225 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "ambiance": {
+      "type": "ech-ambiance",
+      "settings": {
+        "asset_desktop": "ambiance-bureau.jpg",
+        "asset_mobile": "ambiance-bureau-mobile.jpg",
+        "alt": "Un bureau parisien au soleil couchant : fauteuil en velours vert, lampe en laiton, un échiquier posé sur la table.",
+        "position": "50% 75%",
+        "text_side": "left",
+        "tone": "ink",
+        "heading_tag": "h1",
+        "kicker": "Pour Noël",
+        "title": "Il a déjà tout. Il n'a pas ça.",
+        "text": "<p>Des jeux d'échecs nés de parties célèbres, choisis comme des objets de maison. Un cadeau qu'il ne rangera pas.</p>",
+        "button_label": "Trouver son cadeau",
+        "button_link": "/collections/all?view=offrir"
+      }
+    },
+    "gifts": {
+      "type": "ech-gift-budgets",
+      "blocks": {
+        "t1": {
+          "type": "tier",
+          "settings": {
+            "label": "Moins de 500 €",
+            "sub": "Des jeux de pièces pour un premier beau jeu",
+            "min": 300,
+            "max": 500,
+            "link_label": "Tout voir",
+            "link": "/collections/all?view=offrir"
+          }
+        },
+        "t2": {
+          "type": "tier",
+          "settings": {
+            "label": "De 500 à 900 €",
+            "sub": "Les grands jeux de légende",
+            "min": 500,
+            "max": 900,
+            "link_label": "Tout voir",
+            "link": "/collections/all?view=offrir"
+          }
+        },
+        "t3": {
+          "type": "tier",
+          "settings": {
+            "label": "L'exception",
+            "sub": "Pour un cadeau qui marque",
+            "min": 900,
+            "max": 0,
+            "link_label": "Tout voir",
+            "link": "/collections/all?view=offrir"
+          }
+        }
+      },
+      "block_order": [
+        "t1",
+        "t2",
+        "t3"
+      ],
+      "settings": {
+        "kicker": "Offrir",
+        "title": "Trouver son cadeau",
+        "heading_tag": "h2",
+        "text": "<p>Trois budgets, des jeux choisis un par un. Chacun raconte une partie ou une époque.</p>",
+        "limit": 4,
+        "hide_sold_out": true
+      }
+    },
+    "promises": {
+      "type": "ech-promises",
+      "blocks": {
+        "p1": {
+          "type": "item",
+          "settings": {
+            "title": "Rien à payer à la livraison",
+            "text": "Taxes et douane à notre charge, livraison offerte et suivie"
+          }
+        },
+        "p2": {
+          "type": "item",
+          "settings": {
+            "title": "Arrivé abîmé ? Remplacé",
+            "text": "Prévenez-nous sous 3 jours avec une photo"
+          }
+        },
+        "p3": {
+          "type": "item",
+          "settings": {
+            "title": "14 jours pour changer d'avis",
+            "text": "Après réception, sans vous justifier"
+          }
+        }
+      },
+      "block_order": [
+        "p1",
+        "p2",
+        "p3"
+      ],
+      "settings": {}
+    },
+    "spotlight": {
+      "type": "ech-spotlight",
+      "settings": {
+        "product": "le-cooke-1849",
+        "media_index": 1,
+        "kicker": "De près",
+        "title": "",
+        "text": "",
+        "show_specs": true,
+        "button_label": "Voir le Cooke 1849"
+      }
+    },
+    "salon": {
+      "type": "ech-ambiance",
+      "settings": {
+        "asset_desktop": "ambiance-salon.jpg",
+        "asset_mobile": "ambiance-salon.jpg",
+        "alt": "Un grand salon au crépuscule : deux fauteuils en cuir, une cheminée allumée, un échiquier sur la table basse.",
+        "position": "62% 50%",
+        "text_side": "left",
+        "tone": "below",
+        "heading_tag": "h2",
+        "kicker": "Il ne joue pas ?",
+        "title": "Aucun souci. Un beau jeu se regarde aussi.",
+        "text": "<p>Posé sur une console ou une bibliothèque, il habille la pièce comme un objet de maison. Et le jour où quelqu'un propose une partie, il est là.</p>",
+        "button_label": "Voir les jeux de légende",
+        "button_link": "shopify://collections/jeux-de-legende"
+      }
+    },
+    "faq": {
+      "type": "collection-guide",
+      "blocks": {
+        "q1": {
+          "type": "faq",
+          "settings": {
+            "question": "Sera-t-il livré avant Noël ?",
+            "answer": "<p>La date de livraison estimée est indiquée sur chaque produit. Comptez 7 à 10 jours ouvrés, avec un numéro de suivi dès l'expédition.</p>"
+          }
+        },
+        "q2": {
+          "type": "faq",
+          "settings": {
+            "question": "Y a-t-il quelque chose à payer à la réception ?",
+            "answer": "<p>Non. Les frais de douane et les taxes sont à notre charge, et la livraison est offerte en France dès 50 €.</p>"
+          }
+        },
+        "q3": {
+          "type": "faq",
+          "settings": {
+            "question": "Et s'il arrive abîmé ?",
+            "answer": "<p>Prévenez-nous sous 3 jours avec des photos : nous le remplaçons ou le remboursons.</p>"
+          }
+        },
+        "q4": {
+          "type": "faq",
+          "settings": {
+            "question": "Et si le cadeau ne plaît pas ?",
+            "answer": "<p>Vous disposez de 14 jours après réception pour changer d'avis, sans avoir à vous justifier. Le jeu doit nous revenir complet et dans son état d'origine.</p>"
+          }
+        },
+        "q5": {
+          "type": "faq",
+          "settings": {
+            "question": "L'échiquier est-il fourni ?",
+            "answer": "<p>Nos jeux de pièces sont vendus seuls. Pour un cadeau prêt à jouer, choisissez un ensemble ou ajoutez un <a href=\"/collections/echiquiers\">échiquier</a>.</p>"
+          }
+        },
+        "q6": {
+          "type": "faq",
+          "settings": {
+            "question": "Il ne joue pas aux échecs, est-ce une bonne idée ?",
+            "answer": "<p>Oui. Nos jeux sont aussi des objets de décoration, faits pour rester posés au salon ou au bureau.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "q1",
+        "q2",
+        "q3",
+        "q4",
+        "q5",
+        "q6"
+      ],
+      "settings": {
+        "guide_kicker": "",
+        "guide_title": "",
+        "guide_text": "",
+        "auto_compare": false,
+        "table_title": "",
+        "faq_title": "Vos questions avant d'offrir"
+      }
+    },
+    "duos": {
+      "type": "ech-collection-showcase",
+      "settings": {
+        "collection": "ensembles",
+        "kicker": "Prêt à offrir",
+        "title": "Le jeu complet, -20 %",
+        "text": "<p>Les pièces et l'échiquier assorti, réunis en un seul cadeau prêt à jouer : 20 % de moins qu'achetés séparément.</p>",
+        "link_label": "Voir tous les ensembles",
+        "limit": 6
+      }
+    }
+  },
+  "order": [
+    "ambiance",
+    "gifts",
+    "duos",
+    "promises",
+    "spotlight",
+    "salon",
+    "faq"
+  ]
+}

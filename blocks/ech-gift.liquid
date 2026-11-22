@@ -8,6 +8,7 @@
   if block.settings.pieces_type != blank and p.type == block.settings.pieces_type
     assign pieces_only = true
   endif
+  assign pieces_link = block.settings.pieces_link | default: '/collections/echiquiers'
 -%}
 <div class="ech-gift" {{ block.shopify_attributes }}>
   <p class="ech-gift__title">{{ block.settings.title }}</p>
@@ -25,7 +26,7 @@
   {%- if pieces_only and block.settings.pieces_text != blank -%}
     <p class="ech-gift__note">
       {{ block.settings.pieces_text }}
-      {%- if block.settings.pieces_link != blank -%} <a href="{{ block.settings.pieces_link }}">{{ block.settings.pieces_link_label }}</a>{%- endif -%}
+      {%- if block.settings.pieces_link_label != blank -%} <a href="{{ pieces_link }}">{{ block.settings.pieces_link_label }}</a>{%- endif -%}
     </p>
   {%- endif -%}
 </div>
@@ -51,7 +52,7 @@
     { "type": "text", "id": "pieces_type", "label": "Type de produit concerné", "default": "Pièces d'échecs" },
     { "type": "text", "id": "pieces_text", "label": "Rappel", "default": "Ces pièces sont vendues sans échiquier." },
     { "type": "text", "id": "pieces_link_label", "label": "Texte du lien", "default": "Choisir un échiquier" },
-    { "type": "url", "id": "pieces_link", "label": "Lien", "default": "/collections/echiquiers" }
+    { "type": "url", "id": "pieces_link", "label": "Lien", "info": "Vide : collection Échiquiers." }
   ],
   "presets": [{ "name": "Pour offrir" }]
 }

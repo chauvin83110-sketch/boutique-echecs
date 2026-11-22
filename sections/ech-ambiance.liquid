@@ -31,7 +31,16 @@
     <{{ section.settings.heading_tag }} class="ech-amb__title">{{ section.settings.title }}</{{ section.settings.heading_tag }}>
     {%- if section.settings.text != blank -%}<div class="ech-amb__lede">{{ section.settings.text }}</div>{%- endif -%}
     {%- if section.settings.button_label != blank -%}
-      <a class="ech-btn" href="{{ section.settings.button_link | default: '#ech-entree' }}">{{ section.settings.button_label }}</a>
+      {%- liquid
+        assign btn_href = '#ech-entree'
+        if section.settings.button_anchor != blank
+          assign btn_href = '#' | append: section.settings.button_anchor
+        endif
+      -%}
+      <a class="ech-btn" href="{{ section.settings.button_link | default: btn_href }}">{{ section.settings.button_label }}</a>
+    {%- endif -%}
+    {%- if section.settings.link2_label != blank and section.settings.link2 != blank -%}
+      <a class="ech-link ech-amb__link2" href="{{ section.settings.link2 }}">{{ section.settings.link2_label }}</a>
     {%- endif -%}
   </div>
 </div>
@@ -63,7 +72,10 @@
     { "type": "text", "id": "title", "label": "Titre", "default": "Il existe une pièce où le temps ralentit." },
     { "type": "richtext", "id": "text", "label": "Texte" },
     { "type": "text", "id": "button_label", "label": "Bouton", "default": "Entrer" },
-    { "type": "url", "id": "button_link", "label": "Lien du bouton", "info": "Vide : descend à la section suivante." }
+    { "type": "url", "id": "button_link", "label": "Lien du bouton", "info": "Vide : descend à la section suivante." },
+    { "type": "text", "id": "button_anchor", "label": "Ancre du bouton si lien vide (ex. ech-maison)" },
+    { "type": "text", "id": "link2_label", "label": "Second lien : libellé" },
+    { "type": "url", "id": "link2", "label": "Second lien" }
   ],
   "presets": [{ "name": "Accueil : ambiance" }]
 }

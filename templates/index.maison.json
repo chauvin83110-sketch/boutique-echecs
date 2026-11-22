@@ -1,0 +1,274 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "hero": {
+      "type": "ech-ambiance",
+      "settings": {
+        "asset_desktop": "ambiance-bureau.jpg",
+        "asset_mobile": "ambiance-bureau-mobile.jpg",
+        "alt": "Un bureau au soleil couchant : fauteuil en velours vert, lampe en laiton, un jeu posé sur la table (décor).",
+        "position": "50% 75%",
+        "text_side": "left",
+        "tone": "ink",
+        "heading_tag": "h1",
+        "kicker": "Maison Roszada, le refuge du roi",
+        "title": "Le coin de la maison où le temps ralentit.",
+        "text": "<p>Des objets en ébène et bois de rose, sculptés en Inde, qui donnent à une pièce son caractère. Et quand l'envie vient, on joue.</p>",
+        "button_label": "Entrer dans la maison",
+        "button_anchor": "ech-maison",
+        "link2_label": "Offrir",
+        "link2": "/collections/ensembles-roszada"
+      }
+    },
+    "promises": {
+      "type": "ech-promises",
+      "blocks": {
+        "p1": {
+          "type": "item",
+          "settings": {
+            "icon": "truck",
+            "title": "Livraison offerte et suivie",
+            "text": ""
+          }
+        },
+        "p2": {
+          "type": "item",
+          "settings": {
+            "icon": "customs",
+            "title": "Frais de douane déjà réglés",
+            "text": ""
+          }
+        },
+        "p3": {
+          "type": "item",
+          "settings": {
+            "icon": "shield",
+            "title": "Remplacé à nos frais s'il arrive abîmé",
+            "text": ""
+          }
+        },
+        "p4": {
+          "type": "item",
+          "settings": {
+            "icon": "return",
+            "title": "14 jours pour changer d'avis",
+            "text": ""
+          }
+        }
+      },
+      "block_order": [
+        "p1",
+        "p2",
+        "p3",
+        "p4"
+      ],
+      "settings": {}
+    },
+    "scenes": {
+      "type": "ech-scenes",
+      "settings": {
+        "kicker": "Les pièces de la maison",
+        "title": "Chaque pièce a sa pièce",
+        "text": "<p>Choisissez d'abord où il vivra. Nous avons composé l'objet qui va avec.</p>"
+      },
+      "blocks": {
+        "salon": {
+          "type": "scene",
+          "settings": {
+            "asset": "ambiance-salon.jpg",
+            "position": "62% 50%",
+            "title": "Le salon d'hiver",
+            "caption": "Le feu, le plaid, la partie après le dîner.",
+            "link": "/collections/salon-d-hiver",
+            "alt": "Un salon au crépuscule, cheminée allumée (décor)."
+          }
+        },
+        "biblio": {
+          "type": "scene",
+          "settings": {
+            "asset": "ambiance-bibliotheque.jpg",
+            "position": "30% 50%",
+            "title": "La bibliothèque",
+            "caption": "La lampe laiton, les reliures, l'ébène qui brille.",
+            "link": "/collections/bibliotheque",
+            "alt": "Une bibliothèque aux murs verts, fauteuils de cuir (décor)."
+          }
+        },
+        "bureau": {
+          "type": "scene",
+          "settings": {
+            "asset": "ambiance-bureau-mobile.jpg",
+            "position": "50% 50%",
+            "title": "Le bureau",
+            "caption": "Une partie en cours, un coup par jour.",
+            "link": "/collections/bureau",
+            "alt": "Un bureau à l'heure dorée, lampe en laiton (décor)."
+          }
+        },
+        "famille": {
+          "type": "scene",
+          "settings": {
+            "asset": "ambiance-main-pion.jpg",
+            "position": "50% 60%",
+            "title": "La maison de famille",
+            "caption": "Le dimanche, ce qu'on transmet.",
+            "link": "/collections/maison-de-famille",
+            "alt": "Une main déplace une pièce sur l'échiquier (décor)."
+          }
+        }
+      },
+      "block_order": [
+        "salon",
+        "biblio",
+        "bureau",
+        "famille"
+      ]
+    },
+    "manifeste": {
+      "type": "ech-manifeste",
+      "settings": {
+        "asset": "ambiance-main-pion.jpg",
+        "alt": "Une main pose une pièce sur l'échiquier (décor).",
+        "image_side": "left",
+        "tone": "green",
+        "kicker": "Le refuge du roi",
+        "title": "",
+        "text": "<p>Il y a des maisons où l'on entre et où l'on baisse la voix.</p><p>Une lampe basse. Du bois sombre. Un fauteuil qui attend.</p><p>Sur la table, un objet que personne n'a rangé depuis des mois.</p><p>On s'en approche. On prend une pièce dans la main : elle est lourde, douce, puis tiède.</p><p>Maison Roszada crée ces endroits-là.</p><p>Aux échecs, le roque met le roi à l'abri. Chez nous, c'est vous qu'on abrite.</p><p><em>Le refuge du roi.</em></p>",
+        "button_label": "",
+        "button_link": ""
+      }
+    },
+    "duos": {
+      "type": "ech-collection-showcase",
+      "settings": {
+        "collection": "ensembles-roszada",
+        "kicker": "Prêt à offrir",
+        "title": "La scène complète, prête à poser",
+        "text": "<p>Les pièces et leur échiquier, accordés pour la même pièce de la maison. Rien à assortir. 20 % de moins qu'achetés séparément.</p>",
+        "link_label": "Voir les ensembles",
+        "limit": 6
+      }
+    },
+    "conseils": {
+      "type": "ech-columns",
+      "settings": {
+        "tone": "ivory",
+        "kicker": "Conseils de la maison",
+        "title": "Composer sa scène",
+        "text": ""
+      },
+      "blocks": {
+        "c1": {
+          "type": "col",
+          "settings": {
+            "title": "Où le poser",
+            "text": "<p>Sur une table basse ou une console, à hauteur du regard quand on est assis. Laissez 20 cm de vide autour : l'objet a besoin d'air.</p>"
+          }
+        },
+        "c2": {
+          "type": "col",
+          "settings": {
+            "title": "La lumière",
+            "text": "<p>Une lampe latérale basse fait briller l'ébène et chauffe le bois de rose. Évitez le soleil direct, qui fonce le bois.</p>"
+          }
+        },
+        "c3": {
+          "type": "col",
+          "settings": {
+            "title": "Les compagnons",
+            "text": "<p>Un livre relié, une carafe, un plaid : trois objets suffisent pour créer une scène.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "c1",
+        "c2",
+        "c3"
+      ]
+    },
+    "ateliers": {
+      "type": "ech-columns",
+      "settings": {
+        "tone": "sand",
+        "kicker": "Nos ateliers",
+        "title": "Une maison imaginaire, deux ateliers réels",
+        "text": "<p>Nos pièces sont sculptées en Inde, là où les échecs sont nés. Nos tables viennent d'un fabricant de jeux en bois en Pologne. Nous composons chaque scène, et nous vous l'envoyons prête à poser.</p>",
+        "button_label": "Notre maison",
+        "button_link": "/pages/notre-maison"
+      }
+    },
+    "faq": {
+      "type": "collection-guide",
+      "settings": {
+        "guide_kicker": "",
+        "guide_title": "",
+        "guide_text": "",
+        "auto_compare": false,
+        "table_title": "",
+        "faq_title": "Questions fréquentes"
+      },
+      "blocks": {
+        "q1": {
+          "type": "faq",
+          "settings": {
+            "question": "Faut-il savoir jouer ?",
+            "answer": "<p>Non. La plupart de nos objets vivent d'abord au salon. Ils donnent envie d'apprendre, ou de rejouer.</p>"
+          }
+        },
+        "q2": {
+          "type": "faq",
+          "settings": {
+            "question": "Quand arrivera ma commande ?",
+            "answer": "<p>Sous 7 à 10 jours ouvrés, avec un suivi.</p>"
+          }
+        },
+        "q3": {
+          "type": "faq",
+          "settings": {
+            "question": "Y a-t-il des frais de douane ?",
+            "answer": "<p>Non, ils sont déjà réglés. Rien à payer à la réception.</p>"
+          }
+        },
+        "q4": {
+          "type": "faq",
+          "settings": {
+            "question": "Et s'il arrive abîmé ?",
+            "answer": "<p>Envoyez-nous une photo : nous le remplaçons à nos frais.</p>"
+          }
+        },
+        "q5": {
+          "type": "faq",
+          "settings": {
+            "question": "Puis-je le retourner ?",
+            "answer": "<p>Oui, 14 jours après réception pour changer d'avis.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "q1",
+        "q2",
+        "q3",
+        "q4",
+        "q5"
+      ]
+    }
+  },
+  "order": [
+    "hero",
+    "promises",
+    "scenes",
+    "manifeste",
+    "duos",
+    "conseils",
+    "ateliers",
+    "faq"
+  ]
+}

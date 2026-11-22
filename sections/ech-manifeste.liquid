@@ -6,7 +6,7 @@
     assign src = section.settings.asset | asset_url
   endif
 -%}
-<div class="ech-mani ech-mani--{{ section.settings.image_side }}">
+<div class="ech-mani ech-mani--{{ section.settings.image_side }} ech-mani--{{ section.settings.tone | default: 'sand' }}">
   <div class="ech-mani__media">
     <img src="{{ src }}" alt="{{ section.settings.alt | escape }}" loading="lazy" class="ech-mani__img" width="1122" height="1402">
   </div>
@@ -32,6 +32,10 @@
     { "type": "select", "id": "image_side", "label": "Image à", "default": "left", "options": [
       { "value": "left", "label": "Gauche" },
       { "value": "right", "label": "Droite" }
+    ] },
+    { "type": "select", "id": "tone", "label": "Fond", "default": "sand", "options": [
+      { "value": "sand", "label": "Sable" },
+      { "value": "green", "label": "Vert bouteille" }
     ] },
     { "type": "text", "id": "kicker", "label": "Surtitre" },
     { "type": "text", "id": "title", "label": "Titre" },

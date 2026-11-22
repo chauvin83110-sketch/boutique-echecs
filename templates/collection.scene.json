@@ -1,0 +1,179 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "hero": {
+      "type": "ech-scene-hero",
+      "settings": {
+        "kicker": "Une pièce de la maison",
+        "asset_map": "salon-d-hiver=ambiance-salon.jpg\nbibliotheque=ambiance-bibliotheque.jpg\nbureau=ambiance-bureau.jpg\nmaison-de-famille=ambiance-main-pion.jpg"
+      }
+    },
+    "main": {
+      "type": "main-collection",
+      "blocks": {
+        "filters": {
+          "type": "filters",
+          "static": true,
+          "settings": {
+            "enable_filtering": true,
+            "filter_style": "horizontal",
+            "filter_width": "centered",
+            "text_label_case": "default",
+            "show_swatch_label": false,
+            "show_filter_label": false,
+            "enable_sorting": true,
+            "enable_grid_density": true,
+            "padding-block-start": 8,
+            "padding-block-end": 8,
+            "padding-inline-start": 0,
+            "padding-inline-end": 0,
+            "facets_margin_bottom": 8,
+            "facets_margin_right": 20
+          },
+          "blocks": {}
+        },
+        "product-card": {
+          "type": "_product-card",
+          "static": true,
+          "settings": {
+            "product_card_gap": 4,
+            "border": "none",
+            "border_width": 1,
+            "border_opacity": 100,
+            "border_radius": 0,
+            "padding-block-start": 0,
+            "padding-block-end": 0,
+            "padding-inline-start": 0,
+            "padding-inline-end": 0
+          },
+          "blocks": {
+            "card-gallery": {
+              "type": "_product-card-gallery",
+              "settings": {
+                "image_ratio": "landscape",
+                "border": "none",
+                "border_width": 1,
+                "border_opacity": 100,
+                "border_radius": 0,
+                "padding-block-start": 0,
+                "padding-block-end": 0,
+                "padding-inline-start": 0,
+                "padding-inline-end": 0
+              },
+              "blocks": {}
+            },
+            "price_EzJzMm": {
+              "type": "price",
+              "settings": {
+                "show_sale_price_first": true,
+                "show_installments": false,
+                "show_tax_info": false,
+                "type_preset": "paragraph",
+                "width": "100%",
+                "alignment": "left",
+                "font": "var(--font-body--family)",
+                "font_size": "1.05rem",
+                "line_height": "normal",
+                "letter_spacing": "normal",
+                "case": "none",
+                "padding-block-start": 0,
+                "padding-block-end": 0,
+                "padding-inline-start": 0,
+                "padding-inline-end": 0
+              },
+              "blocks": {}
+            },
+            "swatches": {
+              "type": "swatches",
+              "name": "t:names.swatches",
+              "settings": {
+                "product_swatches_alignment": "flex-start",
+                "product_swatches_padding_top": 4,
+                "product_swatches_padding_bottom": 0,
+                "product_swatches_padding_left": 0,
+                "product_swatches_padding_right": 0
+              }
+            },
+            "wood": {
+              "type": "wood-swatches",
+              "settings": {
+                "show_label": true
+              }
+            },
+            "name": {
+              "type": "ech-product-name",
+              "settings": {
+                "as_heading": false,
+                "link": true,
+                "size": "card"
+              }
+            }
+          },
+          "block_order": [
+            "card-gallery",
+            "name",
+            "price_EzJzMm",
+            "swatches",
+            "wood"
+          ]
+        }
+      },
+      "settings": {
+        "layout_type": "grid",
+        "product_card_size": "large",
+        "mobile_product_card_size": "large",
+        "product_grid_width": "centered",
+        "full_width_on_mobile": true,
+        "columns_gap_horizontal": 16,
+        "columns_gap_vertical": 40,
+        "padding-inline-start": 0,
+        "padding-inline-end": 0,
+        "padding-block-start": 0,
+        "padding-block-end": 32,
+        "banner_1_label": "",
+        "banner_1_title": "",
+        "banner_1_text": "Plateau en marqueterie d'acajou et de sycomore, pièces Staunton n°6 lestées, deux dames en plus.",
+        "banner_1_link": "shopify://products/coffret-dechecs-tournoi-n-6-pieces-lestees-et-dames-supplementaires",
+        "banner_1_button": "Voir le modèle",
+        "banner_1_position": 2,
+        "banner_2_label": "02",
+        "banner_2_title": "",
+        "banner_2_text": "Cavaliers à crinière, rois couronnés : des pièces Staunton lestées, taillées et polies à la main.",
+        "banner_2_link": "shopify://collections/pieces-dechecs-sculptees",
+        "banner_2_button": "Voir les pièces",
+        "banner_2_position": 8,
+        "banner_3_label": "03",
+        "banner_3_title": "",
+        "banner_3_text": "Un échiquier et ses pièces rangés dans leur coffret en bois, prêt à offrir.",
+        "banner_3_link": "shopify://collections/coffrets-echecs",
+        "banner_3_button": "Voir les coffrets",
+        "banner_3_position": 14,
+        "banner_1_image": "shopify://shop_images/szachy-turniejowe-nr-6-z-dodatkowymi-hetmanami-ch96setbrowndq.jpg"
+      }
+    },
+    "compose": {
+      "type": "ech-scene-compose",
+      "settings": {
+        "kicker": "Composer la scène",
+        "title": "La scène complète, prête à poser",
+        "text": "<p>Les pièces et leur échiquier, accordés pour cette pièce de la maison. 20 % de moins qu'achetés séparément.</p>",
+        "fallback": "ensembles-roszada",
+        "link_label": "Voir les ensembles",
+        "limit": 4
+      }
+    }
+  },
+  "order": [
+    "hero",
+    "main",
+    "compose"
+  ]
+}

@@ -1,0 +1,48 @@
+{%- comment -%} Texte d'intro + colonnes (conseils, ateliers…). Sans image. {%- endcomment -%}
+<div class="ech-cols ech-wrap ech-cols--{{ section.settings.tone }}">
+  <div class="ech-cols__head">
+    {%- if section.settings.kicker != blank -%}<p class="ech-kicker">{{ section.settings.kicker }}</p>{%- endif -%}
+    {%- if section.settings.title != blank -%}<h2 class="ech-h2">{{ section.settings.title }}</h2>{%- endif -%}
+    {%- if section.settings.text != blank -%}<div class="ech-cols__text">{{ section.settings.text }}</div>{%- endif -%}
+    {%- if section.settings.button_label != blank and section.settings.button_link != blank -%}
+      <a class="ech-link" href="{{ section.settings.button_link }}">{{ section.settings.button_label }}</a>
+    {%- endif -%}
+  </div>
+  {%- if section.blocks.size > 0 -%}
+    <ul class="ech-cols__grid ech-cols__grid--{{ section.blocks.size }}" role="list">
+      {%- for block in section.blocks -%}
+        <li {{ block.shopify_attributes }}>
+          {%- if block.settings.title != blank -%}<h3 class="ech-cols__title">{{ block.settings.title }}</h3>{%- endif -%}
+          <div class="ech-cols__body">{{ block.settings.text }}</div>
+        </li>
+      {%- endfor -%}
+    </ul>
+  {%- endif -%}
+</div>
+
+{% schema %}
+{
+  "name": "Texte et colonnes",
+  "tag": "section",
+  "class": "ech-section",
+  "settings": [
+    { "type": "select", "id": "tone", "label": "Fond", "options": [ { "value": "ivory", "label": "Ivoire" }, { "value": "sand", "label": "Sable" } ], "default": "ivory" },
+    { "type": "text", "id": "kicker", "label": "Surtitre" },
+    { "type": "text", "id": "title", "label": "Titre" },
+    { "type": "richtext", "id": "text", "label": "Texte" },
+    { "type": "text", "id": "button_label", "label": "Lien : libellé" },
+    { "type": "url", "id": "button_link", "label": "Lien" }
+  ],
+  "blocks": [
+    {
+      "type": "col",
+      "name": "Colonne",
+      "settings": [
+        { "type": "text", "id": "title", "label": "Titre" },
+        { "type": "richtext", "id": "text", "label": "Texte" }
+      ]
+    }
+  ],
+  "presets": [{ "name": "Texte et colonnes" }]
+}
+{% endschema %}

@@ -1,0 +1,74 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "hero": {
+      "type": "ech-ambiance",
+      "settings": {
+        "asset_desktop": "ambiance-bibliotheque.jpg",
+        "asset_mobile": "ambiance-bibliotheque-mobile.jpg",
+        "alt": "Une bibliothèque aux murs verts, fauteuils de cuir, lampe allumée (décor).",
+        "position": "30% 50%",
+        "text_side": "right",
+        "tone": "below",
+        "heading_tag": "h1",
+        "kicker": "Notre maison",
+        "title": "Le refuge du roi.",
+        "text": "",
+        "button_label": ""
+      }
+    },
+    "part1": {
+      "type": "ech-columns",
+      "settings": {
+        "tone": "ivory",
+        "kicker": "",
+        "title": "Entrez",
+        "text": "<p>Imaginez une maison. Pas un château : une maison où l'on vit. Dans le salon, un feu, un plaid jeté sur un fauteuil. Dans la bibliothèque, des reliures et une lampe en laiton. Dans le bureau, un carnet ouvert. Et dans chaque pièce, posé là comme s'il y avait toujours été, un jeu en bois sombre qui attend.</p><p>Cette maison s'appelle Roszada. C'est le mot polonais pour le roque, le seul coup où le roi quitte le centre pour se mettre à l'abri. Nous voulions que nos objets fassent la même chose chez vous : créer un refuge.</p>"
+      }
+    },
+    "part2": {
+      "type": "ech-columns",
+      "settings": {
+        "tone": "ivory",
+        "kicker": "",
+        "title": "Des objets qui s'installent",
+        "text": "<p>Nos jeux ne se rangent pas dans un placard. Ils se posent, ils accrochent la lumière du soir, ils donnent à une pièce son caractère. On les regarde en passant. Un jour, on s'assoit. Une partie commence, et le jeu reste là.</p>"
+      }
+    },
+    "part3": {
+      "type": "ech-columns",
+      "settings": {
+        "tone": "ivory",
+        "kicker": "",
+        "title": "Deux ateliers, que nous nommons",
+        "text": "<p>La maison est imaginaire ; nos ateliers sont réels. En Inde, là où les échecs sont nés, nos pièces sont sculptées dans des bois denses, ébène, buis, bois de rose, puis lestées et feutrées. En Pologne, un fabricant de jeux en bois réalise nos tables et nos plateaux marquetés.</p>"
+      }
+    },
+    "part4": {
+      "type": "ech-columns",
+      "settings": {
+        "tone": "ivory",
+        "kicker": "",
+        "title": "Notre métier : composer des scènes",
+        "text": "<p>Nous choisissons chaque objet pour une pièce de la maison. Nous l'accordons au bon échiquier, à la bonne table, à la bonne lumière. Puis nous vous l'envoyons, frais de douane réglés, prêt à être posé, ou offert.</p>",
+        "button_label": "Entrer dans la maison",
+        "button_link": "/collections/all"
+      }
+    }
+  },
+  "order": [
+    "hero",
+    "part1",
+    "part2",
+    "part3",
+    "part4"
+  ]
+}

@@ -1,0 +1,50 @@
+{%- comment -%}
+  Bas de page de scène : les ensembles (balise "ensembles") de cette scène.
+  S'il n'y en a pas, on montre les ensembles de la collection choisie.
+{%- endcomment -%}
+{%- liquid
+  assign shown = 0
+  assign limit = section.settings.limit
+-%}
+<div class="ech-showcase ech-wrap">
+  <div class="ech-showcase__head">
+    <div>
+      {%- if section.settings.kicker != blank -%}<p class="ech-kicker">{{ section.settings.kicker }}</p>{%- endif -%}
+      <h2 class="ech-h2">{{ section.settings.title }}</h2>
+    </div>
+    {%- if section.settings.fallback != blank -%}<a class="ech-link" href="{{ section.settings.fallback.url }}">{{ section.settings.link_label }}</a>{%- endif -%}
+  </div>
+  {%- if section.settings.text != blank -%}<div class="ech-showcase__text">{{ section.settings.text }}</div>{%- endif -%}
+  <ul class="ech-showcase__grid" role="list">
+    {%- if collection != blank -%}
+      {%- for product in collection.products -%}
+        {%- if product.tags contains 'ensembles' and shown < limit -%}
+          <li>{% render 'ech-card', product: product %}</li>
+          {%- assign shown = shown | plus: 1 -%}
+        {%- endif -%}
+      {%- endfor -%}
+    {%- endif -%}
+    {%- if shown == 0 and section.settings.fallback != blank -%}
+      {%- for product in section.settings.fallback.products limit: limit -%}
+        <li>{% render 'ech-card', product: product %}</li>
+      {%- endfor -%}
+    {%- endif -%}
+  </ul>
+</div>
+
+{% schema %}
+{
+  "name": "Scène : la scène complète",
+  "tag": "section",
+  "class": "ech-section",
+  "settings": [
+    { "type": "text", "id": "kicker", "label": "Surtitre", "default": "Composer la scène" },
+    { "type": "text", "id": "title", "label": "Titre", "default": "La scène complète, prête à poser" },
+    { "type": "richtext", "id": "text", "label": "Texte" },
+    { "type": "collection", "id": "fallback", "label": "Ensembles à montrer si la scène n'en a pas" },
+    { "type": "text", "id": "link_label", "label": "Lien", "default": "Voir les ensembles" },
+    { "type": "range", "id": "limit", "label": "Nombre maximum", "min": 1, "max": 6, "step": 1, "default": 4 }
+  ],
+  "presets": [{ "name": "Scène : la scène complète" }]
+}
+{% endschema %}

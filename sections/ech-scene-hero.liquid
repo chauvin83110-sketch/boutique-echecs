@@ -1,0 +1,45 @@
+{%- comment -%}
+  Haut de page de scène (collection) : la scène en grand, son nom, son intro.
+  Photo : image de la collection, sinon le fichier du thème associé à son handle.
+{%- endcomment -%}
+{%- liquid
+  assign c = collection
+  assign asset_name = blank
+  assign lines = section.settings.asset_map | newline_to_br | split: '<br />'
+  for line in lines
+    assign pair = line | strip | split: '='
+    if pair[0] == c.handle
+      assign asset_name = pair[1] | strip
+    endif
+  endfor
+  if c.image != blank
+    assign src = c.image | image_url: width: 2400
+  elsif asset_name != blank
+    assign src = asset_name | asset_url
+  else
+    assign src = blank
+  endif
+-%}
+<div class="ech-shero{% if src == blank %} ech-shero--plain{% endif %}">
+  {%- if src != blank -%}
+    <div class="ech-shero__media"><img src="{{ src }}" alt="{{ c.title | escape }}" fetchpriority="high" loading="eager" width="1672" height="941"></div>
+  {%- endif -%}
+  <div class="ech-shero__text ech-wrap">
+    {%- if section.settings.kicker != blank -%}<p class="ech-kicker">{{ section.settings.kicker }}</p>{%- endif -%}
+    <h1 class="ech-h2 ech-shero__title">{{ c.title }}</h1>
+    {%- if c.description != blank -%}<div class="ech-shero__lede">{{ c.description }}</div>{%- endif -%}
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Scène : en-tête",
+  "tag": "section",
+  "class": "ech-section",
+  "settings": [
+    { "type": "text", "id": "kicker", "label": "Surtitre", "default": "Une pièce de la maison" },
+    { "type": "textarea", "id": "asset_map", "label": "Photo par scène si la collection n'a pas d'image (handle=fichier, une par ligne)" }
+  ],
+  "presets": [{ "name": "Scène : en-tête" }]
+}
+{% endschema %}

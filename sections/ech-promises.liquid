@@ -1,7 +1,14 @@
 <div class="ech-promises ech-wrap">
-  <ul role="list">
+  <ul role="list" class="ech-promises--{{ section.blocks.size }}">
     {%- for block in section.blocks -%}
-      <li {{ block.shopify_attributes }}><strong>{{ block.settings.title }}</strong>{%- if block.settings.text != blank -%}<span>{{ block.settings.text }}</span>{%- endif -%}</li>
+      <li {{ block.shopify_attributes }}>
+        {%- case block.settings.icon -%}
+          {%- when 'truck' -%}<svg class="ech-ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M2 6h11v9H2zM13 9h4l3 3v3h-7z"/><circle cx="6" cy="17.5" r="1.8"/><circle cx="17" cy="17.5" r="1.8"/></svg>
+          {%- when 'customs' -%}<svg class="ech-ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 3h10l4 4v14H5z"/><path d="M9 12l2 2 4-4"/></svg>
+          {%- when 'shield' -%}<svg class="ech-ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3l7 3v5c0 5-3 8-7 10-4-2-7-5-7-10V6z"/></svg>
+          {%- when 'return' -%}<svg class="ech-ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M9 7H4V2"/><path d="M4.5 7A8 8 0 1 1 4 13"/></svg>
+        {%- endcase -%}
+        <strong>{{ block.settings.title }}</strong>{%- if block.settings.text != blank -%}<span>{{ block.settings.text }}</span>{%- endif -%}</li>
     {%- endfor -%}
   </ul>
 </div>
@@ -12,6 +19,7 @@
   "class": "ech-section",
   "blocks": [
     { "type": "item", "name": "Engagement", "settings": [
+      { "type": "select", "id": "icon", "label": "Icône", "options": [ { "value": "none", "label": "Aucune" }, { "value": "truck", "label": "Camion" }, { "value": "customs", "label": "Douane" }, { "value": "shield", "label": "Bouclier" }, { "value": "return", "label": "Retour" } ], "default": "none" },
       { "type": "text", "id": "title", "label": "Titre" },
       { "type": "text", "id": "text", "label": "Texte" }
     ] }

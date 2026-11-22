@@ -1,14 +1,5 @@
 {
   "sections": {
-    "noel": {
-      "type": "ech-noel-bar",
-      "settings": {
-        "date": "",
-        "link_label": "Trouver son cadeau",
-        "link": "/collections/all?view=offrir",
-        "text_fallback": "Pour Noël, commandez tôt : livraison suivie en 7 à 10 jours ouvrés, taxes payées"
-      }
-    },
     "main": {
       "type": "product-information",
       "blocks": {
@@ -401,7 +392,6 @@
     }
   },
   "order": [
-    "noel",
     "main",
     "product_recommendations_qggXJq"
   ]

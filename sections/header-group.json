@@ -11,6 +11,14 @@
   "type": "header",
   "name": "t:names.header",
   "sections": {
+    "ech_noel": {
+      "type": "ech-noel-bar",
+      "settings": {
+        "date": "",
+        "link_label": "Trouver son cadeau",
+        "link": "/collections/all?view=offrir"
+      }
+    },
     "header_announcements_9jGBFp": {
       "type": "header-announcements",
       "blocks": {
@@ -125,6 +133,7 @@
     }
   },
   "order": [
+    "ech_noel",
     "promo_countdown",
     "header_announcements_9jGBFp",
     "header_section"

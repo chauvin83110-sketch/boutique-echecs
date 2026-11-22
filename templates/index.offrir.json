@@ -1,13 +1,5 @@
 {
   "sections": {
-    "noel": {
-      "type": "ech-noel-bar",
-      "settings": {
-        "date": "",
-        "link_label": "Trouver son cadeau",
-        "link": "/collections/all?view=offrir"
-      }
-    },
     "ambiance": {
       "type": "ech-ambiance",
       "settings": {
@@ -202,7 +194,6 @@
     }
   },
   "order": [
-    "noel",
     "ambiance",
     "gifts",
     "promises",

@@ -87,7 +87,7 @@
             "position": "62% 50%",
             "title": "Le salon d'hiver",
             "caption": "Le feu, le plaid, la partie après le dîner.",
-            "link": "/collections/salon-d-hiver",
+            "link": "/collections/le-salon-dhiver",
             "alt": "Un salon au crépuscule, cheminée allumée (décor)."
           }
         },
@@ -98,7 +98,7 @@
             "position": "30% 50%",
             "title": "La bibliothèque",
             "caption": "La lampe laiton, les reliures, l'ébène qui brille.",
-            "link": "/collections/bibliotheque",
+            "link": "/collections/la-bibliotheque",
             "alt": "Une bibliothèque aux murs verts, fauteuils de cuir (décor)."
           }
         },
@@ -109,7 +109,7 @@
             "position": "50% 50%",
             "title": "Le bureau",
             "caption": "Une partie en cours, un coup par jour.",
-            "link": "/collections/bureau",
+            "link": "/collections/le-bureau",
             "alt": "Un bureau à l'heure dorée, lampe en laiton (décor)."
           }
         },
@@ -120,7 +120,7 @@
             "position": "50% 60%",
             "title": "La maison de famille",
             "caption": "Le dimanche, ce qu'on transmet.",
-            "link": "/collections/maison-de-famille",
+            "link": "/collections/la-maison-de-famille",
             "alt": "Une main déplace une pièce sur l'échiquier (décor)."
           }
         }

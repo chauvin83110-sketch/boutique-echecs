@@ -1,0 +1,81 @@
+{%- comment -%}
+  Idées cadeaux par budget. Chaque bloc = une tranche de prix ; les produits sont pris dans la collection choisie
+  (toute la boutique par défaut) et triés dans leur tranche automatiquement.
+{%- endcomment -%}
+{%- liquid
+  assign c = section.settings.collection
+  if c == blank
+    assign c = collections.all
+  endif
+  assign limit = section.settings.limit
+-%}
+<div class="ech-gifts ech-wrap">
+  <div class="ech-gifts__head">
+    {%- if section.settings.kicker != blank -%}<p class="ech-kicker">{{ section.settings.kicker }}</p>{%- endif -%}
+    {%- if section.settings.title != blank -%}<{{ section.settings.heading_tag }} class="ech-h2">{{ section.settings.title }}</{{ section.settings.heading_tag }}>{%- endif -%}
+    {%- if section.settings.text != blank -%}<div class="ech-gifts__text">{{ section.settings.text }}</div>{%- endif -%}
+    {%- if section.blocks.size > 1 -%}
+      <nav class="ech-gifts__nav" aria-label="Budgets">
+        {%- for block in section.blocks -%}<a href="#ech-budget-{{ block.id }}">{{ block.settings.label }}</a>{%- endfor -%}
+      </nav>
+    {%- endif -%}
+  </div>
+
+  {%- for block in section.blocks -%}
+    {%- liquid
+      assign lo = block.settings.min | times: 100
+      assign hi = block.settings.max | times: 100
+      assign n = 0
+    -%}
+    <section class="ech-gifts__tier" id="ech-budget-{{ block.id }}" {{ block.shopify_attributes }}>
+      <div class="ech-gifts__tierhead">
+        <div>
+          <h3 class="ech-gifts__label">{{ block.settings.label }}</h3>
+          {%- if block.settings.sub != blank -%}<p class="ech-gifts__sub">{{ block.settings.sub }}</p>{%- endif -%}
+        </div>
+        {%- if block.settings.link != blank and block.settings.link_label != blank -%}
+          <a class="ech-link" href="{{ block.settings.link }}#ech-budget-{{ block.id }}">{{ block.settings.link_label }}</a>
+        {%- endif -%}
+      </div>
+      <ul class="ech-showcase__grid" role="list">
+        {%- for product in c.products limit: 50 -%}
+          {%- if product.available == false and section.settings.hide_sold_out -%}{%- continue -%}{%- endif -%}
+          {%- if product.price < lo -%}{%- continue -%}{%- endif -%}
+          {%- if hi > 0 and product.price >= hi -%}{%- continue -%}{%- endif -%}
+          {%- if n >= limit -%}{%- break -%}{%- endif -%}
+          {%- assign n = n | plus: 1 -%}
+          <li>{% render 'ech-card', product: product %}</li>
+        {%- endfor -%}
+      </ul>
+      {%- if n == 0 -%}<p class="ech-gifts__sub">Aucun jeu dans ce budget pour le moment.</p>{%- endif -%}
+    </section>
+  {%- endfor -%}
+</div>
+
+{% schema %}
+{
+  "name": "Cadeaux par budget",
+  "tag": "section",
+  "class": "ech-section",
+  "settings": [
+    { "type": "text", "id": "kicker", "label": "Surtitre", "default": "Offrir" },
+    { "type": "text", "id": "title", "label": "Titre", "default": "Trouver son cadeau" },
+    { "type": "select", "id": "heading_tag", "label": "Niveau du titre", "default": "h2", "options": [{ "value": "h1", "label": "H1" }, { "value": "h2", "label": "H2" }] },
+    { "type": "richtext", "id": "text", "label": "Texte" },
+    { "type": "collection", "id": "collection", "label": "Collection source", "info": "Vide : toute la boutique." },
+    { "type": "range", "id": "limit", "label": "Produits par budget", "min": 2, "max": 12, "step": 1, "default": 4 },
+    { "type": "checkbox", "id": "hide_sold_out", "label": "Masquer les produits épuisés", "default": true }
+  ],
+  "blocks": [
+    { "type": "tier", "name": "Budget", "settings": [
+      { "type": "text", "id": "label", "label": "Nom", "default": "Moins de 500 €" },
+      { "type": "text", "id": "sub", "label": "Sous-titre" },
+      { "type": "number", "id": "min", "label": "Prix minimum (€)", "default": 300 },
+      { "type": "number", "id": "max", "label": "Prix maximum (€, exclu)", "default": 500, "info": "0 = sans maximum." },
+      { "type": "text", "id": "link_label", "label": "Texte du lien" },
+      { "type": "url", "id": "link", "label": "Lien" }
+    ] }
+  ],
+  "presets": [{ "name": "Cadeaux par budget" }]
+}
+{% endschema %}

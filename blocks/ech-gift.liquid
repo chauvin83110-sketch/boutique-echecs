@@ -1,0 +1,58 @@
+{%- comment -%}
+  « Pour offrir » sur la fiche produit. Uniquement des engagements confirmés ; les options non confirmées
+  (carte message, paiement en plusieurs fois, date limite de Noël) restent désactivées par défaut.
+{%- endcomment -%}
+{%- liquid
+  assign p = closest.product
+  assign pieces_only = false
+  if block.settings.pieces_type != blank and p.type == block.settings.pieces_type
+    assign pieces_only = true
+  endif
+-%}
+<div class="ech-gift" {{ block.shopify_attributes }}>
+  <p class="ech-gift__title">{{ block.settings.title }}</p>
+  <ul role="list">
+    {%- if block.settings.noel_date != blank -%}
+      <li><strong>Livré avant Noël</strong> pour toute commande passée avant le {{ block.settings.noel_date }}.</li>
+    {%- endif -%}
+    {%- for i in (1..5) -%}
+      {%- assign key = 'line_' | append: i -%}
+      {%- if block.settings[key] != blank -%}<li>{{ block.settings[key] }}</li>{%- endif -%}
+    {%- endfor -%}
+    {%- if block.settings.show_card and block.settings.card_text != blank -%}<li>{{ block.settings.card_text }}</li>{%- endif -%}
+    {%- if block.settings.show_split and block.settings.split_text != blank -%}<li>{{ block.settings.split_text }}</li>{%- endif -%}
+  </ul>
+  {%- if pieces_only and block.settings.pieces_text != blank -%}
+    <p class="ech-gift__note">
+      {{ block.settings.pieces_text }}
+      {%- if block.settings.pieces_link != blank -%} <a href="{{ block.settings.pieces_link }}">{{ block.settings.pieces_link_label }}</a>{%- endif -%}
+    </p>
+  {%- endif -%}
+</div>
+
+{% schema %}
+{
+  "name": "Pour offrir",
+  "tag": null,
+  "settings": [
+    { "type": "text", "id": "title", "label": "Titre", "default": "Pour offrir" },
+    { "type": "text", "id": "noel_date", "label": "Date limite pour Noël", "info": "Vide tant que le fournisseur ne l'a pas confirmée." },
+    { "type": "text", "id": "line_1", "label": "Ligne 1", "default": "Rien à payer à la livraison : taxes et douane sont à notre charge." },
+    { "type": "text", "id": "line_2", "label": "Ligne 2", "default": "Expédié dans un colis neutre, avec suivi." },
+    { "type": "text", "id": "line_3", "label": "Ligne 3", "default": "Arrivé abîmé ? Nous le remplaçons." },
+    { "type": "text", "id": "line_4", "label": "Ligne 4", "default": "14 jours après réception pour changer d'avis." },
+    { "type": "text", "id": "line_5", "label": "Ligne 5" },
+    { "type": "header", "content": "Options à activer une fois confirmées" },
+    { "type": "checkbox", "id": "show_card", "label": "Carte avec message", "default": false },
+    { "type": "text", "id": "card_text", "label": "Texte carte", "default": "Un mot de votre part, imprimé sur une carte jointe au jeu." },
+    { "type": "checkbox", "id": "show_split", "label": "Paiement en plusieurs fois", "default": false, "info": "À cocher seulement quand Alma ou PayPal 4x est actif." },
+    { "type": "text", "id": "split_text", "label": "Texte paiement", "default": "Paiement possible en 3 ou 4 fois." },
+    { "type": "header", "content": "Pièces vendues sans échiquier" },
+    { "type": "text", "id": "pieces_type", "label": "Type de produit concerné", "default": "Pièces d'échecs" },
+    { "type": "text", "id": "pieces_text", "label": "Rappel", "default": "Ces pièces sont vendues sans échiquier." },
+    { "type": "text", "id": "pieces_link_label", "label": "Texte du lien", "default": "Choisir un échiquier" },
+    { "type": "url", "id": "pieces_link", "label": "Lien", "default": "/collections/echiquiers" }
+  ],
+  "presets": [{ "name": "Pour offrir" }]
+}
+{% endschema %}

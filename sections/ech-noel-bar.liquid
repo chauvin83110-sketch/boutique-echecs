@@ -1,0 +1,46 @@
+{%- comment -%}
+  Bandeau Noël. Avec une date : « Livré avant Noël pour toute commande passée avant le … ».
+  Sans date : texte de repli (aucune date inventée). Masqué après la date de fin choisie.
+{%- endcomment -%}
+{%- liquid
+  assign show = true
+  if section.settings.hide_after != blank
+    assign today = 'now' | date: '%Y%m%d' | plus: 0
+    assign stop = section.settings.hide_after | date: '%Y%m%d' | plus: 0
+    if stop > 0 and today > stop
+      assign show = false
+    endif
+  endif
+  if section.settings.date != blank
+    assign msg = section.settings.text_date | replace: '[date]', section.settings.date
+  else
+    assign msg = section.settings.text_fallback
+  endif
+-%}
+{%- if show and msg != blank -%}
+<div class="ech-noel">
+  <p class="ech-noel__text">
+    <span>{{ msg }}</span>
+    {%- if section.settings.link != blank and section.settings.link_label != blank -%}
+      <a href="{{ section.settings.link }}">{{ section.settings.link_label }}</a>
+    {%- endif -%}
+  </p>
+</div>
+{%- endif -%}
+
+{% schema %}
+{
+  "name": "Bandeau Noël",
+  "tag": "section",
+  "class": "ech-section",
+  "settings": [
+    { "type": "text", "id": "date", "label": "Date limite de commande", "info": "Ex. : 10 décembre. Laisser vide tant que le fournisseur ne l'a pas confirmée." },
+    { "type": "text", "id": "text_date", "label": "Texte avec date", "default": "Livré avant Noël pour toute commande passée avant le [date]", "info": "[date] est remplacé par la date limite." },
+    { "type": "text", "id": "text_fallback", "label": "Texte sans date", "default": "Pour Noël, commandez tôt : livraison suivie en 7 à 10 jours ouvrés, taxes payées" },
+    { "type": "text", "id": "hide_after", "label": "Masquer après le (AAAA-MM-JJ)", "default": "2026-12-24" },
+    { "type": "text", "id": "link_label", "label": "Texte du lien", "default": "Trouver son cadeau" },
+    { "type": "url", "id": "link", "label": "Lien" }
+  ],
+  "presets": [{ "name": "Bandeau Noël" }]
+}
+{% endschema %}

@@ -379,3 +379,30 @@ body { background: var(--ech-ivory); color: var(--ech-ink); }
   .ech-amb--below .ech-amb__text { height: auto; max-width: 44rem; margin: 0 auto; padding: 48px 24px 56px; align-items: center; text-align: center; }
   .ech-amb--below .ech-amb__lede { margin-left: auto; margin-right: auto; }
 }
+
+/* ---------- Angle cadeau : bandeau Noël, budgets, « Pour offrir » ---------- */
+.ech-noel { background: var(--ech-green); color: var(--ech-ivory); }
+.ech-noel__text { margin: 0; padding: 11px 16px; text-align: center; font-size: 0.82rem; letter-spacing: 0.02em; display: flex; flex-wrap: wrap; justify-content: center; gap: 4px 14px; }
+.ech-section .ech-noel__text a { color: var(--ech-ivory); text-decoration: underline; text-underline-offset: 3px; }
+.ech-section .ech-noel__text a:hover { color: var(--ech-brass-light); }
+
+.ech-gifts { padding-block: 72px 32px; }
+.ech-gifts__head { max-width: 44rem; margin-bottom: 36px; }
+.ech-gifts__text { color: var(--ech-muted); margin-top: 14px; }
+.ech-gifts__nav { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 22px; }
+.ech-section .ech-gifts__nav a { border: 1px solid var(--ech-line); border-radius: 999px; padding: 8px 16px; font-size: 0.85rem; color: var(--ech-ink); text-decoration: none; }
+.ech-section .ech-gifts__nav a:hover { border-color: var(--ech-green); color: var(--ech-green); }
+.ech-gifts__tier { padding-top: 32px; margin-top: 32px; border-top: 1px solid var(--ech-line); scroll-margin-top: 120px; }
+.ech-gifts__tier:first-of-type { margin-top: 0; }
+.ech-gifts__tierhead { display: flex; justify-content: space-between; align-items: flex-end; gap: 16px; margin-bottom: 24px; }
+.ech-gifts__label { font-family: var(--ech-serif); font-weight: 500; font-size: clamp(1.5rem, 2.6vw, 2rem); margin: 0; color: var(--ech-ink); }
+.ech-gifts__sub { margin: 4px 0 0; color: var(--ech-muted); font-size: 0.9rem; }
+@media (min-width: 990px) { .ech-gifts .ech-showcase__grid { grid-template-columns: repeat(4, 1fr); } }
+
+.ech-gift { margin: 14px 0 4px; padding: 16px 18px; background: var(--ech-sand); border-radius: 4px; font-size: 0.88rem; color: var(--ech-ink); }
+.ech-gift__title { margin: 0 0 8px; font-family: var(--ech-serif); font-size: 1.25rem; font-weight: 500; }
+.ech-gift ul { list-style: none; margin: 0; padding: 0; display: grid; gap: 6px; }
+.ech-gift li { position: relative; padding-left: 18px; }
+.ech-gift li::before { content: ''; position: absolute; left: 2px; top: 0.6em; width: 6px; height: 6px; border-radius: 50%; background: var(--ech-green); }
+.ech-gift__note { margin: 12px 0 0; padding-top: 10px; border-top: 1px solid var(--ech-line); color: var(--ech-muted); }
+.ech-gift__note a { color: var(--ech-green); text-decoration: underline; text-underline-offset: 3px; }

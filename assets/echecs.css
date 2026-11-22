@@ -433,8 +433,8 @@ body { background: var(--ech-ivory); color: var(--ech-ink); }
 .ech-cols__title { font-family: var(--ech-serif); font-weight: 500; font-size: 1.4rem; margin: 0 0 8px; color: var(--ech-ink); }
 .ech-cols__body { color: var(--ech-muted); font-size: 0.95rem; }
 .ech-cols__body p { margin: 0 0 .6em; }
-.ech-shero__media { aspect-ratio: 16 / 9; max-height: 72vh; overflow: hidden; background: var(--ech-sand); }
-@media (max-width: 749px) { .ech-shero__media { aspect-ratio: 4 / 5; } }
+.ech-shero__media { width: 100%; height: min(56.25vw, 72vh); overflow: hidden; background: var(--ech-sand); }
+@media (max-width: 749px) { .ech-shero__media { height: 110vw; } }
 .ech-shero__media img { width: 100%; height: 100%; object-fit: cover; display: block; }
 .ech-shero__text { padding-block: 40px 16px; max-width: 760px; }
 .ech-shero__lede { color: var(--ech-muted); font-size: 1.05rem; margin-top: 12px; }

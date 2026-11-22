@@ -12,6 +12,18 @@
       assign asset_name = pair[1] | strip
     endif
   endfor
+  if asset_name == blank
+    case c.handle
+      when 'le-salon-dhiver'
+        assign asset_name = 'ambiance-salon.jpg'
+      when 'la-bibliotheque'
+        assign asset_name = 'ambiance-bibliotheque.jpg'
+      when 'le-bureau'
+        assign asset_name = 'ambiance-bureau.jpg'
+      when 'la-maison-de-famille'
+        assign asset_name = 'ambiance-main-pion.jpg'
+    endcase
+  endif
   if c.image != blank
     assign src = c.image | image_url: width: 2400
   elsif asset_name != blank

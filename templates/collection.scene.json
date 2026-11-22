@@ -12,8 +12,7 @@
     "hero": {
       "type": "ech-scene-hero",
       "settings": {
-        "kicker": "Une pièce de la maison",
-        "asset_map": "le-salon-dhiver=ambiance-salon.jpg\nla-bibliotheque=ambiance-bibliotheque.jpg\nle-bureau=ambiance-bureau.jpg\nla-maison-de-famille=ambiance-main-pion.jpg"
+        "kicker": "Une pièce de la maison"
       }
     },
     "main": {

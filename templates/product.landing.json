@@ -1,0 +1,182 @@
+{
+  "sections": {
+    "landing": {
+      "type": "ech-landing",
+      "blocks": {
+        "proof_0": {
+          "type": "proof",
+          "settings": {
+            "title": "Deux bois nobles face à face",
+            "text": "Bois de rose pour les pièces foncées, buis pour les claires. Padouk et érable pour le plateau."
+          }
+        },
+        "proof_1": {
+          "type": "proof",
+          "settings": {
+            "title": "Un plateau de 53 cm, épais de 45 mm",
+            "text": "Des cases de 55 mm, la taille conseillée pour ces pièces. Rien à vérifier, tout est accordé."
+          }
+        },
+        "proof_2": {
+          "type": "proof",
+          "settings": {
+            "title": "Un roi de 9,6 cm",
+            "text": "32 pièces lestées et feutrées : elles tiennent en main et glissent sans bruit."
+          }
+        },
+        "spec_3": {
+          "type": "spec",
+          "settings": {
+            "label": "Pièces",
+            "value": "32 pièces de style Staunton, lestées et feutrées"
+          }
+        },
+        "spec_4": {
+          "type": "spec",
+          "settings": {
+            "label": "Roi",
+            "value": "9,6 cm de haut, base de 4,2 cm"
+          }
+        },
+        "spec_5": {
+          "type": "spec",
+          "settings": {
+            "label": "Plateau",
+            "value": "53,3 × 53,3 cm, épaisseur 45 mm"
+          }
+        },
+        "spec_6": {
+          "type": "spec",
+          "settings": {
+            "label": "Cases",
+            "value": "55 mm"
+          }
+        },
+        "spec_7": {
+          "type": "spec",
+          "settings": {
+            "label": "Bois",
+            "value": "Bois de rose, buis, padouk, érable"
+          }
+        },
+        "spec_8": {
+          "type": "spec",
+          "settings": {
+            "label": "Poids",
+            "value": "Environ 6,6 kg au total"
+          }
+        },
+        "spec_9": {
+          "type": "spec",
+          "settings": {
+            "label": "Fabrication",
+            "value": "Inde"
+          }
+        },
+        "guarantee_10": {
+          "type": "guarantee",
+          "settings": {
+            "title": "Livraison offerte",
+            "text": "Suivie, en 7 à 10 jours ouvrés. Les pièces et l'échiquier peuvent arriver dans deux colis."
+          }
+        },
+        "guarantee_11": {
+          "type": "guarantee",
+          "settings": {
+            "title": "Rien à payer à la réception",
+            "text": "Les taxes et les frais de douane sont déjà réglés."
+          }
+        },
+        "guarantee_12": {
+          "type": "guarantee",
+          "settings": {
+            "title": "Arrivé abîmé ? Remplacé",
+            "text": "Envoyez-nous une photo dans les 3 jours. Nous remplaçons à nos frais."
+          }
+        },
+        "guarantee_13": {
+          "type": "guarantee",
+          "settings": {
+            "title": "14 jours pour changer d'avis",
+            "text": "Après réception, sans avoir à vous justifier."
+          }
+        },
+        "faq_14": {
+          "type": "faq",
+          "settings": {
+            "question": "Que contient exactement l'ensemble ?",
+            "answer": "<p>Les 32 pièces Reykjavik 1972 et l'échiquier Bois de rose de 53,3 cm. Il n'y a pas de coffret de rangement : cet ensemble est fait pour rester sorti.</p>"
+          }
+        },
+        "faq_15": {
+          "type": "faq",
+          "settings": {
+            "question": "Où est-il fabriqué ?",
+            "answer": "<p>En Inde, dans un atelier spécialisé : les pièces y sont sculptées et l'échiquier y est réalisé en bois massif. Maison Roszada choisit les modèles et accorde les pièces au plateau ; nous ne fabriquons pas nous-mêmes.</p>"
+          }
+        },
+        "faq_16": {
+          "type": "faq",
+          "settings": {
+            "question": "Quand vais-je le recevoir ?",
+            "answer": "<p>En 7 à 10 jours ouvrés, avec un suivi. La livraison est offerte et il n'y a rien à payer à la réception.</p>"
+          }
+        },
+        "faq_17": {
+          "type": "faq",
+          "settings": {
+            "question": "Et s'il ne me plaît pas, ou s'il arrive abîmé ?",
+            "answer": "<p>Vous avez 14 jours après réception pour changer d'avis. Si un article arrive abîmé, envoyez-nous une photo dans les 3 jours : nous le remplaçons à nos frais.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "proof_0",
+        "proof_1",
+        "proof_2",
+        "spec_3",
+        "spec_4",
+        "spec_5",
+        "spec_6",
+        "spec_7",
+        "spec_8",
+        "spec_9",
+        "guarantee_10",
+        "guarantee_11",
+        "guarantee_12",
+        "guarantee_13",
+        "faq_14",
+        "faq_15",
+        "faq_16",
+        "faq_17"
+      ],
+      "settings": {
+        "kicker": "Le Reykjavik 1972 et son échiquier",
+        "title": "Le jeu du match du siècle, posé dans votre salon.",
+        "lead": "<p>Les pièces du championnat du monde Fischer-Spassky de 1972, en bois de rose et en buis, sur un échiquier massif épais de 45 mm. Un ensemble complet, déjà accordé, que l'on ne range pas.</p>",
+        "button": "Le faire venir chez moi",
+        "saving": "10 % de moins que les deux achetés séparément",
+        "under": "Livraison offerte et suivie · Frais de douane déjà réglés · 14 jours pour changer d'avis",
+        "object_kicker": "L'objet",
+        "object_title": "Du bois massif, et des mesures que l'on vous donne.",
+        "object_text": "<p>Reykjavik, été 1972. Bobby Fischer affronte Boris Spassky pour le titre mondial, et le monde entier regarde un échiquier. Fischer l'emporte 12,5 à 8,5. Ces pièces reprennent le modèle associé à ce match.</p><p>Elles sont sculptées en Inde, lestées et feutrées. L'échiquier est fait en Inde lui aussi, en padouk et en érable.</p>",
+        "scene_asset": "ambiance-salon.jpg",
+        "scene_alt": "Un salon chaleureux avec un jeu d'échecs posé sur la table basse",
+        "scene_note": "Photo d'ambiance. Les photos de l'ensemble sont en haut de page.",
+        "scene_kicker": "Chez vous",
+        "scene_title": "Quelqu'un demandera : « C'est celui de Fischer ? »",
+        "scene_text": "<p>On le pose sur la table basse et on le laisse là. Le plateau a le poids d'un meuble, les cases sont d'un rouge profond, et l'histoire se raconte toute seule.</p><p>Pour votre salon, ou pour marquer une date : un anniversaire, un départ à la retraite, une réussite. Et quand l'envie vient, on joue.</p>",
+        "guar_kicker": "Sans risque",
+        "guar_title": "Ce que nous vous devons.",
+        "faq_kicker": "Avant de choisir",
+        "faq_title": "Quatre questions que l'on nous pose.",
+        "end_kicker": "Maison Roszada",
+        "end_title": "Un objet que l'on garde vingt ans se choisit calmement.",
+        "end_text": "<p>Pas de compte à rebours, pas de stock inventé. L'ensemble est là quand vous êtes prêt.</p>"
+      }
+    }
+  },
+  "order": [
+    "landing"
+  ]
+}

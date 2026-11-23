@@ -1,0 +1,234 @@
+{%- comment -%}
+  Landing page de pub : un seul produit, un seul bouton, pas de menu.
+  S'utilise avec le modèle product.landing (/products/<ancre>?view=landing).
+  Tout ce qui est chiffré vient du produit ou des réglages : rien d'inventé.
+{%- endcomment -%}
+{%- liquid
+  assign v = product.selected_or_first_available_variant
+  assign s = section.settings
+  assign img1 = product.featured_image
+-%}
+<style>
+  /* Page de pub : on retire le menu et le pied de page, on garde le logo. */
+  .header__navigation-bar-row, #header-component .header-menu, #header-component .menu-drawer-container,
+  #header-component header-drawer, .header-actions, #header-component .search-action,
+  footer, .shopify-section-group-footer-group { display: none !important; }
+  .ech-ld { color: var(--ech-ink); }
+  .ech-ld__wrap { max-width: 1180px; margin: 0 auto; padding: 0 20px; }
+  .ech-ld__hero { display: grid; gap: 28px; padding: 24px 0 48px; align-items: center; }
+  .ech-ld__hero img, .ech-ld__close img, .ech-ld__scene img { width: 100%; height: auto; display: block; }
+  .ech-ld h1 { font-family: var(--ech-serif); font-weight: 500; font-size: clamp(2.3rem, 5vw, 3.6rem); line-height: 1.04; margin: .4rem 0 1rem; }
+  .ech-ld h2 { font-family: var(--ech-serif); font-weight: 500; font-size: clamp(1.8rem, 3.4vw, 2.6rem); line-height: 1.1; margin: .3rem 0 1rem; }
+  .ech-ld h3 { font-family: var(--ech-serif); font-weight: 500; font-size: 1.35rem; margin: 0 0 .4rem; }
+  .ech-ld p { line-height: 1.65; margin: 0 0 1rem; }
+  .ech-ld__lead { font-size: 1.08rem; color: var(--ech-muted); max-width: 34em; }
+  .ech-ld__price { display: flex; align-items: baseline; gap: 12px; flex-wrap: wrap; margin: 1.2rem 0 .3rem; }
+  .ech-ld__price b { font-family: var(--ech-serif); font-weight: 500; font-size: 2rem; }
+  .ech-ld__price s { color: var(--ech-muted); }
+  .ech-ld__price span { font-size: .85rem; color: var(--ech-green); }
+  .ech-ld__btn { display: inline-block; width: 100%; max-width: 420px; border: 0; cursor: pointer; text-align: center; text-decoration: none;
+    background: var(--ech-green); color: #F6F1E7 !important; padding: 17px 28px; font-size: 1rem; letter-spacing: .04em; margin-top: .9rem; }
+  .ech-ld__btn:hover { background: var(--ech-green-2); text-decoration: none !important; }
+  .ech-ld__btn[disabled] { opacity: .5; cursor: default; }
+  .ech-ld__under { font-size: .82rem; color: var(--ech-muted); margin-top: .7rem; }
+  .ech-ld__band { background: var(--ech-sand); padding: 44px 0; }
+  .ech-ld__band--green { background: var(--ech-green); color: #F6F1E7; }
+  .ech-ld__band--green .ech-kicker { color: var(--ech-brass-light); }
+  .ech-ld__band--green p { color: #E4DCCB; }
+  .ech-ld__grid { display: grid; gap: 28px; list-style: none; margin: 0; padding: 0; }
+  .ech-ld__grid p { margin: 0; color: var(--ech-muted); font-size: .95rem; }
+  .ech-ld__band--green .ech-ld__grid p { color: #E4DCCB; }
+  .ech-ld__block { padding: 56px 0; }
+  .ech-ld__close, .ech-ld__scene { display: grid; gap: 28px; align-items: center; }
+  .ech-ld__specs { width: 100%; border-collapse: collapse; margin-top: 1rem; font-size: .95rem; }
+  .ech-ld__specs td { padding: 10px 0; border-bottom: 1px solid var(--ech-line); vertical-align: top; }
+  .ech-ld__specs td:first-child { color: var(--ech-muted); width: 38%; }
+  .ech-ld__note { font-size: .75rem; color: var(--ech-muted); margin-top: .5rem; }
+  .ech-ld__faq details { border-bottom: 1px solid var(--ech-line); padding: 16px 0; }
+  .ech-ld__faq summary { cursor: pointer; font-family: var(--ech-serif); font-size: 1.25rem; }
+  .ech-ld__faq details p { margin: .7rem 0 0; color: var(--ech-muted); }
+  .ech-ld__end { text-align: center; padding: 60px 0 76px; }
+  .ech-ld__end .ech-ld__lead { margin-inline: auto; }
+  .ech-ld__sticky { position: fixed; left: 0; right: 0; bottom: 0; z-index: 30; background: var(--ech-ivory); border-top: 1px solid var(--ech-line);
+    padding: 10px 16px; display: flex; align-items: center; justify-content: space-between; gap: 12px; }
+  .ech-ld__sticky b { font-family: var(--ech-serif); font-size: 1.25rem; font-weight: 500; }
+  .ech-ld__sticky .ech-ld__btn { width: auto; margin: 0; padding: 12px 22px; }
+  @media (min-width: 800px) {
+    .ech-ld__hero { grid-template-columns: 1.15fr 1fr; gap: 56px; padding: 40px 0 72px; }
+    .ech-ld__grid { grid-template-columns: repeat(3, 1fr); gap: 40px; }
+    .ech-ld__grid--4 { grid-template-columns: repeat(4, 1fr); }
+    .ech-ld__close, .ech-ld__scene { grid-template-columns: 1fr 1fr; gap: 56px; }
+    .ech-ld__scene > div:first-child { order: 2; }
+    .ech-ld__sticky { display: none; }
+  }
+</style>
+
+{%- capture buy -%}
+  {%- form 'product', product -%}
+    <input type="hidden" name="id" value="{{ v.id }}">
+    <input type="hidden" name="return_to" value="/checkout">
+    <button type="submit" class="ech-ld__btn" {% unless v.available %}disabled{% endunless %}>
+      {%- if v.available -%}{{ s.button | escape }}{%- else -%}Indisponible pour le moment{%- endif -%}
+    </button>
+  {%- endform -%}
+{%- endcapture -%}
+{%- capture price -%}
+  <b>{{ v.price | divided_by: 100 }} €</b>
+  {%- if v.compare_at_price > v.price -%}
+    <s>{{ v.compare_at_price | divided_by: 100 }} €</s>
+    <span>{{ s.saving | escape }}</span>
+  {%- endif -%}
+{%- endcapture -%}
+
+<div class="ech-ld">
+  <div class="ech-ld__wrap">
+    <div class="ech-ld__hero">
+      <div>
+        {%- if img1 -%}
+          <img src="{{ img1 | image_url: width: 1400 }}" alt="{{ product.title | split: ' – ' | first | escape }}" width="{{ img1.width }}" height="{{ img1.height }}" fetchpriority="high">
+        {%- endif -%}
+      </div>
+      <div>
+        <p class="ech-kicker">{{ s.kicker | escape }}</p>
+        <h1>{{ s.title | escape }}</h1>
+        <div class="ech-ld__lead">{{ s.lead }}</div>
+        <div class="ech-ld__price">{{ price }}</div>
+        {{ buy }}
+        <p class="ech-ld__under">{{ s.under | escape }}</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="ech-ld__band">
+    <div class="ech-ld__wrap">
+      <ul class="ech-ld__grid" role="list">
+        {%- for block in section.blocks -%}{%- if block.type == 'proof' -%}
+          <li {{ block.shopify_attributes }}><h3>{{ block.settings.title | escape }}</h3><p>{{ block.settings.text | escape }}</p></li>
+        {%- endif -%}{%- endfor -%}
+      </ul>
+    </div>
+  </div>
+
+  <div class="ech-ld__wrap ech-ld__block">
+    <div class="ech-ld__close">
+      <div>
+        {%- assign img2 = product.images[1] | default: img1 -%}
+        {%- if img2 -%}<img src="{{ img2 | image_url: width: 1200 }}" alt="{{ s.object_title | escape }}" width="{{ img2.width }}" height="{{ img2.height }}" loading="lazy">{%- endif -%}
+      </div>
+      <div>
+        <p class="ech-kicker">{{ s.object_kicker | escape }}</p>
+        <h2>{{ s.object_title | escape }}</h2>
+        {{ s.object_text }}
+        <table class="ech-ld__specs"><tbody>
+          {%- for block in section.blocks -%}{%- if block.type == 'spec' -%}
+            <tr {{ block.shopify_attributes }}><td>{{ block.settings.label | escape }}</td><td>{{ block.settings.value | escape }}</td></tr>
+          {%- endif -%}{%- endfor -%}
+        </tbody></table>
+      </div>
+    </div>
+  </div>
+
+  <div class="ech-ld__band">
+    <div class="ech-ld__wrap">
+      <div class="ech-ld__scene">
+        <div>
+          <img src="{{ s.scene_asset | asset_url }}" alt="{{ s.scene_alt | escape }}" loading="lazy" width="1400" height="1000">
+          <p class="ech-ld__note">{{ s.scene_note | escape }}</p>
+        </div>
+        <div>
+          <p class="ech-kicker">{{ s.scene_kicker | escape }}</p>
+          <h2>{{ s.scene_title | escape }}</h2>
+          {{ s.scene_text }}
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="ech-ld__band ech-ld__band--green">
+    <div class="ech-ld__wrap">
+      <p class="ech-kicker">{{ s.guar_kicker | escape }}</p>
+      <h2>{{ s.guar_title | escape }}</h2>
+      <ul class="ech-ld__grid ech-ld__grid--4" role="list">
+        {%- for block in section.blocks -%}{%- if block.type == 'guarantee' -%}
+          <li {{ block.shopify_attributes }}><h3>{{ block.settings.title | escape }}</h3><p>{{ block.settings.text | escape }}</p></li>
+        {%- endif -%}{%- endfor -%}
+      </ul>
+    </div>
+  </div>
+
+  <div class="ech-ld__wrap ech-ld__block ech-ld__faq">
+    <p class="ech-kicker">{{ s.faq_kicker | escape }}</p>
+    <h2>{{ s.faq_title | escape }}</h2>
+    {%- for block in section.blocks -%}{%- if block.type == 'faq' -%}
+      <details {{ block.shopify_attributes }}><summary>{{ block.settings.question | escape }}</summary>{{ block.settings.answer }}</details>
+    {%- endif -%}{%- endfor -%}
+  </div>
+
+  <div class="ech-ld__band">
+    <div class="ech-ld__wrap ech-ld__end">
+      <p class="ech-kicker">{{ s.end_kicker | escape }}</p>
+      <h2>{{ s.end_title | escape }}</h2>
+      <div class="ech-ld__lead">{{ s.end_text }}</div>
+      <div class="ech-ld__price" style="justify-content:center">{{ price }}</div>
+      {{ buy }}
+      <p class="ech-ld__under">{{ s.under | escape }}</p>
+    </div>
+  </div>
+
+  <div class="ech-ld__sticky">
+    <b>{{ v.price | divided_by: 100 }} €</b>
+    {{ buy }}
+  </div>
+</div>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {%- assign first = true -%}
+    {%- for block in section.blocks -%}{%- if block.type == 'faq' -%}
+      {%- unless first -%},{%- endunless -%}{%- assign first = false -%}
+      { "@type": "Question", "name": {{ block.settings.question | json }}, "acceptedAnswer": { "@type": "Answer", "text": {{ block.settings.answer | strip_html | json }} } }
+    {%- endif -%}{%- endfor -%}
+  ]
+}
+</script>
+
+{% schema %}
+{
+  "name": "Landing page (pub)",
+  "tag": "section",
+  "class": "ech-section",
+  "settings": [
+    { "type": "text", "id": "kicker", "label": "Surtitre" },
+    { "type": "text", "id": "title", "label": "Titre (H1)" },
+    { "type": "richtext", "id": "lead", "label": "Promesse" },
+    { "type": "text", "id": "button", "label": "Bouton", "default": "Le faire venir chez moi" },
+    { "type": "text", "id": "saving", "label": "Mention près du prix barré" },
+    { "type": "text", "id": "under", "label": "Ligne sous le bouton" },
+    { "type": "text", "id": "object_kicker", "label": "Objet : surtitre" },
+    { "type": "text", "id": "object_title", "label": "Objet : titre" },
+    { "type": "richtext", "id": "object_text", "label": "Objet : texte" },
+    { "type": "text", "id": "scene_asset", "label": "Scène : image du thème", "default": "ambiance-salon.jpg" },
+    { "type": "text", "id": "scene_alt", "label": "Scène : description de l'image" },
+    { "type": "text", "id": "scene_note", "label": "Scène : mention sous l'image" },
+    { "type": "text", "id": "scene_kicker", "label": "Scène : surtitre" },
+    { "type": "text", "id": "scene_title", "label": "Scène : titre" },
+    { "type": "richtext", "id": "scene_text", "label": "Scène : texte" },
+    { "type": "text", "id": "guar_kicker", "label": "Garanties : surtitre" },
+    { "type": "text", "id": "guar_title", "label": "Garanties : titre" },
+    { "type": "text", "id": "faq_kicker", "label": "FAQ : surtitre" },
+    { "type": "text", "id": "faq_title", "label": "FAQ : titre" },
+    { "type": "text", "id": "end_kicker", "label": "Fin : surtitre" },
+    { "type": "text", "id": "end_title", "label": "Fin : titre" },
+    { "type": "richtext", "id": "end_text", "label": "Fin : texte" }
+  ],
+  "blocks": [
+    { "type": "proof", "name": "Preuve", "settings": [ { "type": "text", "id": "title", "label": "Titre" }, { "type": "text", "id": "text", "label": "Texte" } ] },
+    { "type": "spec", "name": "Caractéristique", "settings": [ { "type": "text", "id": "label", "label": "Libellé" }, { "type": "text", "id": "value", "label": "Valeur" } ] },
+    { "type": "guarantee", "name": "Garantie", "settings": [ { "type": "text", "id": "title", "label": "Titre" }, { "type": "text", "id": "text", "label": "Texte" } ] },
+    { "type": "faq", "name": "Question", "settings": [ { "type": "text", "id": "question", "label": "Question" }, { "type": "richtext", "id": "answer", "label": "Réponse" } ] }
+  ]
+}
+{% endschema %}

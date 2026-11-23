@@ -1,12 +1,3 @@
-/*
- * ------------------------------------------------------------
- * IMPORTANT: The contents of this file are auto-generated.
- *
- * This file may be updated by the Shopify admin theme editor
- * or related systems. Please exercise caution as any changes
- * made to this file may be overwritten.
- * ------------------------------------------------------------
- */
 {
   "sections": {
     "hero": {
@@ -21,54 +12,178 @@
         "heading_tag": "h1",
         "kicker": "Notre maison",
         "title": "Le refuge du roi.",
-        "text": "",
+        "text": "<p>Maison Roszada est une maison française de jeux d'échecs d'exception. Voici d'où vient son nom, ce qu'elle fait, et ce qu'elle ne fera pas.</p>",
         "button_label": ""
       }
     },
-    "part1": {
+    "nom": {
       "type": "ech-columns",
       "settings": {
         "tone": "ivory",
-        "kicker": "",
-        "title": "Un nom, un coup",
-        "text": "<p>Maison Roszada est une maison française de jeux d'échecs d'exception. Nous choisissons des jeux en bois massif, sculptés en Inde, pour qu'ils vivent dans une pièce comme un bel objet.</p><p><em>Roszada</em> se prononce « ro-cha-da ». C'est le mot polonais pour le roque, le seul coup où le roi quitte le centre de l'échiquier pour se mettre à l'abri derrière sa tour. Nous avons donné ce nom à notre maison parce que c'est ce que nous cherchons : un refuge, au milieu de chez vous.</p>"
+        "kicker": "I. Le nom",
+        "title": "Un seul coup met le roi à l'abri",
+        "text": "<p>Aux échecs, le roi commence la partie au centre, exposé. Un seul coup lui permet d'en sortir : il glisse de deux cases, la tour passe par-dessus lui, et le voilà derrière un mur. C'est le roque. C'est aussi le seul coup du jeu où deux pièces bougent en même temps.</p><p>En polonais, ce coup s'appelle <em>roszada</em>. On prononce « ro-cha-da ».</p><p>Nous avons donné ce mot à notre maison parce qu'il dit exactement ce que nous cherchons : un endroit, chez vous, où l'on se met à l'abri du bruit. Une table, deux fauteuils, une lampe. Le reste attendra.</p>"
       }
     },
-    "part2": {
-      "type": "ech-columns",
+    "croire": {
+      "type": "ech-manifeste",
       "settings": {
-        "tone": "ivory",
-        "kicker": "",
-        "title": "Des objets qui s'installent",
-        "text": "<p>Un beau jeu ne se range pas dans un placard. Il se pose sur une table basse, il accroche la lumière du soir, il donne à la pièce son caractère.</p><p>On le regarde en passant. Un jour, on s'assoit. Une partie commence, puis s'arrête, et le jeu reste là jusqu'au lendemain.</p>"
+        "asset": "ambiance-main-pion.jpg",
+        "alt": "Une main pose une pièce sur l'échiquier (décor).",
+        "image_side": "left",
+        "tone": "green",
+        "kicker": "II. Ce que nous croyons",
+        "title": "Un beau jeu ne se range pas",
+        "text": "<p>Il y a des objets que l'on sort pour s'en servir, puis que l'on remet dans un placard. Et il y a ceux qui restent.</p><p>Un jeu d'échecs en ébène reste. Il se pose sur une table basse et il n'en bouge plus. Il accroche la lumière du soir. On le regarde en passant.</p><p>Un jour, quelqu'un s'assoit et avance un pion. La partie dure une heure, ou une semaine, à un coup par jour.</p><p>Nous ne vendons pas un passe-temps. Nous vendons ce coin de la pièce où le temps ralentit.</p>",
+        "button_label": "",
+        "button_link": ""
       }
     },
-    "part3": {
+    "histoire": {
       "type": "ech-columns",
       "settings": {
         "tone": "ivory",
-        "kicker": "",
-        "title": "Deux ateliers, que nous nommons",
-        "text": "<p>Nous ne fabriquons pas nous-mêmes, et nous le disons.</p><p>En Inde, le pays où les échecs sont nés, nos pièces sont sculptées dans des bois denses : ébène, buis, bois de rose. Elles sont ensuite lestées et feutrées. Nos échiquiers en bois massif viennent du même atelier.</p><p>En Pologne, un fabricant de jeux en bois réalise les tables à plateau marqueté que nous préparons.</p>"
+        "kicker": "III. L'histoire",
+        "title": "Quinze siècles dans la main",
+        "text": "<p>Quand vous soulevez un cavalier, vous tenez un objet dont la forme a mis très longtemps à se fixer. Trois dates suffisent à le comprendre.</p>"
+      },
+      "blocks": {
+        "h1": {
+          "type": "col",
+          "settings": {
+            "title": "VIe siècle, en Inde",
+            "text": "<p>Le jeu naît dans le nord de l'Inde sous le nom de <em>chaturanga</em> : les quatre corps de l'armée. Il passe en Perse, puis dans le monde arabe, et arrive en Europe au Moyen Âge.</p>"
+          }
+        },
+        "h2": {
+          "type": "col",
+          "settings": {
+            "title": "1849, à Londres",
+            "text": "<p>Nathaniel Cooke dépose le dessin d'un jeu aux formes simples et stables. Le champion Howard Staunton le recommande et lui laisse son nom. Presque tous les jeux d'aujourd'hui en descendent.</p>"
+          }
+        },
+        "h3": {
+          "type": "col",
+          "settings": {
+            "title": "Aujourd'hui, de nouveau en Inde",
+            "text": "<p>C'est là que sont sculptées nos pièces, dans l'ébène, le buis et le bois de rose. Le jeu est revenu se faire fabriquer dans le pays où il est né.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "h1",
+        "h2",
+        "h3"
+      ]
+    },
+    "nous": {
+      "type": "ech-manifeste",
+      "settings": {
+        "asset": "ambiance-bureau-mobile.jpg",
+        "alt": "Un bureau à l'heure dorée, lampe en laiton, un jeu posé sur la table (décor).",
+        "image_side": "right",
+        "tone": "sand",
+        "kicker": "IV. Qui nous sommes",
+        "title": "Une jeune maison, qui dit ce qu'elle fait",
+        "text": "<p>Maison Roszada est née en France, en 2026. Nous n'avons pas un siècle d'histoire à vous raconter, et nous n'en inventerons pas.</p><p>Nous ne sommes pas ébénistes. Nous ne fabriquons pas nous-mêmes, et nous le disons. Notre métier ressemble à celui d'un éditeur : parmi des centaines de modèles, en retenir quelques-uns, et savoir pourquoi.</p><p><strong>En Inde</strong>, un atelier spécialisé sculpte nos pièces et réalise nos échiquiers en bois massif.</p><p><strong>En Pologne</strong>, le pays qui nous a donné notre nom, un fabricant de jeux en bois réalise les tables marquetées que nous préparons.</p>",
+        "button_label": "",
+        "button_link": ""
       }
     },
-    "part4": {
+    "metier": {
       "type": "ech-columns",
       "settings": {
         "tone": "ivory",
-        "kicker": "",
-        "title": "Notre métier",
-        "text": "<p>Choisir chaque modèle pour son dessin et pour son histoire. L'accorder à l'échiquier qui lui convient. Vous dire, sur chaque fiche, les dimensions, le poids, les bois et l'origine.</p><p>Puis vous l'envoyer : livraison offerte et suivie, frais de douane déjà réglés, 14 jours pour changer d'avis.</p>",
-        "button_label": "Entrer dans la maison",
+        "kicker": "V. Notre métier",
+        "title": "Choisir, accorder, dire vrai",
+        "text": ""
+      },
+      "blocks": {
+        "m1": {
+          "type": "col",
+          "settings": {
+            "title": "Choisir",
+            "text": "<p>Chaque jeu est retenu pour deux raisons : son dessin, et ce qu'il raconte. Le premier Staunton de 1849. Les pièces du match Fischer-Spassky de 1972. Le style des cafés de Vienne.</p>"
+          }
+        },
+        "m2": {
+          "type": "col",
+          "settings": {
+            "title": "Accorder",
+            "text": "<p>Des pièces trop grandes sur un échiquier trop petit, et tout est gâché. Nous associons chaque jeu au plateau qui lui convient : la bonne taille de case, des bois qui se répondent.</p>"
+          }
+        },
+        "m3": {
+          "type": "col",
+          "settings": {
+            "title": "Dire vrai",
+            "text": "<p>Sur chaque fiche : la hauteur du roi au millimètre, le poids, les bois, le pays où le jeu est fait. Les photos de salons qui illustrent ce site sont des décors. Les photos des fiches montrent le modèle que vous recevrez.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "m1",
+        "m2",
+        "m3"
+      ]
+    },
+    "refus": {
+      "type": "ech-columns",
+      "settings": {
+        "tone": "sand",
+        "kicker": "VI. Ce que vous ne trouverez pas ici",
+        "title": "Trois choses que nous ne ferons pas",
+        "text": ""
+      },
+      "blocks": {
+        "r1": {
+          "type": "col",
+          "settings": {
+            "title": "Presser",
+            "text": "<p>Pas de compte à rebours, pas de « plus que deux en stock » pour vous faire décider plus vite. Un objet que l'on garde vingt ans se choisit calmement.</p>"
+          }
+        },
+        "r2": {
+          "type": "col",
+          "settings": {
+            "title": "Inventer",
+            "text": "<p>Pas d'avis écrits par nous, pas d'artisan imaginaire, pas de date de fondation arrangée. Si nous ne savons pas, nous ne l'écrivons pas.</p>"
+          }
+        },
+        "r3": {
+          "type": "col",
+          "settings": {
+            "title": "Vous laisser seul",
+            "text": "<p>Livraison offerte et suivie, frais de douane déjà réglés. Un article arrive abîmé : nous le remplaçons à nos frais. Et vous avez 14 jours pour changer d'avis.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "r1",
+        "r2",
+        "r3"
+      ]
+    },
+    "fin": {
+      "type": "ech-columns",
+      "settings": {
+        "tone": "ivory",
+        "kicker": "Le refuge du roi",
+        "title": "Entrez. La partie peut durer.",
+        "text": "<p>La maison se visite pièce par pièce : le grand salon, la bibliothèque, le bureau, la maison de famille. Choisissez d'abord l'endroit. Le jeu qui lui va vous attend.</p>",
+        "button_label": "Voir toute la collection",
         "button_link": "/collections/all"
       }
     }
   },
   "order": [
     "hero",
-    "part1",
-    "part2",
-    "part3",
-    "part4"
+    "nom",
+    "croire",
+    "histoire",
+    "nous",
+    "metier",
+    "refus",
+    "fin"
   ]
 }

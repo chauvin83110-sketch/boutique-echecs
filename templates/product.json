@@ -228,7 +228,8 @@
             "ech_gift": {
               "type": "ech-gift",
               "settings": {
-                "show_split": false
+                "show_split": false,
+                "title": "Pour vous, ou pour offrir"
               }
             }
           },
@@ -271,7 +272,7 @@
           "type": "text",
           "name": "t:names.header",
           "settings": {
-            "text": "<h2>You may also like </h2>",
+            "text": "<h2>Dans la même maison</h2>",
             "width": "fit-content",
             "max_width": "normal",
             "alignment": "left",

@@ -10,9 +10,9 @@
         "text_side": "left",
         "tone": "ink",
         "heading_tag": "h1",
-        "kicker": "Pour Noël",
-        "title": "Il a déjà tout. Il n'a pas ça.",
-        "text": "<p>Des jeux d'échecs nés de parties célèbres, choisis comme des objets de maison. Un cadeau qu'il ne rangera pas.</p>",
+        "kicker": "Offrir",
+        "title": "Le cadeau que l'on ne range pas.",
+        "text": "<p>Des jeux d'échecs en bois massif, nés de parties célèbres et choisis comme des objets de maison.</p>",
         "button_label": "Trouver son cadeau",
         "button_link": "/collections/all?view=offrir"
       }
@@ -24,7 +24,7 @@
           "type": "tier",
           "settings": {
             "label": "Moins de 500 €",
-            "sub": "Des jeux de pièces pour un premier beau jeu",
+            "sub": "Un premier beau jeu de pièces",
             "min": 300,
             "max": 500,
             "link_label": "Tout voir",
@@ -46,7 +46,7 @@
           "type": "tier",
           "settings": {
             "label": "L'exception",
-            "sub": "Pour un cadeau qui marque",
+            "sub": "Les pièces sculptées et les ensembles complets",
             "min": 900,
             "max": 0,
             "link_label": "Tout voir",
@@ -63,7 +63,7 @@
         "kicker": "Offrir",
         "title": "Trouver son cadeau",
         "heading_tag": "h2",
-        "text": "<p>Trois budgets, des jeux choisis un par un. Chacun raconte une partie ou une époque.</p>",
+        "text": "<p>Un anniversaire, un départ à la retraite, une réussite, un mariage. Trois budgets, des jeux choisis un par un : chacun reprend le dessin d'une partie ou d'une époque.</p>",
         "limit": 4,
         "hide_sold_out": true
       }
@@ -122,9 +122,9 @@
         "text_side": "left",
         "tone": "below",
         "heading_tag": "h2",
-        "kicker": "Il ne joue pas ?",
-        "title": "Aucun souci. Un beau jeu se regarde aussi.",
-        "text": "<p>Posé sur une console ou une bibliothèque, il habille la pièce comme un objet de maison. Et le jour où quelqu'un propose une partie, il est là.</p>",
+        "kicker": "Il ou elle ne joue pas ?",
+        "title": "Un beau jeu se regarde aussi.",
+        "text": "<p>Posé sur une console ou dans une bibliothèque, il habille la pièce comme un objet de maison. Et le jour où quelqu'un propose une partie, il est là.</p>",
         "button_label": "Voir les jeux de légende",
         "button_link": "shopify://collections/jeux-de-legende"
       }
@@ -135,8 +135,8 @@
         "q1": {
           "type": "faq",
           "settings": {
-            "question": "Sera-t-il livré avant Noël ?",
-            "answer": "<p>La date de livraison estimée est indiquée sur chaque produit. Comptez 7 à 10 jours ouvrés, avec un numéro de suivi dès l'expédition.</p>"
+            "question": "Quand sera-t-il livré ?",
+            "answer": "<p>Sous 7 à 10 jours ouvrés, avec un numéro de suivi dès l'expédition. Pour une date précise, commandez trois semaines avant : vous aurez de la marge.</p>"
           }
         },
         "q2": {
@@ -164,7 +164,7 @@
           "type": "faq",
           "settings": {
             "question": "L'échiquier est-il fourni ?",
-            "answer": "<p>Nos jeux de pièces sont vendus seuls. Pour un cadeau prêt à jouer, choisissez un ensemble ou ajoutez un <a href=\"/collections/echiquiers\">échiquier</a>.</p>"
+            "answer": "<p>Nos jeux de pièces sont vendus seuls. Pour offrir un jeu complet, choisissez un <a href=\"/collections/ensembles-roszada\">ensemble</a> ou ajoutez un <a href=\"/collections/echiquiers\">échiquier</a>.</p>"
           }
         },
         "q6": {

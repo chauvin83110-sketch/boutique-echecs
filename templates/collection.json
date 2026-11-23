@@ -47,7 +47,7 @@
           "type": "tile",
           "settings": {
             "collection": "coffrets-echecs",
-            "label": "Coffrets cadeaux"
+            "label": "Coffrets et accessoires"
           }
         }
       },
@@ -206,7 +206,7 @@
       "settings": {
         "guide_kicker": "Guide d'achat",
         "guide_title": "Bien choisir son jeu",
-        "guide_text": "<h3>La taille des pièces</h3><p>Un jeu se décrit par la hauteur de son roi, indiquée dans le nom de chaque modèle. Autour de 9,5 cm, c'est la taille des jeux de tournoi. Au-delà de 10,5 cm, le jeu prend de la présence sur une table basse.</p><h3>La case qui va avec</h3><p>Chaque fiche indique la taille de case conseillée. Elle permet de choisir un échiquier où les pièces ne sont ni à l'étroit ni perdues.</p><h3>Le bois</h3><p>Le bois des pièces claires et des pièces foncées est indiqué sur chaque fiche.</p>",
+        "guide_text": "<h3>La taille des pièces</h3><p>Un jeu se décrit par la hauteur de son roi, indiquée dans le nom de chaque modèle. Autour de 9,5 cm, c'est la taille des jeux de tournoi. À partir de 10,5 cm, le jeu prend de la présence sur une table basse.</p><h3>La case qui va avec</h3><p>Chaque fiche indique la taille de case conseillée, 55 ou 60 mm le plus souvent. Elle permet de choisir un échiquier où les pièces ne sont ni à l'étroit ni perdues. Nos ensembles sont déjà accordés.</p><h3>Le bois</h3><p>L'ébène donne un noir profond, le bois de rose un brun rouge chaleureux, le buis un clair au grain fin. Les bois de chaque jeu sont indiqués sur sa fiche.</p>",
         "table_title": "",
         "col_1": "Bois",
         "col_2": "Aspect",
@@ -224,7 +224,7 @@
           "type": "faq",
           "settings": {
             "question": "Combien coûte la livraison ?",
-            "answer": "<p>La livraison est offerte en France métropolitaine à partir de 50 € d'achat, soit sur tous nos jeux. En dessous, elle coûte 8,80 €.</p>"
+            "answer": "<p>La livraison est offerte et suivie en France métropolitaine sur tous nos jeux.</p>"
           }
         },
         "faq_2": {
@@ -238,7 +238,7 @@
           "type": "faq",
           "settings": {
             "question": "Y a-t-il des frais de douane ?",
-            "answer": "<p>Non. Certains jeux partent directement de nos ateliers partenaires, en Europe ou hors Union européenne : dans tous les cas, les frais de douane et taxes sont à notre charge. Vous ne payez rien à la réception.</p>"
+            "answer": "<p>Non. Les taxes et les frais de douane sont déjà réglés : vous n'avez rien à payer à la réception.</p>"
           }
         },
         "faq_4": {
@@ -252,7 +252,7 @@
           "type": "faq",
           "settings": {
             "question": "D'où viennent vos jeux ?",
-            "answer": "<p>Nos pièces et nos échiquiers sont fabriqués en Inde par un atelier spécialisé dans les jeux d'échecs en bois.</p>"
+            "answer": "<p>Nos pièces et nos échiquiers sont faits en Inde, le pays où les échecs sont nés, par un atelier spécialisé dans les jeux d'échecs en bois.</p>"
           }
         },
         "faq_6": {
@@ -266,7 +266,7 @@
           "type": "faq",
           "settings": {
             "question": "Puis-je offrir un jeu en cadeau ?",
-            "answer": "<p>Oui. Précisez en note de commande s'il s'agit d'un cadeau.</p>"
+            "answer": "<p>Oui. Indiquez-le en note de commande. Nous ne proposons pas encore d'emballage cadeau.</p>"
           }
         },
         "faq_8": {

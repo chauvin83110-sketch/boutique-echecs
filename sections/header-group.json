@@ -11,21 +11,13 @@
   "type": "header",
   "name": "t:names.header",
   "sections": {
-    "ech_noel": {
-      "type": "ech-noel-bar",
-      "settings": {
-        "date": "",
-        "link_label": "Trouver son cadeau",
-        "link": "/collections/all?view=offrir"
-      }
-    },
     "header_announcements_9jGBFp": {
       "type": "header-announcements",
       "blocks": {
         "announcement_BxgCk9": {
           "type": "_announcement",
           "settings": {
-            "text": "Livraison offerte en France dès 50 € · Frais de douane inclus",
+            "text": "Livraison offerte et suivie · Frais de douane déjà réglés",
             "link": "",
             "font": "var(--font-subheading--family)",
             "font_size": "0.75rem",
@@ -38,7 +30,7 @@
         "announcement_retours": {
           "type": "_announcement",
           "settings": {
-            "text": "Retours sous 14 jours · Paiement sécurisé",
+            "text": "14 jours pour changer d'avis · Paiement sécurisé",
             "link": "",
             "font": "var(--font-subheading--family)",
             "font_size": "0.75rem",
@@ -126,14 +118,13 @@
       "type": "promo-countdown",
       "settings": {
         "enabled": false,
-        "message": "-15 % sur les coffrets cadeaux avec le code NOEL15",
-        "end_date": "2026-12-24 23:59",
+        "message": "",
+        "end_date": "",
         "link": ""
       }
     }
   },
   "order": [
-    "ech_noel",
     "promo_countdown",
     "header_announcements_9jGBFp",
     "header_section"

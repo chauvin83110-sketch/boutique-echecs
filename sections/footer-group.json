@@ -14,16 +14,16 @@
     "footer_echecs": {
       "type": "footer-echecs",
       "settings": {
-        "about": "Échiquiers en bois pliants, avec leurs pièces. Livraison offerte en France.",
-        "col1_title": "La boutique",
+        "about": "Maison Roszada, le refuge du roi. Des jeux d'échecs d'exception en bois massif, sculptés en Inde et pensés comme des objets de maison.",
+        "col1_title": "La maison",
         "menu_shop": "main-menu",
         "col2_title": "Service client",
         "menu_service": "",
         "col3_title": "Informations",
         "menu_legal": "",
         "show_newsletter": true,
-        "news_title": "La lettre de l'échiquier",
-        "news_text": "Nouveaux modèles, conseils d'entretien et idées cadeaux. Un e-mail par mois, pas plus.",
+        "news_title": "Le carnet de la maison",
+        "news_text": "Un nouveau modèle, l'histoire d'un dessin, un conseil d'entretien. Un e-mail par mois, pas plus.",
         "copyright_text": "Paiement sécurisé"
       },
       "blocks": {
@@ -31,15 +31,15 @@
           "type": "perk",
           "settings": {
             "icon": "truck",
-            "title": "Livraison offerte",
-            "text": "En France dès 50 €, douane incluse"
+            "title": "Livraison offerte et suivie",
+            "text": "Frais de douane déjà réglés"
           }
         },
         "perk_retours": {
           "type": "perk",
           "settings": {
             "icon": "return",
-            "title": "Retours sous 14 jours",
+            "title": "14 jours pour changer d'avis",
             "text": "Sans avoir à vous justifier"
           }
         },
@@ -55,8 +55,8 @@
           "type": "perk",
           "settings": {
             "icon": "gift",
-            "title": "Un jeu complet",
-            "text": "Le plateau pliant range les pièces"
+            "title": "Arrivé abîmé ? Remplacé",
+            "text": "À nos frais, sur simple photo"
           }
         }
       },

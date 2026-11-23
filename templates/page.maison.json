@@ -30,8 +30,8 @@
       "settings": {
         "tone": "ivory",
         "kicker": "",
-        "title": "Entrez",
-        "text": "<p>Imaginez une maison. Pas un château : une maison où l'on vit. Dans le salon, un feu, un plaid jeté sur un fauteuil. Dans la bibliothèque, des reliures et une lampe en laiton. Dans le bureau, un carnet ouvert. Et dans chaque pièce, posé là comme s'il y avait toujours été, un jeu en bois sombre qui attend.</p><p>Cette maison s'appelle Roszada. C'est le mot polonais pour le roque, le seul coup où le roi quitte le centre pour se mettre à l'abri. Nous voulions que nos objets fassent la même chose chez vous : créer un refuge.</p>"
+        "title": "Un nom, un coup",
+        "text": "<p>Maison Roszada est une maison française de jeux d'échecs d'exception. Nous choisissons des jeux en bois massif, sculptés en Inde, pour qu'ils vivent dans une pièce comme un bel objet.</p><p><em>Roszada</em> se prononce « ro-cha-da ». C'est le mot polonais pour le roque, le seul coup où le roi quitte le centre de l'échiquier pour se mettre à l'abri derrière sa tour. Nous avons donné ce nom à notre maison parce que c'est ce que nous cherchons : un refuge, au milieu de chez vous.</p>"
       }
     },
     "part2": {
@@ -40,7 +40,7 @@
         "tone": "ivory",
         "kicker": "",
         "title": "Des objets qui s'installent",
-        "text": "<p>Nos jeux ne se rangent pas dans un placard. Ils se posent, ils accrochent la lumière du soir, ils donnent à une pièce son caractère. On les regarde en passant. Un jour, on s'assoit. Une partie commence, et le jeu reste là.</p>"
+        "text": "<p>Un beau jeu ne se range pas dans un placard. Il se pose sur une table basse, il accroche la lumière du soir, il donne à la pièce son caractère.</p><p>On le regarde en passant. Un jour, on s'assoit. Une partie commence, puis s'arrête, et le jeu reste là jusqu'au lendemain.</p>"
       }
     },
     "part3": {
@@ -49,7 +49,7 @@
         "tone": "ivory",
         "kicker": "",
         "title": "Deux ateliers, que nous nommons",
-        "text": "<p>La maison est imaginaire ; nos ateliers sont réels. En Inde, là où les échecs sont nés, nos pièces sont sculptées dans des bois denses, ébène, buis, bois de rose, puis lestées et feutrées. En Pologne, un fabricant de jeux en bois réalise nos tables et nos plateaux marquetés.</p>"
+        "text": "<p>Nous ne fabriquons pas nous-mêmes, et nous le disons.</p><p>En Inde, le pays où les échecs sont nés, nos pièces sont sculptées dans des bois denses : ébène, buis, bois de rose. Elles sont ensuite lestées et feutrées. Nos échiquiers en bois massif viennent du même atelier.</p><p>En Pologne, un fabricant de jeux en bois réalise les tables à plateau marqueté que nous préparons.</p>"
       }
     },
     "part4": {
@@ -57,8 +57,8 @@
       "settings": {
         "tone": "ivory",
         "kicker": "",
-        "title": "Notre métier : composer des scènes",
-        "text": "<p>Nous choisissons chaque objet pour une pièce de la maison. Nous l'accordons au bon échiquier, à la bonne table, à la bonne lumière. Puis nous vous l'envoyons, frais de douane réglés, prêt à être posé, ou offert.</p>",
+        "title": "Notre métier",
+        "text": "<p>Choisir chaque modèle pour son dessin et pour son histoire. L'accorder à l'échiquier qui lui convient. Vous dire, sur chaque fiche, les dimensions, le poids, les bois et l'origine.</p><p>Puis vous l'envoyer : livraison offerte et suivie, frais de douane déjà réglés, 14 jours pour changer d'avis.</p>",
         "button_label": "Entrer dans la maison",
         "button_link": "/collections/all"
       }

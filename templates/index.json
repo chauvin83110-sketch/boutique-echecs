@@ -9,72 +9,23 @@
  */
 {
   "sections": {
-    "ambiance": {
+    "hero": {
       "type": "ech-ambiance",
       "settings": {
         "asset_desktop": "ambiance-bureau.jpg",
         "asset_mobile": "ambiance-bureau-mobile.jpg",
-        "alt": "Un bureau parisien au soleil couchant : fauteuil en velours vert, lampe en laiton, un échiquier posé sur la table.",
+        "alt": "Un bureau au soleil couchant : fauteuil en velours vert, lampe en laiton, un jeu d'échecs posé sur la table (décor).",
         "position": "50% 75%",
         "text_side": "left",
         "tone": "ink",
         "heading_tag": "h1",
-        "kicker": "Pour Noël",
-        "title": "Il a déjà tout. Il n'a pas ça.",
-        "text": "<p>Des jeux d'échecs nés de parties célèbres, choisis comme des objets de maison. Un cadeau qu'il ne rangera pas.</p>",
-        "button_label": "Trouver son cadeau",
-        "button_link": "/collections/all?view=offrir"
-      }
-    },
-    "gifts": {
-      "type": "ech-gift-budgets",
-      "blocks": {
-        "t1": {
-          "type": "tier",
-          "settings": {
-            "label": "Moins de 500 €",
-            "sub": "Des jeux de pièces pour un premier beau jeu",
-            "min": 300,
-            "max": 500,
-            "link_label": "Tout voir",
-            "link": "/collections/all?view=offrir"
-          }
-        },
-        "t2": {
-          "type": "tier",
-          "settings": {
-            "label": "De 500 à 900 €",
-            "sub": "Les grands jeux de légende",
-            "min": 500,
-            "max": 900,
-            "link_label": "Tout voir",
-            "link": "/collections/all?view=offrir"
-          }
-        },
-        "t3": {
-          "type": "tier",
-          "settings": {
-            "label": "L'exception",
-            "sub": "Pour un cadeau qui marque",
-            "min": 900,
-            "max": 0,
-            "link_label": "Tout voir",
-            "link": "/collections/all?view=offrir"
-          }
-        }
-      },
-      "block_order": [
-        "t1",
-        "t2",
-        "t3"
-      ],
-      "settings": {
-        "kicker": "Offrir",
-        "title": "Trouver son cadeau",
-        "heading_tag": "h2",
-        "text": "<p>Trois budgets, des jeux choisis un par un. Chacun raconte une partie ou une époque.</p>",
-        "limit": 4,
-        "hide_sold_out": true
+        "kicker": "Maison Roszada, le refuge du roi",
+        "title": "Des jeux d'échecs que l'on ne range pas.",
+        "text": "<p>Des pièces en ébène, en buis et en bois de rose, sculptées en Inde, lestées puis feutrées. Elles restent posées au salon comme un bel objet. Et quand l'envie vient, on joue.</p>",
+        "button_label": "Entrer dans la maison",
+        "button_anchor": "ech-maison",
+        "link2_label": "Voir toute la collection",
+        "link2": "/collections/all"
       }
     },
     "promises": {
@@ -83,104 +34,242 @@
         "p1": {
           "type": "item",
           "settings": {
-            "title": "Rien à payer à la livraison",
-            "text": "Taxes et douane à notre charge, livraison offerte et suivie"
+            "icon": "truck",
+            "title": "Livraison offerte et suivie",
+            "text": ""
           }
         },
         "p2": {
           "type": "item",
           "settings": {
-            "title": "Arrivé abîmé ? Remplacé",
-            "text": "Prévenez-nous sous 3 jours avec une photo"
+            "icon": "customs",
+            "title": "Frais de douane déjà réglés",
+            "text": ""
           }
         },
         "p3": {
           "type": "item",
           "settings": {
+            "icon": "shield",
+            "title": "Remplacé à nos frais s'il arrive abîmé",
+            "text": ""
+          }
+        },
+        "p4": {
+          "type": "item",
+          "settings": {
+            "icon": "return",
             "title": "14 jours pour changer d'avis",
-            "text": "Après réception, sans vous justifier"
+            "text": ""
           }
         }
       },
       "block_order": [
         "p1",
         "p2",
-        "p3"
+        "p3",
+        "p4"
       ],
       "settings": {}
     },
-    "spotlight": {
-      "type": "ech-spotlight",
+    "scenes": {
+      "type": "ech-scenes",
       "settings": {
-        "product": "le-cooke-1849",
-        "media_index": 1,
-        "kicker": "De près",
+        "kicker": "Les pièces de la maison",
+        "title": "Chaque pièce a sa pièce",
+        "text": "<p>Choisissez d'abord l'endroit où il vivra. Nous avons réuni les jeux qui lui vont.</p>"
+      },
+      "blocks": {
+        "salon": {
+          "type": "scene",
+          "settings": {
+            "asset": "ambiance-salon.jpg",
+            "position": "62% 50%",
+            "title": "Le grand salon",
+            "caption": "La table basse, deux fauteuils, la partie qui reprend après le dîner.",
+            "link": "/collections/le-salon-dhiver",
+            "alt": "Un grand salon au crépuscule, deux fauteuils de cuir, un jeu d'échecs sur la table basse (décor)."
+          }
+        },
+        "biblio": {
+          "type": "scene",
+          "settings": {
+            "asset": "ambiance-bibliotheque.jpg",
+            "position": "30% 50%",
+            "title": "La bibliothèque",
+            "caption": "Les reliures, la lampe en laiton, l'ébène qui accroche la lumière.",
+            "link": "/collections/la-bibliotheque",
+            "alt": "Une bibliothèque aux murs verts, fauteuils de cuir (décor)."
+          }
+        },
+        "bureau": {
+          "type": "scene",
+          "settings": {
+            "asset": "ambiance-bureau-mobile.jpg",
+            "position": "50% 50%",
+            "title": "Le bureau",
+            "caption": "Une partie en cours. Un coup par jour.",
+            "link": "/collections/le-bureau",
+            "alt": "Un bureau à l'heure dorée, lampe en laiton (décor)."
+          }
+        },
+        "famille": {
+          "type": "scene",
+          "settings": {
+            "asset": "ambiance-famille-mobile.jpg",
+            "position": "50% 50%",
+            "title": "La maison de famille",
+            "caption": "La grande table du dimanche, et ce que l'on transmet.",
+            "link": "/collections/la-maison-de-famille",
+            "alt": "Une salle à manger de maison de famille, longue table en bois, jeu posé au centre (décor)."
+          }
+        }
+      },
+      "block_order": [
+        "salon",
+        "biblio",
+        "bureau",
+        "famille"
+      ]
+    },
+    "manifeste": {
+      "type": "ech-manifeste",
+      "settings": {
+        "asset": "ambiance-main-pion.jpg",
+        "alt": "Une main pose une pièce sur l'échiquier (décor).",
+        "image_side": "left",
+        "tone": "green",
+        "kicker": "Le refuge du roi",
         "title": "",
-        "text": "",
-        "show_specs": true,
-        "button_label": "Voir le Cooke 1849"
+        "text": "<p>Il y a des maisons où l'on entre et où l'on baisse la voix.</p><p>Une lampe basse. Du bois sombre. Un fauteuil qui attend.</p><p>Sur la table, un jeu que personne n'a rangé depuis des mois.</p><p>On s'en approche. On prend une pièce dans la main : elle est lourde, lisse, puis tiède.</p><p>Aux échecs, un seul coup met le roi à l'abri : le roque. En polonais, on dit <em>roszada</em>.</p><p>Nous avons donné ce nom à notre maison.</p><p><em>Le refuge du roi.</em></p>",
+        "button_label": "",
+        "button_link": ""
       }
     },
-    "salon": {
-      "type": "ech-ambiance",
+    "duos": {
+      "type": "ech-collection-showcase",
       "settings": {
-        "asset_desktop": "ambiance-salon.jpg",
-        "asset_mobile": "ambiance-salon.jpg",
-        "alt": "Un grand salon au crépuscule : deux fauteuils en cuir, une cheminée allumée, un échiquier sur la table basse.",
-        "position": "62% 50%",
-        "text_side": "left",
-        "tone": "below",
-        "heading_tag": "h2",
-        "kicker": "Il ne joue pas ?",
-        "title": "Aucun souci. Un beau jeu se regarde aussi.",
-        "text": "<p>Posé sur une console ou une bibliothèque, il habille la pièce comme un objet de maison. Et le jour où quelqu'un propose une partie, il est là.</p>",
-        "button_label": "Voir les jeux de légende",
-        "button_link": "shopify://collections/jeux-de-legende"
+        "collection": "ensembles-roszada",
+        "kicker": "Les ensembles",
+        "title": "Les pièces et leur échiquier, déjà accordés",
+        "text": "<p>Nous avons associé chaque jeu de pièces à l'échiquier qui lui convient : la bonne taille de case, des bois qui se répondent. Rien à assortir, et 10&nbsp;% de moins qu'achetés séparément.</p>",
+        "link_label": "Voir les ensembles",
+        "limit": 6
+      }
+    },
+    "conseils": {
+      "type": "ech-columns",
+      "settings": {
+        "tone": "ivory",
+        "kicker": "Ce qui fait un jeu Roszada",
+        "title": "Trois choses que l'on sent tout de suite",
+        "text": ""
+      },
+      "blocks": {
+        "c1": {
+          "type": "col",
+          "settings": {
+            "title": "Des bois denses",
+            "text": "<p>Ébène, buis, bois de rose, palissandre. Des bois lourds, au grain serré, qui prennent le poli et se patinent avec les années.</p>"
+          }
+        },
+        "c2": {
+          "type": "col",
+          "settings": {
+            "title": "Le poids dans la main",
+            "text": "<p>Chaque pièce est lestée, puis feutrée. Un jeu complet pèse de 1,1 à 2,3 kg : la pièce se pose avec un bruit mat et ne bascule pas.</p>"
+          }
+        },
+        "c3": {
+          "type": "col",
+          "settings": {
+            "title": "Un dessin qui a une histoire",
+            "text": "<p>Le modèle déposé à Londres en 1849. Les pièces du match Fischer-Spassky de 1972. Le style des cafés de Vienne. Chaque fiche raconte d'où vient le dessin.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "c1",
+        "c2",
+        "c3"
+      ]
+    },
+    "ateliers": {
+      "type": "ech-columns",
+      "settings": {
+        "tone": "sand",
+        "kicker": "Nos ateliers",
+        "title": "Deux ateliers, que nous nommons",
+        "text": "<p>Nous ne fabriquons pas nous-mêmes, et nous le disons. Nos pièces et nos échiquiers sont faits en Inde, le pays où les échecs sont nés. Les tables marquetées que nous préparons viennent d'un fabricant de jeux en bois, en Pologne.</p><p>Notre métier : choisir chaque modèle, l'accorder au bon échiquier, et vous l'envoyer prêt à être posé.</p>",
+        "button_label": "Découvrir notre maison",
+        "button_link": "/pages/notre-maison"
       }
     },
     "faq": {
       "type": "collection-guide",
+      "settings": {
+        "guide_kicker": "",
+        "guide_title": "",
+        "guide_text": "",
+        "auto_compare": false,
+        "table_title": "",
+        "faq_title": "Questions fréquentes"
+      },
       "blocks": {
         "q1": {
           "type": "faq",
           "settings": {
-            "question": "Sera-t-il livré avant Noël ?",
-            "answer": "<p>La date de livraison estimée est indiquée sur chaque produit. Comptez 7 à 10 jours ouvrés, avec un numéro de suivi dès l'expédition.</p>"
+            "question": "Que vend Maison Roszada ?",
+            "answer": "<p>Des jeux d'échecs en bois massif, pensés comme des objets de décoration : des jeux de pièces sculptées en Inde, des échiquiers, des ensembles pièces et échiquier, et des coffrets de rangement. Les jeux et les ensembles vont de 490 € à 2 290 €.</p>"
           }
         },
         "q2": {
           "type": "faq",
           "settings": {
-            "question": "Y a-t-il quelque chose à payer à la réception ?",
-            "answer": "<p>Non. Les frais de douane et les taxes sont à notre charge, et la livraison est offerte en France dès 50 €.</p>"
+            "question": "Faut-il savoir jouer ?",
+            "answer": "<p>Non. Nos jeux vivent d'abord dans la pièce, comme un bel objet. Ils donnent envie d'apprendre, ou de rejouer.</p>"
           }
         },
         "q3": {
           "type": "faq",
           "settings": {
-            "question": "Et s'il arrive abîmé ?",
-            "answer": "<p>Prévenez-nous sous 3 jours avec des photos : nous le remplaçons ou le remboursons.</p>"
+            "question": "Les pièces sont-elles vendues avec l'échiquier ?",
+            "answer": "<p>Les jeux de pièces sont vendus seuls. Pour tout recevoir d'un coup, choisissez un <a href=\"/collections/ensembles-roszada\">ensemble</a> : les pièces et l'échiquier accordé, 10&nbsp;% moins cher qu'achetés séparément.</p>"
           }
         },
         "q4": {
           "type": "faq",
           "settings": {
-            "question": "Et si le cadeau ne plaît pas ?",
-            "answer": "<p>Vous disposez de 14 jours après réception pour changer d'avis, sans avoir à vous justifier. Le jeu doit nous revenir complet et dans son état d'origine.</p>"
+            "question": "Quand arrivera ma commande ?",
+            "answer": "<p>Sous 7 à 10 jours ouvrés, avec un numéro de suivi dès l'expédition. La livraison est offerte.</p>"
           }
         },
         "q5": {
           "type": "faq",
           "settings": {
-            "question": "L'échiquier est-il fourni ?",
-            "answer": "<p>Nos jeux de pièces sont vendus seuls. Pour un cadeau prêt à jouer, choisissez un ensemble ou ajoutez un <a href=\"/collections/echiquiers\">échiquier</a>.</p>"
+            "question": "Y a-t-il des frais de douane ?",
+            "answer": "<p>Non. Les taxes et les frais de douane sont déjà réglés : vous n'avez rien à payer à la réception.</p>"
           }
         },
         "q6": {
           "type": "faq",
           "settings": {
-            "question": "Il ne joue pas aux échecs, est-ce une bonne idée ?",
-            "answer": "<p>Oui. Nos jeux sont aussi des objets de décoration, faits pour rester posés au salon ou au bureau.</p>"
+            "question": "Et s'il arrive abîmé ?",
+            "answer": "<p>Envoyez-nous une photo dans les 3 jours : nous le remplaçons à nos frais.</p>"
+          }
+        },
+        "q7": {
+          "type": "faq",
+          "settings": {
+            "question": "Puis-je le retourner ?",
+            "answer": "<p>Oui. Vous avez 14 jours après réception pour changer d'avis, sans vous justifier. Le jeu doit nous revenir complet et dans son état d'origine.</p>"
+          }
+        },
+        "q8": {
+          "type": "faq",
+          "settings": {
+            "question": "Peut-on l'offrir ?",
+            "answer": "<p>Oui, et beaucoup le font : pour un anniversaire, une retraite, une réussite. Indiquez-le en note de commande. Nous ne proposons pas encore d'emballage cadeau.</p>"
           }
         }
       },
@@ -190,36 +279,32 @@
         "q3",
         "q4",
         "q5",
-        "q6"
-      ],
-      "settings": {
-        "guide_kicker": "",
-        "guide_title": "",
-        "guide_text": "",
-        "auto_compare": false,
-        "table_title": "",
-        "faq_title": "Vos questions avant d'offrir"
-      }
+        "q6",
+        "q7",
+        "q8"
+      ]
     },
-    "duos": {
-      "type": "ech-collection-showcase",
+    "occasions": {
+      "type": "ech-columns",
       "settings": {
-        "collection": "ensembles-roszada",
-        "kicker": "Prêt à offrir",
-        "title": "Le jeu complet, -10&nbsp;%",
-        "text": "<p>Les pièces et l'échiquier assorti, réunis en un seul cadeau prêt à jouer : 10&nbsp;% de moins qu'achetés séparément.</p>",
-        "link_label": "Voir tous les ensembles",
-        "limit": 6
+        "tone": "sand",
+        "kicker": "Pour soi, ou pour quelqu'un",
+        "title": "Un objet qui marque une date",
+        "text": "<p>Un anniversaire, un départ à la retraite, une réussite, une maison où l'on vient d'emménager. Ou simplement l'envie d'avoir un bel objet chez soi.</p><p>Un jeu d'échecs en bois massif ne se démode pas et ne finit pas dans un placard. Il reste dans la pièce, et l'on se souvient du jour où il est arrivé.</p>",
+        "button_label": "Choisir selon son budget",
+        "button_link": "/collections/all?view=offrir"
       }
     }
   },
   "order": [
-    "ambiance",
-    "gifts",
-    "duos",
+    "hero",
     "promises",
-    "spotlight",
-    "salon",
+    "scenes",
+    "manifeste",
+    "conseils",
+    "duos",
+    "occasions",
+    "ateliers",
     "faq"
   ]
 }

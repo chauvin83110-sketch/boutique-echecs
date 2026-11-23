@@ -29,6 +29,30 @@
     {{ 'echecs.css' | asset_url | stylesheet_tag }}
     <script src="{{ 'echecs.js' | asset_url }}" defer></script>
 
+    {%- comment -%}
+      Motion design (assets/ech-motion.*). ech_motion_live = false : visible seulement avec ?motion=1 (aperçu).
+      Passer à true pour l'activer pour tous les visiteurs ; ?motion=0 le coupe pour la session.
+    {%- endcomment -%}
+    {%- assign ech_motion_live = false -%}
+    {%- unless request.design_mode -%}
+      <script>
+        (function () {
+          try {
+            var q = location.search, s = sessionStorage, k = 'echMotion';
+            if (/[?&]motion=0/.test(q)) s.setItem(k, '0');
+            else if (/[?&]motion=1/.test(q)) s.setItem(k, '1');
+            var v = s.getItem(k);
+            var on = {% if ech_motion_live %}v !== '0'{% else %}v === '1'{% endif %};
+            if (on && 'IntersectionObserver' in window && !matchMedia('(prefers-reduced-motion: reduce)').matches) {
+              document.documentElement.classList.add('ech-motion');
+            }
+          } catch (e) {}
+        })();
+      </script>
+      {{ 'ech-motion.css' | asset_url | stylesheet_tag }}
+      <script src="{{ 'ech-motion.js' | asset_url }}" defer></script>
+    {%- endunless -%}
+
     {% if request.design_mode %}
       {%- render 'theme-editor' -%}
     {% endif %}

@@ -1,0 +1,82 @@
+/* Maison Roszada : motion design.
+   Tout est sous html.ech-motion (classe posée en tête de page). Sans cette classe, rien ne change.
+   Règles : transform et opacity seulement, aucune bibliothèque, rien de caché si le script ne tourne pas,
+   coupé si le visiteur demande moins d'animations. */
+
+html.ech-motion {
+  --m-ease: cubic-bezier(0.22, 0.61, 0.36, 1);
+  --m-ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* 1. Ouverture de page : la photo se pose, le texte monte ligne après ligne.
+      La photo reste visible dès la première image (pas d'opacité) pour ne pas retarder l'affichage. */
+@keyframes ech-m-settle { from { scale: 1.07; } to { scale: 1; } }
+@keyframes ech-m-rise { from { opacity: 0; translate: 0 22px; } to { opacity: 1; translate: 0 0; } }
+
+html.ech-motion .ech-amb__media,
+html.ech-motion .ech-shero__media,
+html.ech-motion .ech-hero__media { overflow: hidden; }
+
+html.ech-motion .ech-amb__img,
+html.ech-motion .ech-shero__media img,
+html.ech-motion .ech-hero__media img {
+  animation: ech-m-settle 2.2s var(--m-ease-out) both;
+  transform-origin: 50% 60%;
+}
+
+html.ech-motion .ech-amb__text > *,
+html.ech-motion .ech-shero__text > *,
+html.ech-motion .ech-hero__text > * {
+  animation: ech-m-rise 0.9s var(--m-ease-out) both;
+  animation-delay: calc(0.15s + var(--m-i, 0) * 0.11s);
+}
+html.ech-motion :is(.ech-amb__text, .ech-shero__text, .ech-hero__text) > :nth-child(2) { --m-i: 1; }
+html.ech-motion :is(.ech-amb__text, .ech-shero__text, .ech-hero__text) > :nth-child(3) { --m-i: 2; }
+html.ech-motion :is(.ech-amb__text, .ech-shero__text, .ech-hero__text) > :nth-child(4) { --m-i: 3; }
+html.ech-motion :is(.ech-amb__text, .ech-shero__text, .ech-hero__text) > :nth-child(n + 5) { --m-i: 4; }
+
+/* 2. Apparition au défilement (les éléments sont marqués par ech-motion.js, seulement sous la ligne de flottaison). */
+html.ech-motion [data-m] {
+  opacity: 0;
+  translate: 0 26px;
+  transition: opacity 0.9s var(--m-ease) var(--m-d, 0s), translate 1s var(--m-ease-out) var(--m-d, 0s);
+}
+html.ech-motion [data-m].is-in { opacity: 1; translate: 0 0; }
+
+/* Photos : un rideau qui se lève, l'image se pose derrière. */
+html.ech-motion [data-m='img'] {
+  opacity: 1;
+  translate: none;
+  overflow: hidden;
+  clip-path: inset(0 0 100% 0);
+  transition: clip-path 1.3s var(--m-ease-out) var(--m-d, 0s);
+}
+html.ech-motion [data-m='img'].is-in { clip-path: inset(0 0 0 0); }
+html.ech-motion [data-m='img'] img { scale: 1.12; transition: scale 1.9s var(--m-ease-out) var(--m-d, 0s); }
+html.ech-motion [data-m='img'].is-in img { scale: 1; }
+
+/* 3. Texte qui s'éclaire mot à mot pendant la lecture (manifeste). */
+html.ech-motion [data-m-words] .ech-m-w {
+  opacity: clamp(0.24, calc((var(--m-p, 0) * (var(--m-n, 1) + 6) - var(--m-wi, 0)) / 6), 1);
+}
+
+/* 4. Parallaxe très légère des grandes photos, ordinateur seulement. */
+@media (min-width: 990px) and (hover: hover) {
+  html.ech-motion [data-m-parallax] { translate: 0 var(--m-y, 0px); will-change: translate; }
+}
+
+/* 5. Survols (souris seulement). */
+@media (hover: hover) {
+  html.ech-motion .ech-card__img:not(.ech-card__img--alt) { transition: scale 1.2s var(--m-ease-out); }
+  html.ech-motion .ech-card:hover .ech-card__img:not(.ech-card__img--alt) { scale: 1.035; }
+  html.ech-motion .ech-scene__media img { transition: transform 1.4s var(--m-ease-out); }
+  html.ech-motion .ech-scene:hover .ech-scene__media img { transform: scale(1.045); }
+  html.ech-motion .ech-btn { transition: background-color 0.35s var(--m-ease), color 0.35s var(--m-ease), translate 0.35s var(--m-ease-out); }
+  html.ech-motion .ech-btn:hover { translate: 0 -2px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html.ech-motion [data-m], html.ech-motion [data-m] img { opacity: 1 !important; translate: none !important; scale: none !important; clip-path: none !important; transition: none !important; }
+  html.ech-motion .ech-m-w { opacity: 1 !important; }
+  html.ech-motion * { animation: none !important; }
+}

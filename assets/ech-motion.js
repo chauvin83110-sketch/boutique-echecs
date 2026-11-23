@@ -70,13 +70,14 @@
     ticking = false;
     live.forEach(function (item) {
       if (!item.on) return;
-      var r = item.el.getBoundingClientRect();
+      var r = (item.frame || item.el).getBoundingClientRect();
       if (item.type === 'words') {
         var p = (vh * 0.86 - r.top) / (r.height + vh * 0.36);
         p = Math.max(0, Math.min(1, p));
         if (Math.abs(p - item.last) > 0.004) { item.last = p; item.el.style.setProperty('--m-p', p.toFixed(3)); }
       } else {
-        var y = Math.max(0, Math.min(140, window.scrollY * 0.14));
+        // r = cadre de la photo (son parent) : on mesure de combien il est monté depuis le chargement.
+        var y = Math.max(0, Math.min(140, (item.base - r.top) * 0.14));
         item.el.style.setProperty('--m-y', y.toFixed(1) + 'px');
       }
     });
@@ -104,12 +105,14 @@
     if (window.matchMedia('(min-width: 990px) and (hover: hover)').matches) {
       document.querySelectorAll(PARALLAX).forEach(function (el) {
         el.setAttribute('data-m-parallax', '');
-        live.push({ el: el, type: 'parallax', on: false });
+        var frame = el.closest('.ech-amb, .ech-shero__media') || el.parentElement;
+        live.push({ el: el, frame: frame, type: 'parallax', on: false, base: Math.max(0, frame.getBoundingClientRect().top) });
       });
     }
     if (live.length) {
       live.forEach(function (item) { liveIo.observe(item.el); });
-      window.addEventListener('scroll', onScroll, { passive: true });
+      // Capture : sur ordinateur, le thème fait défiler .page-wrapper et non la fenêtre.
+      document.addEventListener('scroll', onScroll, { passive: true, capture: true });
       window.addEventListener('resize', function () { vh = window.innerHeight; onScroll(); }, { passive: true });
     }
 

@@ -25,6 +25,15 @@
 {%- when 'le-reykjavik-1972-et-son-echiquier-en-padouk' -%}<li class="ech-avis__item"><span class="ech-avis__tag">Sur les pièces</span><blockquote>« Un jeu bien réalisé. […] Ces pièces iront très bien sur un échiquier à cases de 50 à 55 mm. Une belle version en bois de rose rouge (padouk), l'un des bois les moins courants et les plus séduisants pour les pièces foncées. »</blockquote><p class="ech-avis__who">Kenneth, 2023</p></li>
 {%- endcase -%}{%- endcapture -%}
 
+{%- comment -%} Avis vérifiés de nos clients (Judge.me). Masqué tant qu'aucun avis n'existe. {%- endcomment -%}
+<style>
+  .ech-avis-clients { max-width: 1180px; margin: 0 auto; padding: 56px 20px; border-top: 1px solid var(--ech-line); }
+  .ech-avis-clients:not(:has(.jdgm-rev)) { display: none; }
+</style>
+<div class="ech-avis-clients">
+  <div id="judgeme_product_reviews" class="jdgm-widget jdgm-review-widget jdgm-outside-widget" data-id="{{ product.id }}" data-product-title="{{ product.title | escape }}">{{ product.metafields.judgeme.widget }}</div>
+</div>
+
 {%- assign avis = avis | strip -%}
 {%- if avis != blank -%}
 <style>

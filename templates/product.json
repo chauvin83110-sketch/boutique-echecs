@@ -221,7 +221,7 @@
               "type": "delivery-estimate",
               "settings": {
                 "prefix": "Livraison offerte, reçu",
-                "days_min": 5,
+                "days_min": 7,
                 "days_max": 10
               }
             },

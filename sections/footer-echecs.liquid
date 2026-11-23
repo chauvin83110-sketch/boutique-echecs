@@ -85,7 +85,7 @@
               <button type="submit">S'inscrire</button>
             </div>
             {%- if form.errors -%}<p class="ech-news__err" role="alert">Adresse e-mail invalide ou déjà inscrite.</p>{%- endif -%}
-            <p class="ech-news__legal">Désinscription en un clic à tout moment. Voir notre {% if shop.privacy_policy != blank %}<a href="{{ shop.privacy_policy.url }}">politique de confidentialité</a>{% else %}politique de confidentialité{% endif %}.</p>
+            <p class="ech-news__legal">Votre adresse sert aussi, chiffrée, à vous montrer nos annonces sur Facebook, Instagram et Google. Désinscription en un clic à tout moment. Voir notre {% if shop.privacy_policy != blank %}<a href="{{ shop.privacy_policy.url }}">politique de confidentialité</a>{% else %}politique de confidentialité{% endif %}.</p>
           {%- endif -%}
         {%- endform -%}
       </div>

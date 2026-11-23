@@ -1,0 +1,168 @@
+{%- comment -%}
+  Pop-up de bienvenue Maison Roszada : 50 € offerts dès 400 € contre l'e-mail (code BIENVENUE50).
+  - S'ouvre après 25 s ou à 50 % de lecture de la page, au premier des deux.
+  - Jamais sur le panier, les pages légales, le compte client, ni pour un client déjà abonné.
+  - Fermée : revient après 14 jours. Inscrite : ne revient plus.
+  - L'inscription crée un client abonné aux e-mails avec la balise popup-bienvenue
+    (déclenche l'automatisation de bienvenue de Shopify Messaging).
+  Le code doit exister dans Shopify > Réductions.
+{%- endcomment -%}
+{%- liquid
+  assign show_popup = true
+  if template.name == 'cart' or template.name == 'password' or template.name == 'gift_card' or template.directory == 'customers'
+    assign show_popup = false
+  endif
+  if template.name == 'policy' or request.page_type == 'policy'
+    assign show_popup = false
+  endif
+  if template.name == 'page'
+    if page.handle contains 'mention' or page.handle contains 'cgv' or page.handle contains 'condition' or page.handle contains 'confidential' or page.handle contains 'retour' or page.handle contains 'livraison' or page.handle contains 'coordonnees'
+      assign show_popup = false
+    endif
+  endif
+  if customer and customer.accepts_marketing
+    assign show_popup = false
+  endif
+  if request.design_mode
+    assign show_popup = false
+  endif
+  assign popup_code = 'BIENVENUE50'
+-%}
+{%- if show_popup -%}
+<div class="ech-pop" id="ech-pop" hidden>
+  <div class="ech-pop__veil" data-pop-close></div>
+  <div class="ech-pop__box" role="dialog" aria-modal="true" aria-labelledby="ech-pop-title">
+    <button type="button" class="ech-pop__x" data-pop-close aria-label="Fermer">&times;</button>
+    <div class="ech-pop__step" data-pop-step="form">
+      <p class="ech-pop__kicker">La maison vous reçoit</p>
+      <p class="ech-pop__title" id="ech-pop-title">Entrez, installez-vous.</p>
+      <p class="ech-pop__text">Laissez-nous votre adresse&nbsp;: nous vous offrons <strong>50&nbsp;€ sur votre premier jeu</strong>, dès 400&nbsp;€ d'achat. Ensuite, une lettre par mois au plus&nbsp;: les nouvelles pièces, l'histoire des grandes parties, l'entretien du bois.</p>
+      {%- form 'customer', id: 'ech-pop-form', class: 'ech-pop__form' -%}
+        <input type="hidden" name="contact[tags]" value="newsletter, popup-bienvenue">
+        <label for="ech-pop-email" class="visually-hidden">Adresse e-mail</label>
+        <input id="ech-pop-email" type="email" name="contact[email]" required autocomplete="email" placeholder="Votre adresse e-mail">
+        <button type="submit" class="ech-pop__btn">Recevoir mes 50&nbsp;€</button>
+        <p class="ech-pop__err" role="alert" hidden>Cette adresse ne semble pas valide, ou elle est déjà inscrite.</p>
+      {%- endform -%}
+      <p class="ech-pop__legal">En vous inscrivant, vous acceptez de recevoir les e-mails de Maison Roszada. Votre adresse, transmise sous forme chiffrée, sert aussi à vous montrer nos annonces sur Facebook, Instagram et Google. Désinscription en un clic dans chaque e-mail. {% if shop.privacy_policy != blank %}<a href="{{ shop.privacy_policy.url }}">Politique de confidentialité</a>{% else %}Politique de confidentialité{% endif %}.</p>
+      <p class="ech-pop__legal">Code valable une fois, dès 400&nbsp;€ d'achat, non cumulable avec les ensembles et les autres offres.</p>
+      <button type="button" class="ech-pop__no" data-pop-close>Non merci, je visite d'abord</button>
+    </div>
+    <div class="ech-pop__step" data-pop-step="ok" hidden>
+      <p class="ech-pop__kicker">Bienvenue dans la maison</p>
+      <p class="ech-pop__title">Votre code&nbsp;:</p>
+      <p class="ech-pop__code"><span>{{ popup_code }}</span></p>
+      <button type="button" class="ech-pop__btn" data-pop-copy>Copier le code</button>
+      <p class="ech-pop__text">50&nbsp;€ offerts dès 400&nbsp;€ d'achat, à saisir au paiement. Nous vous l'envoyons aussi par e-mail.</p>
+      <button type="button" class="ech-pop__no" data-pop-close>Continuer ma visite</button>
+    </div>
+  </div>
+</div>
+<style>
+  .ech-pop { position: fixed; inset: 0; z-index: 2147483000; display: flex; align-items: center; justify-content: center; }
+  .ech-pop[hidden] { display: none; }
+  .ech-pop__veil { position: absolute; inset: 0; background: rgba(26, 42, 33, 0.55); }
+  .ech-pop__box { position: relative; width: min(460px, calc(100% - 32px)); max-height: calc(100% - 32px); overflow: auto; background: var(--ech-ivory, #F6F1E7); color: var(--ech-ink, #2B2118); border: 1px solid var(--ech-line, #DDD1BC); padding: 40px 32px 28px; text-align: center; box-shadow: 0 24px 60px rgba(0,0,0,0.25); animation: ech-pop-in .35s ease; }
+  .ech-pop__x { position: absolute; top: 8px; right: 12px; background: none; border: 0; font-size: 1.8rem; line-height: 1; color: var(--ech-muted, #6E6152); cursor: pointer; padding: 6px; }
+  .ech-pop__kicker { font-size: .72rem; letter-spacing: .18em; text-transform: uppercase; color: var(--ech-muted, #6E6152); margin: 0 0 10px; }
+  .ech-pop__title { font-family: var(--ech-serif, 'Cormorant', Georgia, serif); font-size: 2rem; line-height: 1.15; margin: 0 0 14px; color: var(--ech-green, #23362B); }
+  .ech-pop__text { font-size: .95rem; line-height: 1.55; margin: 0 0 20px; }
+  .ech-pop__form { display: flex; flex-direction: column; gap: 10px; margin: 0 0 14px; }
+  .ech-pop__form input[type=email] { width: 100%; padding: 14px; border: 1px solid var(--ech-line, #DDD1BC); background: #fff; font: inherit; color: inherit; }
+  .ech-pop__btn { width: 100%; padding: 14px 18px; background: var(--ech-green, #23362B); color: var(--ech-ivory, #F6F1E7); border: 0; font: inherit; font-size: .9rem; letter-spacing: .08em; text-transform: uppercase; cursor: pointer; }
+  .ech-pop__btn:hover { background: var(--ech-green-2, #1A2A21); }
+  .ech-pop__btn[disabled] { opacity: .6; cursor: wait; }
+  .ech-pop__legal { font-size: .7rem; line-height: 1.45; color: var(--ech-muted, #6E6152); margin: 0 0 8px; }
+  .ech-pop__legal a { text-decoration: underline; color: inherit; }
+  .ech-pop__err { font-size: .8rem; color: #8a2b1f; margin: 0; }
+  .ech-pop__no { background: none; border: 0; margin-top: 10px; font: inherit; font-size: .85rem; color: var(--ech-muted, #6E6152); text-decoration: underline; text-underline-offset: 3px; cursor: pointer; }
+  .ech-pop__code { margin: 0 0 16px; }
+  .ech-pop__code span { display: inline-block; padding: 12px 22px; border: 1px dashed var(--ech-green, #23362B); font-size: 1.4rem; letter-spacing: .14em; color: var(--ech-green, #23362B); font-weight: 600; }
+  @keyframes ech-pop-in { from { opacity: 0; transform: translateY(16px); } to { opacity: 1; transform: none; } }
+  @media (max-width: 749px) {
+    .ech-pop { align-items: flex-end; }
+    .ech-pop__box { width: 100%; max-height: 88%; padding: 32px 20px 20px; border-left: 0; border-right: 0; border-bottom: 0; animation-name: ech-pop-up; }
+    .ech-pop__title { font-size: 1.65rem; }
+    @keyframes ech-pop-up { from { transform: translateY(100%); } to { transform: none; } }
+  }
+  @media (prefers-reduced-motion: reduce) { .ech-pop__box { animation: none; } }
+</style>
+<script>
+  (function () {
+    var KEY = 'ech-pop', DELAY = 25000, SNOOZE_DAYS = 14;
+    var pop = document.getElementById('ech-pop');
+    if (!pop) return;
+    function read() { try { return JSON.parse(localStorage.getItem(KEY) || '{}'); } catch (e) { return {}; } }
+    function save(v) { try { localStorage.setItem(KEY, JSON.stringify(v)); } catch (e) {} }
+    var st = read();
+    if (/[?&]customer_posted=true/.test(location.search)) {
+      if (/ech-pop/.test(location.hash) && !st.done) {
+        pop.querySelector('[data-pop-step="form"]').hidden = true;
+        pop.querySelector('[data-pop-step="ok"]').hidden = false;
+        pop.hidden = false;
+        pop.querySelectorAll('[data-pop-close]').forEach(function (b) { b.addEventListener('click', function () { pop.hidden = true; }); });
+      }
+      save({ done: Date.now() });
+      return;
+    }
+    if (st.done) return;
+    if (st.closed && Date.now() - st.closed < SNOOZE_DAYS * 864e5) return;
+
+    var opened = false, lastFocus = null;
+    function open() {
+      if (opened) return;
+      if (document.querySelector('dialog[open], .cart-drawer[open], details[open].menu-drawer-container')) { setTimeout(open, 5000); return; }
+      opened = true;
+      lastFocus = document.activeElement;
+      pop.hidden = false;
+      var f = pop.querySelector('#ech-pop-email'); if (f) f.focus({ preventScroll: true });
+      document.addEventListener('keydown', onKey);
+      window.removeEventListener('scroll', onScroll);
+    }
+    function close() {
+      pop.hidden = true;
+      document.removeEventListener('keydown', onKey);
+      var s = read(); if (!s.done) { s.closed = Date.now(); save(s); }
+      if (lastFocus && lastFocus.focus) lastFocus.focus({ preventScroll: true });
+    }
+    function onKey(e) { if (e.key === 'Escape') close(); }
+    function onScroll() {
+      var h = document.documentElement.scrollHeight - window.innerHeight;
+      if (h > 0 && window.scrollY / h >= 0.5) open();
+    }
+    setTimeout(open, DELAY);
+    window.addEventListener('scroll', onScroll, { passive: true });
+    pop.querySelectorAll('[data-pop-close]').forEach(function (b) { b.addEventListener('click', close); });
+
+    function showOk() {
+      pop.querySelector('[data-pop-step="form"]').hidden = true;
+      pop.querySelector('[data-pop-step="ok"]').hidden = false;
+      save({ done: Date.now() });
+    }
+    var copy = pop.querySelector('[data-pop-copy]');
+    if (copy) copy.addEventListener('click', function () {
+      var code = pop.querySelector('.ech-pop__code span').textContent.trim();
+      if (navigator.clipboard) navigator.clipboard.writeText(code).then(function () { copy.textContent = 'Code copié'; });
+    });
+
+    var form = pop.querySelector('form');
+    var err = pop.querySelector('.ech-pop__err');
+    form.addEventListener('submit', function (e) {
+      if (!window.fetch || !window.FormData) return;
+      e.preventDefault();
+      var btn = form.querySelector('button[type=submit]');
+      btn.disabled = true; err.hidden = true;
+      fetch(form.action, { method: 'POST', body: new FormData(form), credentials: 'same-origin' })
+        .then(function (r) {
+          if (/\/challenge/.test(r.url)) { form.submit(); return; }
+          btn.disabled = false;
+          {
+            if (/customer_posted=true/.test(r.url)) { showOk(); }
+            else { err.hidden = false; }
+          }
+        })
+        .catch(function () { form.submit(); });
+    });
+  })();
+</script>
+{%- endif -%}

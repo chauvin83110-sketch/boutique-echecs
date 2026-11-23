@@ -163,7 +163,7 @@
       "settings": {
         "kicker": "Composer la scène",
         "title": "La scène complète, prête à poser",
-        "text": "<p>Les pièces et leur échiquier, accordés pour cette pièce de la maison. 20&nbsp;% de moins qu'achetés séparément.</p>",
+        "text": "<p>Les pièces et leur échiquier, accordés pour cette pièce de la maison. 10&nbsp;% de moins qu'achetés séparément.</p>",
         "fallback": "ensembles-roszada",
         "link_label": "Voir les ensembles",
         "limit": 4

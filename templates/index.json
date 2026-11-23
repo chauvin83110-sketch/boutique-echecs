@@ -206,8 +206,8 @@
       "settings": {
         "collection": "ensembles-roszada",
         "kicker": "Prêt à offrir",
-        "title": "Le jeu complet, -20 %",
-        "text": "<p>Les pièces et l'échiquier assorti, réunis en un seul cadeau prêt à jouer : 20 % de moins qu'achetés séparément.</p>",
+        "title": "Le jeu complet, -10&nbsp;%",
+        "text": "<p>Les pièces et l'échiquier assorti, réunis en un seul cadeau prêt à jouer : 10&nbsp;% de moins qu'achetés séparément.</p>",
         "link_label": "Voir tous les ensembles",
         "limit": 6
       }

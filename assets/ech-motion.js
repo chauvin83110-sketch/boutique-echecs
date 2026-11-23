@@ -30,8 +30,10 @@
   var io = new IntersectionObserver(function (entries) {
     var n = 0;
     entries.forEach(function (e) {
-      if (!e.isIntersecting) return;
       var el = e.target;
+      // Déjà dépassé sans avoir été vu (ancre, saut de page) : on affiche tout de suite.
+      if (!e.isIntersecting && e.boundingClientRect.bottom < 0) { io.unobserve(el); show(el); return; }
+      if (!e.isIntersecting) return;
       io.unobserve(el);
       // Arrivé d'un coup loin au-dessus (ancre, retour arrière) : on affiche sans attendre.
       var d = e.boundingClientRect.top < 0 ? 0 : Math.min(n++, 5) * 90;

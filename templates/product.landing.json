@@ -183,9 +183,14 @@
         "end_title": "Un objet que l'on garde vingt ans se choisit calmement.",
         "end_text": "<p>Pas de compte à rebours, pas de stock inventé. L'ensemble est là quand vous êtes prêt.</p>"
       }
+    },
+    "avis_atelier": {
+      "type": "ech-avis",
+      "settings": {}
     }
   },
   "order": [
-    "landing"
+    "landing",
+    "avis_atelier"
   ]
 }

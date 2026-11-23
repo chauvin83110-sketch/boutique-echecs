@@ -399,10 +399,15 @@
         "padding-block-start": 48,
         "padding-block-end": 48
       }
+    },
+    "avis_atelier": {
+      "type": "ech-avis",
+      "settings": {}
     }
   },
   "order": [
     "main",
+    "avis_atelier",
     "product_recommendations_qggXJq"
   ]
 }

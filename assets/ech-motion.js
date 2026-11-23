@@ -93,6 +93,15 @@
     onScroll();
   }, { rootMargin: '10% 0px 10% 0px' });
 
+  // Filet de sécurité après un saut de page (ancre, touche Fin) : rien ne doit rester caché
+  // au-dessus de l'écran ni dans l'écran.
+  var sweepTimer;
+  function sweep() {
+    document.querySelectorAll('[data-m]:not(.is-in)').forEach(function (el) {
+      if (el.getBoundingClientRect().top < vh * 0.9) { io.unobserve(el); show(el); }
+    });
+  }
+
   function init() {
     tag(IMAGES, 'img');
     tag(SINGLE, 'up');
@@ -111,12 +120,14 @@
         live.push({ el: el, frame: frame, type: 'parallax', on: false, base: Math.max(0, frame.getBoundingClientRect().top) });
       });
     }
-    if (live.length) {
-      live.forEach(function (item) { liveIo.observe(item.el); });
-      // Capture : sur ordinateur, le thème fait défiler .page-wrapper et non la fenêtre.
-      document.addEventListener('scroll', onScroll, { passive: true, capture: true });
-      window.addEventListener('resize', function () { vh = window.innerHeight; onScroll(); }, { passive: true });
-    }
+    live.forEach(function (item) { liveIo.observe(item.el); });
+    // Capture : sur ordinateur, le thème fait défiler .page-wrapper et non la fenêtre.
+    document.addEventListener('scroll', function () {
+      if (live.length) onScroll();
+      clearTimeout(sweepTimer);
+      sweepTimer = setTimeout(sweep, 180);
+    }, { passive: true, capture: true });
+    window.addEventListener('resize', function () { vh = window.innerHeight; onScroll(); }, { passive: true });
 
     // Filet de sécurité : si une page est restaurée depuis le cache, tout doit être visible.
     window.addEventListener('pageshow', function (ev) {

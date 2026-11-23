@@ -116,12 +116,12 @@
         "famille": {
           "type": "scene",
           "settings": {
-            "asset": "ambiance-main-pion.jpg",
-            "position": "50% 60%",
+            "asset": "ambiance-famille-mobile.jpg",
+            "position": "50% 50%",
             "title": "La maison de famille",
             "caption": "Le dimanche, ce qu'on transmet.",
             "link": "/collections/la-maison-de-famille",
-            "alt": "Une main déplace une pièce sur l'échiquier (décor)."
+            "alt": "Une salle à manger de maison de famille, longue table en bois, jeu posé au centre (décor)."
           }
         }
       },

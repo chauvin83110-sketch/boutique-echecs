@@ -72,26 +72,10 @@
     </button>
   {%- endform -%}
 {%- endcapture -%}
-{%- liquid
-  assign p_now = v.price | divided_by: 100
-  assign p_txt = p_now
-  if p_now >= 1000
-    assign p_k = p_now | divided_by: 1000
-    assign p_r = p_now | modulo: 1000 | prepend: '000' | slice: -3, 3
-    assign p_txt = p_k | append: ' ' | append: p_r
-  endif
-  assign c_now = v.compare_at_price | divided_by: 100
-  assign c_txt = c_now
-  if c_now >= 1000
-    assign c_k = c_now | divided_by: 1000
-    assign c_r = c_now | modulo: 1000 | prepend: '000' | slice: -3, 3
-    assign c_txt = c_k | append: ' ' | append: c_r
-  endif
--%}
 {%- capture price -%}
-  <b>{{ p_txt }} €</b>
+  <b>{{ v.price | money }}</b>
   {%- if v.compare_at_price > v.price -%}
-    <s>{{ c_txt }} €</s>
+    <s>{{ v.compare_at_price | money }}</s>
     <span>{{ s.saving | escape }}</span>
   {%- endif -%}
 {%- endcapture -%}
@@ -192,7 +176,7 @@
   </div>
 
   <div class="ech-ld__sticky">
-    <b>{{ p_txt }} €</b>
+    <b>{{ v.price | money }}</b>
     {{ buy }}
   </div>
 </div>

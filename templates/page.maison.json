@@ -172,7 +172,7 @@
         "title": "Entrez. La partie peut durer.",
         "text": "<p>La maison se visite pièce par pièce : le grand salon, la bibliothèque, le bureau, la maison de famille. Choisissez d'abord l'endroit. Le jeu qui lui va vous attend.</p>",
         "button_label": "Voir toute la collection",
-        "button_link": "/collections/all"
+        "button_link": "/collections/all?sort_by=price-descending"
       }
     }
   },

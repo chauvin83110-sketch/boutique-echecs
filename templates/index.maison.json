@@ -16,7 +16,7 @@
         "button_label": "Entrer dans la maison",
         "button_anchor": "ech-maison",
         "link2_label": "Voir toute la collection",
-        "link2": "/collections/all"
+        "link2": "/collections/all?sort_by=price-descending"
       }
     },
     "promises": {

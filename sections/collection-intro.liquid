@@ -1,3 +1,9 @@
+{%- liquid
+  assign ech_title = collection.title | default: section.settings.fallback_title
+  if collection.handle == 'all'
+    assign ech_title = 'Toute la collection'
+  endif
+-%}
 {%- comment -%}
   En-tête de collection : titre, intro courte (2 lignes) et tuiles de sous-catégories.
 {%- endcomment -%}
@@ -12,11 +18,11 @@
   {%- if section.settings.show_breadcrumb -%}
     <nav class="ech-breadcrumb" aria-label="Fil d'Ariane">
       <a href="{{ routes.root_url }}">Accueil</a> <span aria-hidden="true">/</span>
-      <span aria-current="page">{{ collection.title | default: section.settings.fallback_title }}</span>
+      <span aria-current="page">{{ ech_title }}</span>
     </nav>
   {%- endif -%}
   <div class="ech-intro__head">
-    <h1 class="ech-intro__title">{{ collection.title | default: section.settings.fallback_title }}</h1>
+    <h1 class="ech-intro__title">{{ ech_title }}</h1>
     {%- if intro != blank -%}
       <p class="ech-intro__text">{{ intro }}
         {%- if section.settings.guide_anchor -%} <a class="ech-intro__more" href="#guide-achat">Lire le guide</a>{%- endif -%}

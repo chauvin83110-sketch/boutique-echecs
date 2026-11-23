@@ -47,7 +47,7 @@
   .ech-ld__faq details { border-bottom: 1px solid var(--ech-line); padding: 16px 0; }
   .ech-ld__faq summary { cursor: pointer; font-family: var(--ech-serif); font-size: 1.25rem; }
   .ech-ld__faq details p { margin: .7rem 0 0; color: var(--ech-muted); }
-  .ech-ld__end { text-align: center; padding: 60px 0 76px; }
+  .ech-ld__end { text-align: center; padding: 60px 0 110px; }
   .ech-ld__end .ech-ld__lead { margin-inline: auto; }
   .ech-ld__sticky { position: fixed; left: 0; right: 0; bottom: 0; z-index: 30; background: var(--ech-ivory); border-top: 1px solid var(--ech-line);
     padding: 10px 16px; display: flex; align-items: center; justify-content: space-between; gap: 12px; }
@@ -72,10 +72,26 @@
     </button>
   {%- endform -%}
 {%- endcapture -%}
+{%- liquid
+  assign p_now = v.price | divided_by: 100
+  assign p_txt = p_now
+  if p_now >= 1000
+    assign p_k = p_now | divided_by: 1000
+    assign p_r = p_now | modulo: 1000 | prepend: '000' | slice: -3, 3
+    assign p_txt = p_k | append: ' ' | append: p_r
+  endif
+  assign c_now = v.compare_at_price | divided_by: 100
+  assign c_txt = c_now
+  if c_now >= 1000
+    assign c_k = c_now | divided_by: 1000
+    assign c_r = c_now | modulo: 1000 | prepend: '000' | slice: -3, 3
+    assign c_txt = c_k | append: ' ' | append: c_r
+  endif
+-%}
 {%- capture price -%}
-  <b>{{ v.price | divided_by: 100 }} €</b>
+  <b>{{ p_txt }} €</b>
   {%- if v.compare_at_price > v.price -%}
-    <s>{{ v.compare_at_price | divided_by: 100 }} €</s>
+    <s>{{ c_txt }} €</s>
     <span>{{ s.saving | escape }}</span>
   {%- endif -%}
 {%- endcapture -%}
@@ -176,7 +192,7 @@
   </div>
 
   <div class="ech-ld__sticky">
-    <b>{{ v.price | divided_by: 100 }} €</b>
+    <b>{{ p_txt }} €</b>
     {{ buy }}
   </div>
 </div>

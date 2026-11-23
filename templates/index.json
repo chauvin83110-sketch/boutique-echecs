@@ -20,12 +20,13 @@
         "tone": "ink",
         "heading_tag": "h1",
         "kicker": "Maison Roszada, le refuge du roi",
-        "title": "Des jeux d'échecs que l'on ne range pas.",
+        "title": "Des jeux d'échecs que l'on ne range pas",
         "text": "<p>Des pièces en ébène, en buis et en bois de rose, sculptées en Inde, lestées puis feutrées. Elles restent posées au salon comme un bel objet. Et quand l'envie vient, on joue.</p>",
         "button_label": "Entrer dans la maison",
+        "button_link": "",
         "button_anchor": "ech-maison",
         "link2_label": "Voir toute la collection",
-        "link2": "/collections/all?sort_by=price-descending"
+        "link2": "/collections/all"
       }
     },
     "promises": {
@@ -74,54 +75,49 @@
     },
     "scenes": {
       "type": "ech-scenes",
-      "settings": {
-        "kicker": "Les pièces de la maison",
-        "title": "Chaque pièce a sa pièce",
-        "text": "<p>Choisissez d'abord l'endroit où il vivra. Nous avons réuni les jeux qui lui vont.</p>"
-      },
       "blocks": {
         "salon": {
           "type": "scene",
           "settings": {
             "asset": "ambiance-salon.jpg",
+            "alt": "Un grand salon au crépuscule, deux fauteuils de cuir, un jeu d'échecs sur la table basse (décor).",
             "position": "62% 50%",
             "title": "Le grand salon",
             "caption": "La table basse, deux fauteuils, la partie qui reprend après le dîner.",
-            "link": "/collections/le-salon-dhiver",
-            "alt": "Un grand salon au crépuscule, deux fauteuils de cuir, un jeu d'échecs sur la table basse (décor)."
+            "link": "/collections/le-salon-dhiver"
           }
         },
         "biblio": {
           "type": "scene",
           "settings": {
             "asset": "ambiance-bibliotheque.jpg",
+            "alt": "Une bibliothèque aux murs verts, fauteuils de cuir (décor).",
             "position": "30% 50%",
             "title": "La bibliothèque",
             "caption": "Les reliures, la lampe en laiton, l'ébène qui accroche la lumière.",
-            "link": "/collections/la-bibliotheque",
-            "alt": "Une bibliothèque aux murs verts, fauteuils de cuir (décor)."
+            "link": "/collections/la-bibliotheque"
           }
         },
         "bureau": {
           "type": "scene",
           "settings": {
             "asset": "ambiance-bureau-mobile.jpg",
+            "alt": "Un bureau à l'heure dorée, lampe en laiton (décor).",
             "position": "50% 50%",
             "title": "Le bureau",
             "caption": "Une partie en cours. Un coup par jour.",
-            "link": "/collections/le-bureau",
-            "alt": "Un bureau à l'heure dorée, lampe en laiton (décor)."
+            "link": "/collections/le-bureau"
           }
         },
         "famille": {
           "type": "scene",
           "settings": {
             "asset": "ambiance-famille-mobile.jpg",
+            "alt": "Une salle à manger de maison de famille, longue table en bois, jeu posé au centre (décor).",
             "position": "50% 50%",
             "title": "La maison de famille",
             "caption": "La grande table du dimanche, et ce que l'on transmet.",
-            "link": "/collections/la-maison-de-famille",
-            "alt": "Une salle à manger de maison de famille, longue table en bois, jeu posé au centre (décor)."
+            "link": "/collections/la-maison-de-famille"
           }
         }
       },
@@ -130,7 +126,12 @@
         "biblio",
         "bureau",
         "famille"
-      ]
+      ],
+      "settings": {
+        "kicker": "Les pièces de la maison",
+        "title": "Chaque pièce a sa pièce",
+        "text": "<p>Choisissez d'abord l'endroit où il vivra. Nous avons réuni les jeux qui lui vont.</p>"
+      }
     },
     "manifeste": {
       "type": "ech-manifeste",
@@ -146,25 +147,8 @@
         "button_link": ""
       }
     },
-    "duos": {
-      "type": "ech-collection-showcase",
-      "settings": {
-        "collection": "ensembles-roszada",
-        "kicker": "Les ensembles",
-        "title": "Les pièces et leur échiquier, déjà accordés",
-        "text": "<p>Nous avons associé chaque jeu de pièces à l'échiquier qui lui convient : la bonne taille de case, des bois qui se répondent. Rien à assortir, et 10&nbsp;% de moins qu'achetés séparément.</p>",
-        "link_label": "Voir les ensembles",
-        "limit": 6
-      }
-    },
     "conseils": {
       "type": "ech-columns",
-      "settings": {
-        "tone": "ivory",
-        "kicker": "Ce qui fait un jeu Roszada",
-        "title": "Trois choses que l'on sent tout de suite",
-        "text": ""
-      },
       "blocks": {
         "c1": {
           "type": "col",
@@ -192,7 +176,37 @@
         "c1",
         "c2",
         "c3"
-      ]
+      ],
+      "settings": {
+        "tone": "ivory",
+        "kicker": "Ce qui fait un jeu Roszada",
+        "title": "Trois choses que l'on sent tout de suite",
+        "text": "",
+        "button_label": "",
+        "button_link": ""
+      }
+    },
+    "duos": {
+      "type": "ech-collection-showcase",
+      "settings": {
+        "collection": "ensembles-roszada",
+        "kicker": "Les ensembles",
+        "title": "Les pièces et leur échiquier, déjà accordés",
+        "text": "<p>Nous avons associé chaque jeu de pièces à l'échiquier qui lui convient : la bonne taille de case, des bois qui se répondent. Rien à assortir, et 10&nbsp;% de moins qu'achetés séparément.</p>",
+        "link_label": "Voir les ensembles",
+        "limit": 6
+      }
+    },
+    "occasions": {
+      "type": "ech-columns",
+      "settings": {
+        "tone": "sand",
+        "kicker": "Pour soi, ou pour quelqu'un",
+        "title": "Un objet qui marque une date",
+        "text": "<p>Un anniversaire, un départ à la retraite, une réussite, une maison où l'on vient d'emménager. Ou simplement l'envie d'avoir un bel objet chez soi.</p><p>Un jeu d'échecs en bois massif ne se démode pas et ne finit pas dans un placard. Il reste dans la pièce, et l'on se souvient du jour où il est arrivé.</p>",
+        "button_label": "Choisir selon son budget",
+        "button_link": "/collections/all?view=offrir"
+      }
     },
     "ateliers": {
       "type": "ech-columns",
@@ -207,14 +221,6 @@
     },
     "faq": {
       "type": "collection-guide",
-      "settings": {
-        "guide_kicker": "",
-        "guide_title": "",
-        "guide_text": "",
-        "auto_compare": false,
-        "table_title": "",
-        "faq_title": "Questions fréquentes"
-      },
       "blocks": {
         "q1": {
           "type": "faq",
@@ -282,17 +288,23 @@
         "q6",
         "q7",
         "q8"
-      ]
-    },
-    "occasions": {
-      "type": "ech-columns",
+      ],
       "settings": {
-        "tone": "sand",
-        "kicker": "Pour soi, ou pour quelqu'un",
-        "title": "Un objet qui marque une date",
-        "text": "<p>Un anniversaire, un départ à la retraite, une réussite, une maison où l'on vient d'emménager. Ou simplement l'envie d'avoir un bel objet chez soi.</p><p>Un jeu d'échecs en bois massif ne se démode pas et ne finit pas dans un placard. Il reste dans la pièce, et l'on se souvient du jour où il est arrivé.</p>",
-        "button_label": "Choisir selon son budget",
-        "button_link": "/collections/all?view=offrir"
+        "guide_kicker": "",
+        "guide_title": "",
+        "guide_text": "",
+        "auto_compare": false,
+        "compare_labels": "Plateau, Cases, Dimensions plié|Plié, Roi, Hauteur, Bois, Pièces, Poids",
+        "auto_title": "Comparer les modèles",
+        "table_title": "",
+        "col_1": "Bois",
+        "col_2": "Aspect",
+        "col_3": "Toucher et poids",
+        "col_4": "Idéal pour",
+        "col_5": "",
+        "faq_title": "Questions fréquentes",
+        "padding_top": 64,
+        "padding_bottom": 64
       }
     }
   },

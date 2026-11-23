@@ -1,3 +1,12 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
 {
   "sections": {
     "hero": {
@@ -16,7 +25,7 @@
         "button_label": "Entrer dans la maison",
         "button_anchor": "ech-maison",
         "link2_label": "Voir toute la collection",
-        "link2": "/collections/all?sort_by=price-descending"
+        "link2": "/collections/all"
       }
     },
     "promises": {

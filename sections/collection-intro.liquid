@@ -1,6 +1,6 @@
 {%- liquid
   assign ech_title = collection.title | default: section.settings.fallback_title
-  if collection.handle == 'all' or request.path contains '/collections/all' or collection.title == 'Produits' or collection.title == 'Products'
+  if collection.handle == 'all'
     assign ech_title = 'Toute la collection'
   endif
 -%}

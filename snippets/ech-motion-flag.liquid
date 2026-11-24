@@ -1,0 +1,21 @@
+{%- comment -%}
+  Interrupteur du motion design (assets/ech-motion.*).
+  live = false : animations visibles seulement en aperçu (maisonroszada.com/#motion=1 ou ?motion=1).
+  live = true  : animations pour tous ; #motion=0 les coupe sur cet appareil.
+  Le choix est gardé sur l'appareil (localStorage). La forme #motion=1 survit à la redirection
+  vers la page mot de passe, d'où ce même script sur layout/password.liquid.
+{%- endcomment -%}
+<script>
+  (function () {
+    try {
+      var u = location.search + location.hash, s = localStorage, k = 'echMotion';
+      if (/[?&#]motion=0/.test(u)) s.setItem(k, '0');
+      else if (/[?&#]motion=1/.test(u)) s.setItem(k, '1');
+      var v = s.getItem(k);
+      var on = {% if live %}v !== '0'{% else %}v === '1'{% endif %};
+      if (on && 'IntersectionObserver' in window && !matchMedia('(prefers-reduced-motion: reduce)').matches) {
+        document.documentElement.classList.add('ech-motion');
+      }
+    } catch (e) {}
+  })();
+</script>

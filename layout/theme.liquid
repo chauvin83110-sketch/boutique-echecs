@@ -29,8 +29,8 @@
     {{ 'echecs.css' | asset_url | stylesheet_tag }}
     <script src="{{ 'echecs.js' | asset_url }}" defer></script>
 
-    {%- comment -%} Motion design : false = aperçu seulement (#motion=1), true = pour tous. Voir snippets/ech-motion-flag.liquid. {%- endcomment -%}
-    {%- assign ech_motion_live = false -%}
+    {%- comment -%} Motion design : true = pour tous (#motion=0 le coupe sur un appareil), false = aperçu seulement (#motion=1). Voir snippets/ech-motion-flag.liquid. {%- endcomment -%}
+    {%- assign ech_motion_live = true -%}
     {%- unless request.design_mode -%}
       {%- render 'ech-motion-flag', live: ech_motion_live -%}
       {{ 'ech-motion.css' | asset_url | stylesheet_tag }}

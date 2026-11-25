@@ -49,6 +49,9 @@
     {% endif %}
 
     {{ content_for_header }}
+
+    {%- comment -%} Suivi des visites Microsoft Clarity, chargé seulement après accord cookies. Mettre l'ID du projet Clarity ici. {%- endcomment -%}
+    {%- render 'ech-clarity', clarity_id: '' -%}
   </head>
 
   <body class="page-width-{{ settings.page_width }} card-hover-effect-{{ settings.card_hover_effect }}">

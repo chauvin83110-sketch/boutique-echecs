@@ -1,0 +1,54 @@
+{%- comment -%}
+  Microsoft Clarity (gratuit) : enregistrements de visites, cartes de chaleur, clics de rage.
+  RGPD : rien n'est chargé tant que le visiteur n'a pas accepté les cookies de mesure
+  dans la bannière Shopify (Customer Privacy API, analyticsProcessingAllowed).
+  S'il retire son accord plus tard, Clarity reçoit consentv2 = denied.
+  Champs de saisie masqués par Clarity (mode « Équilibré ») ; le paiement Shopify
+  (checkout) n'est jamais enregistré, ce script ne s'y charge pas.
+  Identifiant : Clarity > Paramètres > Vue d'ensemble > ID du projet.
+{%- endcomment -%}
+{%- assign clarity_id = clarity_id | default: '' | strip -%}
+{%- unless request.design_mode or clarity_id == blank -%}
+  <script>
+    (function () {
+      var id = {{ clarity_id | json }};
+      var loaded = false;
+
+      function load() {
+        if (loaded) return;
+        loaded = true;
+        (function (c, l, a, r, i, t, y) {
+          c[a] = c[a] || function () { (c[a].q = c[a].q || []).push(arguments); };
+          t = l.createElement(r); t.async = 1; t.src = 'https://www.clarity.ms/tag/' + i;
+          y = l.getElementsByTagName(r)[0]; y.parentNode.insertBefore(t, y);
+        })(window, document, 'clarity', 'script', id);
+        window.clarity('consentv2', { ad_Storage: 'denied', analytics_Storage: 'granted' });
+      }
+
+      function revoke() {
+        if (loaded && window.clarity) {
+          window.clarity('consentv2', { ad_Storage: 'denied', analytics_Storage: 'denied' });
+        }
+      }
+
+      function check() {
+        var p = window.Shopify && window.Shopify.customerPrivacy;
+        if (p && typeof p.analyticsProcessingAllowed === 'function' && p.analyticsProcessingAllowed()) load();
+      }
+
+      document.addEventListener('visitorConsentCollected', function (e) {
+        if (e.detail && e.detail.analyticsAllowed) load(); else revoke();
+      });
+
+      function init() {
+        if (window.Shopify && typeof window.Shopify.loadFeatures === 'function') {
+          window.Shopify.loadFeatures([{ name: 'consent-tracking-api', version: '0.1' }], function (err) {
+            if (!err) check();
+          });
+        }
+      }
+
+      if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', init); else init();
+    })();
+  </script>
+{%- endunless -%}

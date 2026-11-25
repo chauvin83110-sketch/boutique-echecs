@@ -8,12 +8,33 @@
 {%- liquid
   assign img1 = product.featured_media
   assign img2 = null
-  for m in product.media
-    if m.id != img1.id and m.media_type == 'image'
-      assign img2 = m
-      break
-    endif
-  endfor
+  # Ensemble (pièces + échiquier) : la 2e vue montre l'échiquier, pour que
+  # la carte prouve que le plateau est inclus. Repéré par le texte alt
+  # (« Échiquier… ») ou le nom du fichier (…board…).
+  if product.tags contains 'ensembles'
+    for m in product.media
+      if m.id == img1.id or m.media_type != 'image'
+        continue
+      endif
+      assign m_alt = m.alt | downcase
+      assign m_src = m.preview_image.src | split: '?' | first | split: '/' | last | downcase
+      if m_alt contains 'échiquier' and m_alt contains 'pièces'
+        assign m_alt = ''
+      endif
+      if m_alt contains 'échiquier' or m_src contains 'board'
+        assign img2 = m
+        break
+      endif
+    endfor
+  endif
+  if img2 == null
+    for m in product.media
+      if m.id != img1.id and m.media_type == 'image'
+        assign img2 = m
+        break
+      endif
+    endfor
+  endif
   assign sz = sizes | default: '(min-width: 990px) 33vw, (min-width: 750px) 50vw, 85vw'
   assign load = 'lazy'
   if eager

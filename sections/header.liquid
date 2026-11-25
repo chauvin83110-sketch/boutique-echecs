@@ -332,6 +332,11 @@
       "logo": {{ settings.logo | image_url: width: 500 | prepend: "https:" | json }},
     {% endif %}
     "url": {{ request.origin | json }},
+    "sameAs": [
+      "https://www.instagram.com/maisonroszada/",
+      "https://www.facebook.com/profile.php?id=61596870511444",
+      "https://www.pinterest.com/maisonroszada/"
+    ],
     "email": {{ shop.email | json }},
     "contactPoint": {
       "@type": "ContactPoint",

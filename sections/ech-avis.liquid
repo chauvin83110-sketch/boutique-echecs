@@ -39,7 +39,12 @@
 <style>
   .ech-avis { max-width: 1180px; margin: 0 auto; padding: 56px 20px; border-top: 1px solid var(--ech-line); color: var(--ech-ink); }
   .ech-avis h2 { font-family: var(--ech-serif); font-weight: 500; font-size: clamp(1.8rem, 3.4vw, 2.6rem); line-height: 1.1; margin: .3rem 0 .6rem; }
-  .ech-avis__src { font-size: .88rem; color: var(--ech-muted); max-width: 46em; margin: 0 0 1.8rem; line-height: 1.55; }
+  .ech-avis__src { font-size: .78rem; color: var(--ech-muted); margin: 1.4rem 0 0; line-height: 1.5; }
+  .ech-avis__src summary { cursor: pointer; list-style: none; display: inline; }
+  .ech-avis__src summary::-webkit-details-marker { display: none; }
+  .ech-avis__src summary u { text-underline-offset: 2px; }
+  .ech-avis__src p { margin: .5rem 0 0; max-width: 46em; }
+  .ech-avis h2 + .ech-avis__list { margin-top: 1.6rem; }
   .ech-avis__list { list-style: none; margin: 0; padding: 0; display: grid; gap: 20px; }
   .ech-avis__item { background: var(--ech-sand); padding: 24px; }
   .ech-avis__item blockquote { margin: 0; padding: 0; border: 0; font-family: var(--ech-serif); font-size: 1.2rem; line-height: 1.45; font-style: normal; }
@@ -50,8 +55,11 @@
 <div class="ech-avis">
   <p class="ech-kicker">{{ section.settings.kicker | escape }}</p>
   <h2>{{ section.settings.title | escape }}</h2>
-  <p class="ech-avis__src">{{ section.settings.source | escape }}</p>
   <ul class="ech-avis__list" role="list">{{ avis }}</ul>
+  <details class="ech-avis__src">
+    <summary>{{ section.settings.short | escape }} · <u>En savoir plus</u></summary>
+    <p>{{ section.settings.source | escape }}</p>
+  </details>
 </div>
 {%- endif -%}
 
@@ -63,7 +71,8 @@
   "settings": [
     { "type": "text", "id": "kicker", "label": "Surtitre", "default": "Ils ont ce modèle chez eux" },
     { "type": "text", "id": "title", "label": "Titre", "default": "Ce qu'en disent ceux qui l'ont en main" },
-    { "type": "text", "id": "source", "label": "Mention d'origine (obligatoire)", "default": "Avis laissés par des acheteurs de ce modèle auprès de notre atelier partenaire, avant l'ouverture de Maison Roszada. Ce ne sont pas encore des avis de nos clients. Extraits traduits ; les coupes sont signalées par […]." }
+    { "type": "text", "id": "short", "label": "Mention courte (obligatoire, visible)", "default": "Avis d'acheteurs de notre atelier partenaire, traduits. Pas encore des avis de nos clients." },
+    { "type": "text", "id": "source", "label": "Mention d'origine détaillée (dépliable)", "default": "Avis laissés par des acheteurs de ce modèle auprès de notre atelier partenaire, avant l'ouverture de Maison Roszada. Ce ne sont pas encore des avis de nos clients. Extraits traduits ; les coupes sont signalées par […]." }
   ],
   "presets": [{ "name": "Avis de l'atelier" }]
 }

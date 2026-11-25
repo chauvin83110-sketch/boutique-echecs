@@ -443,3 +443,20 @@ body { background: var(--ech-ivory); color: var(--ech-ink); }
 .ech-section .ech-mani--green .ech-mani__title, .ech-mani--green .ech-mani__body, .ech-mani--green .ech-kicker { color: var(--ech-ivory); }
 .ech-mani--green .ech-mani__body em { color: var(--ech-brass-light); }
 .ech-section .ech-mani--green .ech-link { color: var(--ech-ivory); }
+
+/* ---- Mobile : même lecture que sur ordinateur (25/11) ----
+   Ouverture : photo carrée cadrée sur le fauteuil et le jeu (même scène que sur
+   ordinateur), titre visible dès le premier écran.
+   Engagements : 2 × 2 au lieu d'une colonne. */
+@media (max-width: 749px) {
+  .ech-amb__img[fetchpriority="high"] { aspect-ratio: 1 / 1; object-position: 50% 85% !important; }
+  .ech-amb__text { padding: 22px 20px 36px; }
+  .ech-amb__title { font-size: 2.1rem; margin-bottom: .7rem; }
+  .ech-amb__lede { font-size: .95rem; line-height: 1.5; margin-bottom: 1.1rem; }
+  .ech-amb .ech-kicker { margin-bottom: .5rem; }
+  .ech-amb__link2 { display: block; width: fit-content; margin: 16px 0 0; }
+
+  .ech-promises { padding-block: 28px 44px; }
+  .ech-promises ul { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 22px 16px; }
+  .ech-promises li { font-size: .85rem; }
+}

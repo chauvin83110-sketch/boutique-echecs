@@ -93,11 +93,16 @@
             assign ref_image_to_transition = 'imagesToTransition[]'
           endif
         %}
+        {%- liquid
+          assign card_alt = featured_image.alt | default: resource.title
+          assign card_alt_2 = resource.media[1].alt | default: resource.title
+        -%}
         {{
           featured_image
           | image_url: width: image_width
           | image_tag:
             loading: 'lazy',
+            alt: card_alt,
             class: 'resource-card__image',
             widths: widths,
             sizes: image_sizes,
@@ -117,6 +122,7 @@
             | image_url: width: image_width
             | image_tag:
               loading: 'lazy',
+              alt: card_alt_2,
               class: 'resource-card__image resource-card__image--secondary',
               widths: widths,
               sizes: image_sizes,

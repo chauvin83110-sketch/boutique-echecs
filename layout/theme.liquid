@@ -21,6 +21,13 @@
     {%- render 'view-transition-opt-in' -%}
 
     {%- render 'meta-tags' -%}
+    {%- comment -%} Pages parasites hors de Google : collection technique de l'accueil et collections sans produit {%- endcomment -%}
+    {%- if request.page_type == 'collection' -%}
+      {%- if collection.handle == 'frontpage' or collection.all_products_count == 0 -%}
+        <meta name="robots" content="noindex, follow">
+      {%- endif -%}
+    {%- endif -%}
+    {%- render 'seo-breadcrumbs' -%}
     {%- render 'stylesheets' -%}
     {%- render 'card-hover-effect-styles' -%}
     {%- render 'scripts' -%}

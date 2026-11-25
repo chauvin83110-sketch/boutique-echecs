@@ -1,0 +1,26 @@
+{% doc %}
+  BreadcrumbList pour les fiches produit et les collections (fil d'Ariane lisible par Google et les IA).
+{% enddoc %}
+{%- if request.page_type == 'product' or request.page_type == 'collection' -%}
+  {%- liquid
+    assign crumb_collection = collection
+    if request.page_type == 'product' and crumb_collection == blank
+      assign crumb_collection = product.collections | where: 'handle', 'ensembles-roszada' | first | default: product.collections.first
+    endif
+  -%}
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Accueil", "item": {{ request.origin | append: '/' | json }} }
+        {%- if crumb_collection != blank and crumb_collection.handle != 'frontpage' -%},
+          { "@type": "ListItem", "position": 2, "name": {{ crumb_collection.title | json }}, "item": {{ request.origin | append: crumb_collection.url | json }} }
+        {%- endif -%}
+        {%- if request.page_type == 'product' -%},
+          { "@type": "ListItem", "position": {% if crumb_collection != blank and crumb_collection.handle != 'frontpage' %}3{% else %}2{% endif %}, "name": {{ product.title | json }}, "item": {{ request.origin | append: product.url | json }} }
+        {%- endif -%}
+      ]
+    }
+  </script>
+{%- endif -%}

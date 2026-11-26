@@ -43,6 +43,9 @@
       {{ 'ech-motion.css' | asset_url | stylesheet_tag }}
       <script src="{{ 'ech-motion.js' | asset_url }}" defer></script>
     {%- endunless -%}
+    {%- comment -%} Téléphone (26/11) : lecture et achat sur petit écran. Chargé seulement sous 750 px. {%- endcomment -%}
+    {{ 'ech-mobile.css' | asset_url | stylesheet_tag: media: '(max-width: 749px)' }}
+    <script src="{{ 'ech-mobile.js' | asset_url }}" defer></script>
 
     {% if request.design_mode %}
       {%- render 'theme-editor' -%}

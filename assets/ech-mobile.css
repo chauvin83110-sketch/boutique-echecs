@@ -1,0 +1,112 @@
+/* ============================================================
+   Maison Roszada : lecture sur téléphone (26/11)
+   Chargé seulement sous 750 px (media="(max-width: 749px)" dans
+   layout/theme.liquid) : l'ordinateur ne change pas.
+   But : premier écran plus utile, achat à portée de pouce, pages
+   plus courtes, mêmes couleurs et mêmes polices.
+   Retour arrière : retirer la ligne ech-mobile.css de theme.liquid.
+   ============================================================ */
+
+/* ---- 1. Haut de page : moins de hauteur avant le contenu ---- */
+.ech-promo { padding: 6px 14px; font-size: .74rem; line-height: 1.4; }
+.ech-promo__timer { margin-left: 2px; }
+
+[id*="header_announcements"] .announcement-bar { padding-block: 7px !important; }
+[id*="header_announcements"] .announcement-bar__text { font-size: .74rem !important; line-height: 1.35; }
+[id*="header_announcements"] slideshow-arrows .slideshow-control { width: 30px; min-width: 30px; }
+
+/* La rangée de liens qui défile sous le logo (doublon du menu) :
+   masquée sur téléphone, l'en-tête collant passe de 114 à 60 px. */
+.header__navigation-bar-row { display: none !important; }
+
+/* ---- 2. Menu (tiroir) : plus lisible, dans les polices de la maison ---- */
+.menu-drawer__menu-item--mainlist {
+  font-family: var(--font-heading--family, Cormorant, serif) !important;
+  font-size: 1.75rem !important;
+  font-weight: 500 !important;
+  line-height: 1.15 !important;
+  padding-block: 11px !important;
+  letter-spacing: 0 !important;
+}
+.menu-drawer__list-item--flat + .menu-drawer__list-item--flat .menu-drawer__menu-item--mainlist { border-top: 1px solid rgba(43, 33, 24, .09); }
+.menu-drawer__menu-item--child { font-size: 1rem !important; padding-block: 9px !important; color: #4a4038 !important; }
+
+/* ---- 3. Accueil ---- */
+/* Photo d'ouverture moins haute : titre ET bouton visibles sans faire défiler. */
+.ech-amb__img[fetchpriority="high"] { aspect-ratio: 4 / 3 !important; }
+.ech-amb__text { padding: 20px 20px 30px; }
+.ech-amb__title { font-size: 2rem; line-height: 1.08; }
+.ech-amb .ech-btn { display: flex; width: 100%; justify-content: center; min-height: 52px; align-items: center; }
+.ech-amb__link2 { margin: 14px auto 0 !important; }
+
+/* Les ensembles (les produits) remontent juste après les engagements,
+   au lieu d'arriver au 5e écran. L'ordre sur ordinateur ne change pas. */
+#MainContent:has(> [id$="__duos"]) { display: flex; flex-direction: column; }
+#MainContent:has(> [id$="__duos"]) > * { order: 10; }
+#MainContent > [id$="__hero"] { order: 1; }
+#MainContent > [id$="__promises"] { order: 2; }
+#MainContent > [id$="__duos"] { order: 3; }
+#MainContent > [id$="__scenes"] { order: 4; }
+
+/* Vitrine de produits : 4 modèles puis un bouton « Voir les … » */
+.ech-showcase__grid { gap: 34px; }
+.ech-showcase__grid > li:nth-child(n+5) { display: none; }
+.ech-showcase__more { display: flex !important; }
+.ech-showcase__head { align-items: flex-end; }
+.ech-showcase__head .ech-link { display: none; }
+.ech-card__name { font-size: 1.35rem; }
+
+/* Photos de scène des collections : moins hautes */
+.ech-shero__media { height: 78vw !important; }
+
+/* ---- 4. Fiche produit ---- */
+/* Ordre : nom, prix, BOUTON, livraison, garanties, puis caractéristiques et texte. */
+.product-details .group-block-content > .buy-buttons-block { order: 2; }
+.product-details .group-block-content > .ech-delivery { order: 3; }
+.product-details .group-block-content > .ech-gift { order: 4; }
+.product-details .group-block-content > .ech-specs { order: 5; }
+.product-details .group-block-content > rte-formatter,
+.product-details .group-block-content > .text-block { order: 6; }
+.product-details .group-block-content > :first-child,
+.product-details .group-block-content > .group-block { order: 1; }
+
+/* Un seul exemplaire suffit pour un jeu à 1 000 € : bouton pleine largeur */
+.product-details .quantity-selector-wrapper { display: none !important; }
+.product-details .product-form-buttons { gap: 10px !important; }
+.product-details add-to-cart-component,
+.product-details add-to-cart-component .button,
+.product-details .add-to-cart-button { width: 100%; }
+.product-details .add-to-cart-button { min-height: 56px; font-size: 1rem; letter-spacing: .01em; }
+.product-details .ech-delivery { font-size: .9rem; }
+
+/* Texte long : replié, avec « Lire la suite » (voir ech-mobile.js) */
+.ech-clamp { max-height: 330px; overflow: hidden; position: relative; }
+.ech-clamp::after { content: ""; position: absolute; left: 0; right: 0; bottom: 0; height: 110px; background: linear-gradient(rgba(246, 241, 231, 0), #F6F1E7 85%); pointer-events: none; }
+.ech-more { order: 7; align-self: flex-start; margin-top: -6px; padding: 12px 0; background: none; border: 0; font: inherit; font-weight: 600; font-size: .95rem; color: #23362B; text-decoration: underline; text-underline-offset: 4px; cursor: pointer; }
+
+/* Barre d'achat collante : nom + prix lisibles, vrai bouton avec texte */
+.sticky-add-to-cart__bar { gap: 12px !important; padding: 10px 14px calc(10px + var(--safe-area-inset-bottom, 0px)) !important; }
+.sticky-add-to-cart__image { display: none !important; }
+.sticky-add-to-cart__info { padding-inline-start: 0 !important; }
+.sticky-add-to-cart__title { display: block !important; font-size: .82rem !important; font-weight: 500 !important; color: #4a4038; }
+.sticky-add-to-cart__price { font-size: 1.05rem !important; font-weight: 600; }
+.sticky-add-to-cart__button { width: auto !important; padding: 0 20px !important; min-height: 50px; flex-shrink: 0; }
+.sticky-add-to-cart__bar .add-to-cart-text__content { display: inline !important; }
+.sticky-add-to-cart__bar .add-to-cart-text .svg-wrapper { display: none; }
+
+/* ---- 5. Pied de page : 2 colonnes, plus court ---- */
+.ech-perks { grid-template-columns: repeat(2, minmax(0, 1fr)) !important; gap: 18px 14px !important; padding-block: 28px !important; }
+.ech-perk { gap: 8px !important; font-size: .82rem; }
+.ech-perk__icon svg { width: 22px; height: 22px; }
+.ech-footer__main { grid-template-columns: repeat(2, minmax(0, 1fr)) !important; gap: 26px 18px !important; padding-block: 30px !important; }
+.ech-footer__brand, .ech-footer__news { grid-column: 1 / -1 !important; }
+.ech-footer__col ul li { margin-bottom: 2px; }
+.ech-footer__col a { display: inline-block; padding-block: 5px; font-size: .88rem; }
+.ech-footer__col:last-of-type { grid-column: 1 / -1; }
+.ech-footer__col:last-of-type ul { display: flex; flex-wrap: wrap; gap: 0 18px; }
+.ech-footer__logo img { max-width: 170px; height: auto; }
+
+/* ---- 6. Confort général ---- */
+html { -webkit-text-size-adjust: 100%; }
+input, select, textarea { font-size: 16px !important; } /* évite le zoom auto de l'iPhone dans les champs */
+.ech-btn { min-height: 48px; }

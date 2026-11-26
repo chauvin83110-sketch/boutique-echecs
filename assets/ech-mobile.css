@@ -78,10 +78,14 @@
 .product-details .add-to-cart-button { width: 100%; }
 .product-details .add-to-cart-button { min-height: 56px; font-size: 1rem; letter-spacing: .01em; }
 .product-details .ech-delivery { font-size: .9rem; }
+.product-details .group-block-content > .group-block .price { font-size: 1.4rem; font-weight: 500; font-variant-numeric: tabular-nums; }
+
+/* La barre collante ne cache pas le bas de page */
+body:has(sticky-add-to-cart) .ech-footer { padding-bottom: 84px; }
 
 /* Texte long : replié, avec « Lire la suite » (voir ech-mobile.js) */
-.ech-clamp { max-height: 330px; overflow: hidden; position: relative; }
-.ech-clamp::after { content: ""; position: absolute; left: 0; right: 0; bottom: 0; height: 110px; background: linear-gradient(rgba(246, 241, 231, 0), #F6F1E7 85%); pointer-events: none; }
+.ech-clamp { max-height: 300px; overflow: hidden; position: relative; }
+.ech-clamp::after { content: ""; position: absolute; left: 0; right: 0; bottom: 0; height: 90px; background: linear-gradient(rgba(246, 241, 231, 0), #F6F1E7); pointer-events: none; }
 .ech-more { order: 7; align-self: flex-start; margin-top: -6px; padding: 12px 0; background: none; border: 0; font: inherit; font-weight: 600; font-size: .95rem; color: #23362B; text-decoration: underline; text-underline-offset: 4px; cursor: pointer; }
 
 /* Barre d'achat collante : nom + prix lisibles, vrai bouton avec texte */
@@ -101,7 +105,8 @@
 .ech-footer__main { grid-template-columns: repeat(2, minmax(0, 1fr)) !important; gap: 26px 18px !important; padding-block: 30px !important; }
 .ech-footer__brand, .ech-footer__news { grid-column: 1 / -1 !important; }
 .ech-footer__col ul li { margin-bottom: 2px; }
-.ech-footer__col a { display: inline-block; padding-block: 5px; font-size: .88rem; }
+.ech-footer__col a { display: inline-block; padding-block: 4px; font-size: .88rem; }
+.ech-footer__col ul { line-height: 1.35; }
 .ech-footer__col:last-of-type { grid-column: 1 / -1; }
 .ech-footer__col:last-of-type ul { display: flex; flex-wrap: wrap; gap: 0 18px; }
 .ech-footer__logo img { max-width: 170px; height: auto; }

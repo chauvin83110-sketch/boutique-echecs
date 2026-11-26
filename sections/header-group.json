@@ -131,10 +131,11 @@
     "promo_countdown": {
       "type": "promo-countdown",
       "settings": {
-        "enabled": false,
-        "message": "",
-        "end_date": "",
-        "link": ""
+        "enabled": true,
+        "message": "Livré avant Noël : commandez avant le 10 décembre",
+        "timer_label": "· encore",
+        "end_date": "2026-12-10 23:59",
+        "link": "/collections/all"
       }
     }
   },

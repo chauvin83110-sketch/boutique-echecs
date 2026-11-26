@@ -166,7 +166,7 @@
 .ech-promo--off { background: var(--ech-sand); color: var(--ech-muted); }
 .ech-promo__text { margin: 0; }
 .ech-promo a { color: inherit; }
-.ech-promo__timer { margin-left: 8px; font-variant-numeric: tabular-nums; font-weight: 600; }
+.ech-promo__timer { margin-left: 4px; white-space: nowrap; font-variant-numeric: tabular-nums; font-weight: 600; }
 
 /* ---------- Pied de page ---------- */
 .ech-footer { background: var(--ech-green); color: var(--ech-ivory); margin-top: 0; }

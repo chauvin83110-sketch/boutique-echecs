@@ -126,6 +126,10 @@
     {% render 'unit-price', price: unit_price, measurement: selected_variant.unit_price_measurement %}
   {%- endif -%}
 </div>
+{%- comment -%} Ensembles : le prix barré est la somme des mêmes articles vendus séparément, pas un ancien prix. On le dit. {%- endcomment -%}
+{%- if show_compare_price and product_resource.type == 'Ensemble' -%}
+  <small class="ech-price-note">Prix barré : les mêmes articles achetés séparément.</small>
+{%- endif -%}
 {%- if has_volume_pricing -%}
   <small
     ref="volumePricingNote"

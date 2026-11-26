@@ -1,6 +1,6 @@
 {%- comment -%}
-  Bandeau de promo avec compte à rebours. RÈGLE : à activer seulement pour une VRAIE promo
-  (réduction réellement appliquée, date de fin réelle). Il se masque tout seul à la date de fin.
+  Bandeau avec compte à rebours. RÈGLE : seulement pour une VRAIE échéance fixe (vraie promo, ou vraie
+  date limite de commande pour Noël). Jamais un compte à rebours qui se relance. Il se masque tout seul à la date de fin.
 {%- endcomment -%}
 {%- liquid
   assign show = false
@@ -17,7 +17,7 @@
     <p class="ech-promo__text">
       {%- if section.settings.link != blank -%}<a href="{{ section.settings.link }}">{{ section.settings.message }}</a>{%- else -%}{{ section.settings.message }}{%- endif -%}
       <span class="ech-promo__timer" aria-live="off">
-        Fin dans <span data-ech-countdown-text></span>
+        {{ section.settings.timer_label | default: 'Fin dans' }} <span data-ech-countdown-text></span>
       </span>
     </p>
   </div>
@@ -32,9 +32,10 @@
   "class": "ech-section",
   "enabled_on": { "groups": ["header"] },
   "settings": [
-    { "type": "paragraph", "content": "À n'activer QUE pour une vraie promotion (prix réellement réduit, vraie date de fin). Fausse urgence interdite (pratique commerciale trompeuse)." },
+    { "type": "paragraph", "content": "À n'activer QUE pour une vraie échéance fixe (vraie promo ou vraie date limite de commande). Fausse urgence interdite (pratique commerciale trompeuse)." },
     { "type": "checkbox", "id": "enabled", "label": "Activer", "default": false },
     { "type": "text", "id": "message", "label": "Message", "default": "-15 % sur les coffrets cadeaux avec le code NOEL15" },
+    { "type": "text", "id": "timer_label", "label": "Texte avant le minuteur", "default": "Fin dans" },
     { "type": "text", "id": "end_date", "label": "Date de fin (AAAA-MM-JJ HH:MM, heure de Paris)", "default": "2026-12-24 23:59" },
     { "type": "url", "id": "link", "label": "Lien" }
   ],

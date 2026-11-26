@@ -245,6 +245,7 @@ body { background: var(--ech-ivory); color: var(--ech-ink); }
 .ech-btn:hover { background: var(--ech-green-2); }
 .ech-btn--ghost { background: transparent; color: var(--ech-green) !important; box-shadow: inset 0 0 0 1px var(--ech-green); }
 .ech-btn--ghost:hover { background: var(--ech-green); color: var(--ech-ivory) !important; }
+.ech-showcase__more { display: none; margin-top: 28px; width: 100%; justify-content: center; }
 
 /* Premier écran : photo sans filtre, texte à côté */
 .ech-hero { display: grid; grid-template-columns: 1fr; background: var(--ech-ivory); }

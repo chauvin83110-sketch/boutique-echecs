@@ -23,6 +23,10 @@
       {%- endfor -%}
     {%- endif -%}
   </ul>
+  {%- if c != blank and c.products_count > 4 -%}
+    {%- comment -%} Téléphone seulement (voir ech-mobile.css) : 4 modèles puis ce bouton. {%- endcomment -%}
+    <a class="ech-btn ech-btn--ghost ech-showcase__more" href="{{ c.url }}">{{ section.settings.link_label | default: 'Tout voir' }} ({{ c.products_count }})</a>
+  {%- endif -%}
 </div>
 {%- endif -%}
 

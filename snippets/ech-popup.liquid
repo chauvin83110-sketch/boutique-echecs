@@ -1,6 +1,9 @@
 {%- comment -%}
   Pop-up de bienvenue Maison Roszada : 50 € offerts dès 400 € contre l'e-mail (code BIENVENUE50).
-  - S'ouvre après 25 s ou à 50 % de lecture de la page, au premier des deux.
+  - Ne coupe jamais la 1re page vue (visiteurs des pubs : ils doivent d'abord voir le produit promis).
+    1re page : s'ouvre seulement après 60 s. À partir de la 2e page : après 15 s ou à 50 % de lecture.
+  - L'offre reste visible dès l'arrivée dans la barre d'annonce (1er message) : un clic dessus ouvre la pop-up,
+    même après l'avoir fermée.
   - Jamais sur le panier, les pages légales, le compte client, ni pour un client déjà abonné.
   - Fermée : revient après 14 jours. Inscrite : ne revient plus.
   - L'inscription crée un client abonné aux e-mails avec la balise popup-bienvenue
@@ -89,7 +92,10 @@
 </style>
 <script>
   (function () {
-    var KEY = 'ech-pop', DELAY = 25000, SNOOZE_DAYS = 14;
+    var KEY = 'ech-pop', SNOOZE_DAYS = 14;
+    var pv = 1;
+    try { pv = (parseInt(sessionStorage.getItem('ech-pop-pv'), 10) || 0) + 1; sessionStorage.setItem('ech-pop-pv', pv); } catch (e) {}
+    var DELAY = pv >= 2 ? 15000 : 60000;
     var pop = document.getElementById('ech-pop');
     if (!pop) return;
     function read() { try { return JSON.parse(localStorage.getItem(KEY) || '{}'); } catch (e) { return {}; } }
@@ -106,12 +112,20 @@
       return;
     }
     if (st.done) return;
-    if (st.closed && Date.now() - st.closed < SNOOZE_DAYS * 864e5) return;
+    var snoozed = st.closed && Date.now() - st.closed < SNOOZE_DAYS * 864e5;
 
     var opened = false, lastFocus = null;
-    function open() {
+    document.addEventListener('click', function (e) {
+      var slide = e.target.closest && e.target.closest('.announcement-bar');
+      if (!slide || !/50\s?€/.test(e.target.textContent || '')) return;
+      e.preventDefault();
+      opened = false;
+      open(true);
+    });
+    function open(force) {
       if (opened) return;
-      if (document.querySelector('dialog[open], .cart-drawer[open], details[open].menu-drawer-container')) { setTimeout(open, 5000); return; }
+      if (!force && snoozed) return;
+      if (!force && document.querySelector('dialog[open], .cart-drawer[open], details[open].menu-drawer-container')) { setTimeout(open, 5000); return; }
       opened = true;
       lastFocus = document.activeElement;
       pop.hidden = false;
@@ -130,8 +144,10 @@
       var h = document.documentElement.scrollHeight - window.innerHeight;
       if (h > 0 && window.scrollY / h >= 0.5) open();
     }
-    setTimeout(open, DELAY);
-    window.addEventListener('scroll', onScroll, { passive: true });
+    if (!snoozed) {
+      setTimeout(open, DELAY);
+      if (pv >= 2) window.addEventListener('scroll', onScroll, { passive: true });
+    }
     pop.querySelectorAll('[data-pop-close]').forEach(function (b) { b.addEventListener('click', close); });
 
     function showOk() {

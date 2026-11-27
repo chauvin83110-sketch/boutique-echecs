@@ -29,7 +29,8 @@ window.RZ = (() => {
     ctx.fillStyle = BRASS; ctx.fillRect(W / 2 - 40, 215, 80, 2);
     ctx.font = '500 22px Inter'; spaced(ctx, 'MAISONROSZADA.COM', W / 2, H - 150, 5);
   }
-  function drawCard(ctx, c, t, imgs) { // t = temps local en s
+  function drawCard(ctx, c, t, imgs) {
+    ctx.textAlign = 'center'; ctx.textBaseline = 'middle'; // t = temps local en s
     if (c.type === 'text' || c.type === 'end') {
       ctx.fillStyle = INK; ctx.font = 'italic 400 ' + (c.size || 84) + 'px "Cormorant Garamond"';
       const yb = wrap(ctx, c.big, W / 2, H / 2 - 40, 860, (c.size || 84) * 1.18);

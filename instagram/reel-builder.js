@@ -48,7 +48,7 @@ window.RZ = (() => {
   }
   function music(dur, m) { // piano arpégé + nappe + écho, rendu hors ligne
     const SR = 44100, oc = new OfflineAudioContext(2, Math.ceil(SR * dur), SR);
-    const master = oc.createGain(); master.gain.value = 0.9;
+    const master = oc.createGain(); master.gain.value = 2.1;
     const dl = oc.createDelay(1); dl.delayTime.value = 0.13; const fb = oc.createGain(); fb.gain.value = 0.42; const wet = oc.createGain(); wet.gain.value = 0.5;
     dl.connect(fb); fb.connect(dl); dl.connect(wet); wet.connect(oc.destination);
     const fade = oc.createGain(); master.connect(fade); fade.connect(oc.destination); fade.connect(dl);

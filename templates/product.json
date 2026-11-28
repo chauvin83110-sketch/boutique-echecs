@@ -255,8 +255,13 @@
               "type": "ech-gift",
               "settings": {
                 "show_split": false,
-                "title": "Pour vous, ou pour offrir"
+                "title": "Pour vous, ou pour offrir",
+                "pieces_text": ""
               }
+            },
+            "ech_board": {
+              "type": "ech-board-upsell",
+              "settings": {}
             }
           },
           "block_order": [
@@ -265,6 +270,7 @@
             "variant_picker_R3rGDr",
             "buy_buttons_eYQEYi",
             "ech_delivery",
+            "ech_board",
             "ech_gift",
             "text_aEtTtq"
           ]

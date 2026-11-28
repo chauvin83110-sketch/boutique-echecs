@@ -1,0 +1,80 @@
+{%- comment -%}
+  « Complétez avec l'échiquier assorti » sur les fiches de pièces vendues sans échiquier.
+  Cherche dans la collection des ensembles celui qui contient ces pièces (même nom : Cooke, Excalibur…).
+  Trouvé : vignette + prix de l'ensemble (barré = pièces + échiquier) + lien. Sinon : lien vers les échiquiers.
+{%- endcomment -%}
+{%- liquid
+  assign p = closest.product
+  assign show = false
+  if block.settings.pieces_type != blank and p.type == block.settings.pieces_type
+    assign show = true
+  endif
+
+  assign name = p.title | split: '–' | first | strip
+  assign words = name | handleize | split: '-'
+  assign key = words[0]
+  if key == 'le' or key == 'la' or key == 'les' or key == 'l'
+    assign key = words[1]
+  endif
+
+  assign match = nil
+  assign ens = collections[block.settings.ensembles_handle]
+  for e in ens.products
+    if e.available and e.handle contains key
+      assign match = e
+      break
+    endif
+  endfor
+
+  assign boards = collections[block.settings.boards_handle]
+  assign boards_url = boards.url | default: '/collections/echiquiers'
+-%}
+{%- if show -%}
+<div class="ech-board" {{ block.shopify_attributes }}>
+  <p class="ech-board__title">{{ block.settings.title }}</p>
+  {%- if match -%}
+    <a class="ech-board__card" href="{{ match.url }}">
+      {%- if match.featured_image -%}
+        {{ match.featured_image | image_url: width: 240 | image_tag: loading: 'lazy', width: 120, height: 120, class: 'ech-board__img', alt: match.title }}
+      {%- endif -%}
+      <span class="ech-board__body">
+        <span class="ech-board__name">{{ match.title }}</span>
+        <span class="ech-board__price">
+          {{ match.price | money }}
+          {%- if match.compare_at_price > match.price %} <s>{{ match.compare_at_price | money }}</s>{%- endif -%}
+        </span>
+        <span class="ech-board__text">{{ block.settings.match_text }}</span>
+        <span class="ech-board__cta">{{ block.settings.match_cta }} →</span>
+      </span>
+    </a>
+    <p class="ech-board__alt">{{ block.settings.alt_text }} <a href="{{ boards_url }}">{{ block.settings.alt_link }}</a></p>
+  {%- else -%}
+    <p class="ech-board__text">
+      {{ block.settings.fallback_text }}
+      {%- if boards.products_count > 0 %} {{ block.settings.from_label }} {{ boards.products | map: 'price' | sort | first | money }}.{%- endif -%}
+    </p>
+    <a class="ech-board__link" href="{{ boards_url }}">{{ block.settings.fallback_cta }} →</a>
+  {%- endif -%}
+</div>
+{%- endif -%}
+
+{% schema %}
+{
+  "name": "Échiquier assorti",
+  "tag": null,
+  "settings": [
+    { "type": "text", "id": "pieces_type", "label": "Type de produit concerné", "default": "Pièces d'échecs" },
+    { "type": "text", "id": "ensembles_handle", "label": "Collection des ensembles (handle)", "default": "ensembles-roszada" },
+    { "type": "text", "id": "boards_handle", "label": "Collection des échiquiers (handle)", "default": "echiquiers" },
+    { "type": "text", "id": "title", "label": "Titre", "default": "Complétez avec l'échiquier assorti" },
+    { "type": "text", "id": "match_text", "label": "Texte (ensemble trouvé)", "default": "Ces pièces et leur échiquier, -10 % sans code. Prêt à offrir." },
+    { "type": "text", "id": "match_cta", "label": "Lien (ensemble trouvé)", "default": "Voir le jeu complet" },
+    { "type": "text", "id": "alt_text", "label": "Texte autre échiquier", "default": "Ou" },
+    { "type": "text", "id": "alt_link", "label": "Lien autre échiquier", "default": "choisir un autre échiquier" },
+    { "type": "text", "id": "fallback_text", "label": "Texte (pas d'ensemble)", "default": "Ces pièces sont vendues sans échiquier. Nos échiquiers en bois massif" },
+    { "type": "text", "id": "from_label", "label": "Mot avant le prix", "default": "dès" },
+    { "type": "text", "id": "fallback_cta", "label": "Lien (pas d'ensemble)", "default": "Choisir un échiquier" }
+  ],
+  "presets": [{ "name": "Échiquier assorti" }]
+}
+{% endschema %}

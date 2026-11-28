@@ -63,6 +63,7 @@
 /* Ordre : nom, prix, BOUTON, livraison, garanties, puis caractéristiques et texte. */
 .product-details .group-block-content > .buy-buttons-block { order: 2; }
 .product-details .group-block-content > .ech-delivery { order: 3; }
+.product-details .group-block-content > .ech-board { order: 3; }
 .product-details .group-block-content > .ech-gift { order: 4; }
 .product-details .group-block-content > .ech-specs { order: 5; }
 .product-details .group-block-content > rte-formatter,

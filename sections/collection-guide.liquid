@@ -108,6 +108,18 @@
       }
     </script>
   {%- endif -%}
+  {%- comment -%} Maillage SEO : liens vers les guides du blog, mis à jour tout seuls à chaque nouvel article. {%- endcomment -%}
+  {%- assign ech_guides = blogs['infos'].articles -%}
+  {%- if ech_guides.size > 0 -%}
+    <nav class="ech-compare ech-rte" aria-label="Nos guides">
+      <h3 class="ech-compare__title">Nos guides pour bien choisir</h3>
+      <ul>
+        {%- for a in ech_guides limit: 8 -%}
+          <li><a href="{{ a.url }}">{{ a.title }}</a></li>
+        {%- endfor -%}
+      </ul>
+    </nav>
+  {%- endif -%}
 </div>
 
 {% schema %}
